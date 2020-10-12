@@ -17,3 +17,7 @@
   <li>Delete routes</li>
   <li>Edit your profile</li>
 </ul>
+
+<h3>Use case diagram</h3>
+
+![alt text](https://github.com/stefaniabudau/WayMaker/blob/master/diagram.jpg?raw=true)
