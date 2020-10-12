@@ -1,7 +1,7 @@
 <h1>WayMaker</h1>
 
 <h3>About</h3>
-<p>WayMaker is a mobile application that allows you to create routes along with additional directions (like voice memos or photos) and then share them with your friends. The idea behind this application was inspired by those cases when you need to reach a rather unknown (and unmarked) destiantion and a friend's adivce would be fairly useful, using WayMaker you can ask someone to provide the path to the destination along with specific hints and directions.</p>
+<p>WayMaker is a mobile application that allows you to create routes along with additional directions (like voice memos or photos) and then share them with your friends. The idea behind this application was inspired by those cases when you need to reach a rather unknown (and unmarked) destination and a friend's advice would be fairly useful, using WayMaker you can ask someone to provide the path to the destination along with specific hints and directions.</p>
 <p>Packed with the navigation part comes game mode. Game mode is used in order to make organizing and managing scavenger hunt games easier: it uses ordered checkpoints, associated  hints, group sharing, and paths with limited availability.</p>
 
 <h3>Services</h3>
