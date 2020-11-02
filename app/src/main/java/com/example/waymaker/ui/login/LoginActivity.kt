@@ -16,6 +16,8 @@ import android.widget.ProgressBar
 import android.widget.Toast
 
 import com.example.waymaker.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
 
@@ -25,6 +27,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_login)
+
+        val firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
 
         val username = findViewById<EditText>(R.id.username)
         val password = findViewById<EditText>(R.id.password)
@@ -58,6 +62,9 @@ class LoginActivity : AppCompatActivity() {
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
             }
+
+//            firebaseAuth.signInWithEmailAndPassword()
+
             setResult(Activity.RESULT_OK)
 
             //Complete and destroy login activity once successful
