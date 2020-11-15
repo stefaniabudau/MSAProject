@@ -64,7 +64,3 @@ class LoginDataSource : AppCompatActivity() {
     }
 }
 
-//private fun <TResult> Task<TResult>.addOnCompleteListener(loginDataSource: LoginDataSource, function: (command: Runnable) -> Unit) {
-//
-//
-//}
