@@ -17,11 +17,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 
 import com.example.waymaker.R
-import com.example.waymaker.data.Result
-import com.example.waymaker.data.model.LoggedInUser
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
 
@@ -30,12 +26,12 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_login)
+        auth = FirebaseAuth.getInstance()
 
         val email = findViewById<EditText>(R.id.email)
         val password = findViewById<EditText>(R.id.password)
-        val login = findViewById<Button>(R.id.login)
+        val login = findViewById<Button>(R.id.Login)
         val loading = findViewById<ProgressBar>(R.id.loading)
 
         loginViewModel = ViewModelProviders.of(this, LoginViewModelFactory())
@@ -68,14 +64,15 @@ class LoginActivity : AppCompatActivity() {
                 showLoginFailed(loginResult.error)
             }
             if (loginResult.success != null) {
-                updateUiWithUser(loginResult.success)
+                //updateUiWithUser(loginResult.success)
+                setContentView(R.layout.home_page_login)
             }
 
 
             setResult(Activity.RESULT_OK)
 
             //Complete and destroy login activity once successful
-//            finish()
+           // finish()
         })
 
         email.afterTextChanged {
@@ -125,7 +122,22 @@ class LoginActivity : AppCompatActivity() {
     private fun showLoginFailed(@StringRes errorString: Int) {
         Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
     }
+
+    /*public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        //updateUiWithUser(currentUser)
+    }*/
+
+    public fun onLogOut(){
+        auth.signOut()
+    }
+
+
 }
+
+
 
 /**
  * Extension function to simplify setting an afterTextChanged action to EditText components.
@@ -141,3 +153,4 @@ fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
     })
 }
+
