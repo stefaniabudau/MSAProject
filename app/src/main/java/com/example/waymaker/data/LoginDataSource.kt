@@ -52,7 +52,7 @@ class LoginDataSource : AppCompatActivity() {
         }
     }
 
-    fun signup(username: String, password: String): Result<LoggedInUser>{
+    fun register(username: String, password: String): Result<LoggedInUser>{
         auth = Firebase.auth
 
         try {

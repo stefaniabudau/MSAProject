@@ -18,6 +18,8 @@ import android.widget.Toast
 
 import com.example.waymaker.R
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.home_page_login.view.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -31,7 +33,8 @@ class LoginActivity : AppCompatActivity() {
 
         val email = findViewById<EditText>(R.id.email)
         val password = findViewById<EditText>(R.id.password)
-        val login = findViewById<Button>(R.id.Login)
+        val login = findViewById<Button>(R.id.button_login)
+        val register = findViewById<Button>(R.id.button_register)
         val loading = findViewById<ProgressBar>(R.id.loading)
 
         loginViewModel = ViewModelProviders.of(this, LoginViewModelFactory())
@@ -42,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
 
             // disable login button unless both username / password is valid
             login.isEnabled = loginState.isDataValid
+            register.isEnabled = loginState.isDataValid
 
             if (loginState.usernameError != null) {
                 email.error = getString(loginState.usernameError)
@@ -50,7 +54,6 @@ class LoginActivity : AppCompatActivity() {
                 password.error = getString(loginState.passwordError)
             }
         })
-
 
         loginViewModel.loginResult.observe(this@LoginActivity, Observer {
             val loginResult = it ?: return@Observer
@@ -101,11 +104,26 @@ class LoginActivity : AppCompatActivity() {
                 false
             }
 
-            login.setOnClickListener {
+            button_login.setOnClickListener {
                 loading.visibility = View.VISIBLE
                 loginViewModel.login(email.text.toString(), password.text.toString())
+
+                setContentView(R.layout.home_page_login)
             }
+
+            button_register.setOnClickListener{
+                loading.visibility = View.VISIBLE
+                loginViewModel.register(email.text.toString(), password.text.toString())
+                setContentView(R.layout.home_page_register)
+            }
+
+            /*button_logout.setOnClickListener{
+                auth.signOut()
+                setContentView(R.layout.activity_login)
+            }*/
         }
+
+
     }
 
     private fun updateUiWithUser(model: LoggedInUserView) {
