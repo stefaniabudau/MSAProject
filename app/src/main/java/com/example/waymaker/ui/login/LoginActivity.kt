@@ -8,6 +8,7 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.Button
@@ -17,22 +18,23 @@ import android.widget.Toast
 
 import com.example.waymaker.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.home_page_login.view.*
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var loginViewModel: LoginViewModel
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_login)
+        auth = FirebaseAuth.getInstance()
 
-        val firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
-
-        val username = findViewById<EditText>(R.id.username)
+        val email = findViewById<EditText>(R.id.email)
         val password = findViewById<EditText>(R.id.password)
-        val login = findViewById<Button>(R.id.login)
+        val login = findViewById<Button>(R.id.button_login)
+        val register = findViewById<Button>(R.id.button_register)
         val loading = findViewById<ProgressBar>(R.id.loading)
 
         loginViewModel = ViewModelProviders.of(this, LoginViewModelFactory())
@@ -43,9 +45,10 @@ class LoginActivity : AppCompatActivity() {
 
             // disable login button unless both username / password is valid
             login.isEnabled = loginState.isDataValid
+            register.isEnabled = loginState.isDataValid
 
             if (loginState.usernameError != null) {
-                username.error = getString(loginState.usernameError)
+                email.error = getString(loginState.usernameError)
             }
             if (loginState.passwordError != null) {
                 password.error = getString(loginState.passwordError)
@@ -55,25 +58,29 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.loginResult.observe(this@LoginActivity, Observer {
             val loginResult = it ?: return@Observer
 
+            Log.d("State", loginResult.toString())
+            Log.d("Email", email.text.toString())
+            Log.d("Pass", password.text.toString())
+
             loading.visibility = View.GONE
             if (loginResult.error != null) {
                 showLoginFailed(loginResult.error)
             }
             if (loginResult.success != null) {
-                updateUiWithUser(loginResult.success)
+                //updateUiWithUser(loginResult.success)
+                setContentView(R.layout.home_page_login)
             }
 
-//            firebaseAuth.signInWithEmailAndPassword()
 
             setResult(Activity.RESULT_OK)
 
             //Complete and destroy login activity once successful
-            finish()
+           // finish()
         })
 
-        username.afterTextChanged {
+        email.afterTextChanged {
             loginViewModel.loginDataChanged(
-                    username.text.toString(),
+                    email.text.toString(),
                     password.text.toString()
             )
         }
@@ -81,7 +88,7 @@ class LoginActivity : AppCompatActivity() {
         password.apply {
             afterTextChanged {
                 loginViewModel.loginDataChanged(
-                        username.text.toString(),
+                        email.text.toString(),
                         password.text.toString()
                 )
             }
@@ -90,18 +97,33 @@ class LoginActivity : AppCompatActivity() {
                 when (actionId) {
                     EditorInfo.IME_ACTION_DONE ->
                         loginViewModel.login(
-                                username.text.toString(),
+                                email.text.toString(),
                                 password.text.toString()
                         )
                 }
                 false
             }
 
-            login.setOnClickListener {
+            button_login.setOnClickListener {
                 loading.visibility = View.VISIBLE
-                loginViewModel.login(username.text.toString(), password.text.toString())
+                loginViewModel.login(email.text.toString(), password.text.toString())
+
+                setContentView(R.layout.home_page_login)
             }
+
+            button_register.setOnClickListener{
+                loading.visibility = View.VISIBLE
+                loginViewModel.register(email.text.toString(), password.text.toString())
+                setContentView(R.layout.home_page_register)
+            }
+
+            /*button_logout.setOnClickListener{
+                auth.signOut()
+                setContentView(R.layout.activity_login)
+            }*/
         }
+
+
     }
 
     private fun updateUiWithUser(model: LoggedInUserView) {
@@ -118,7 +140,22 @@ class LoginActivity : AppCompatActivity() {
     private fun showLoginFailed(@StringRes errorString: Int) {
         Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
     }
+
+    /*public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        //updateUiWithUser(currentUser)
+    }*/
+
+    public fun onLogOut(){
+        auth.signOut()
+    }
+
+
 }
+
+
 
 /**
  * Extension function to simplify setting an afterTextChanged action to EditText components.
@@ -134,3 +171,4 @@ fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
     })
 }
+
