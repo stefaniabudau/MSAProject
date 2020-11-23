@@ -8,49 +8,41 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import java.io.IOException
+import java.util.*
 
-/**
- * Class that handles authentication w/ login credentials and retrieves user information.
- */
-
-class LoginDataSource : AppCompatActivity() {
+class RegisterDataSource : AppCompatActivity(){
 
     private lateinit var auth: FirebaseAuth
 
-    fun login(username: String, password: String): Result<LoggedInUser> {
+    fun register(username: String, password: String): Result<LoggedInUser>{
         auth = Firebase.auth
 
         try {
+            // TODO: handle loggedInUser authentication
+            val fakeUser = LoggedInUser(UUID.randomUUID().toString(), "Jane Doe")
 
-            auth.signInWithEmailAndPassword(username, password)
+            Log.d("Hello", "There")
+
+            auth.createUserWithEmailAndPassword(username, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
+                        Log.d("Auth", "createUserWithEmail:success")
                         val user = auth.currentUser
                         //updateUiWithUser(user)
-                        Log.d("Auth", "Success")
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w("Auth", "createUserWithEmail:failure", task.exception)
+                        Toast.makeText(baseContext, "Authentication failed.",
+                            Toast.LENGTH_SHORT).show()
+                        //updateUiWithUser(null)
                     }
-                    else{
-                        Log.d("Auth", "Fail")
-
-                    }
-//                    // [START_EXCLUDE]
-//                    if (!task.isSuccessful) {
-//                        binding.status.setText(R.string.auth_failed)
-//                    }
-//                    hideProgressBar()
-//                    // [END_EXCLUDE]
                 }
 
-            return Result.Success(auth.currentUser)
+            return Result.Success(fakeUser)
         } catch (e: Throwable) {
             return Result.Error(IOException("Error logging in", e))
         }
     }
 
-
-    fun logout() {
-        Firebase.auth.signOut()
-    }
 }
-
