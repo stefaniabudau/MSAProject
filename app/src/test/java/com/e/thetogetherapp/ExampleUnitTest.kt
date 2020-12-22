@@ -1,4 +1,4 @@
-package com.example.waymaker
+package com.e.thetogetherapp
 
 import org.junit.Test
 
