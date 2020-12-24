@@ -1,3 +1,41 @@
 <resources>
     <string name="app_name">TheTogetherApp</string>
+
+    <!--login and register-->
+    <string name="register">REGISTER</string>
+    <string name="login">Login</string>
+
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+
+    <string name="register_name_hint">Name</string>
+    <string name="register_age_hint">Age</string>
+    <string name="register_country_hint">Country</string>
+    <string name="register_city_hint">City</string>
+    <string name="register_address_hint">Address</string>
+
+    <string name="register_login_hint">Already have an account?</string>
+    <string name="login_register_hint">Dont have an account?</string>
+
+    <!-- Card Titles-->
+    <string name="notification">Notifications</string>
+    <string name="pendingRequests">Pending Requests</string>
+    <string name="reviews">Reviews</string>
+    <string name="volunteerSubscribers">My volunteer subscribers</string>
+    <string name="communitySupervisor">Community Supervisor</string>
+
+    <!-- Profile info-->
+    <string name="requests">Requests</string>
+    <string name="myRequests">My Requests</string>
+    <string name="volunteers">Volunteers</string>
+    <string name="donations">Donations</string>
+
+    <string name="editProfile">editProfile</string>
+
+    <!--Notification-->
+    <string name="notificationTitle">New Donation Alert</string>
+    <string name="notificationDescription">Donating Clothes</string>
+    <string name="notificationDate">21 June</string>
+    <string name="notificationTime">14:00</string>
+
 </resources>
