@@ -1,4 +1,4 @@
-package com.e.thetogetherapp.model
+package com.e.thetogetherapp.data.model
 
 class Rating {
     var ratingId: String? = null

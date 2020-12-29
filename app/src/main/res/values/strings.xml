@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">TheTogetherApp</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <!-- Strings related to register -->
+    <string name="register_failed">"Register failed"</string>
+    <string name="empty_name">Empty name field</string>
+    <string name="empty_email">Empty email field</string>
+    <string name="invalid_email">Not a valid email address</string>
+    <string name="invalid_age">Not a valid age</string>
+    <string name="empty_age">Empty age field</string>
+    <string name="invalid_location">Not a valid location</string>
+    <string name="different_passwords">Passwords not identical</string>
+
 </resources>
