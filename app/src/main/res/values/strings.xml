@@ -17,6 +17,9 @@
     <string name="register_login_hint">Already have an account?</string>
     <string name="login_register_hint">Dont have an account?</string>
 
+    <string name="register_as_needy">Register as a needy</string>
+    <string name="register_as_volunteer">Register as a volunteer</string>
+
     <!-- Card Titles-->
     <string name="notification">Notifications</string>
     <string name="pendingRequests">Pending Requests</string>
