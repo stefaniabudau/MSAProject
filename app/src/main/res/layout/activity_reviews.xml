@@ -21,11 +21,14 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:gravity="center" />
-        <include layout="@layout/average_review" />
-        <include layout="@layout/page_separator"/>
-        <include layout="@layout/individual_review"/>
-        <include layout="@layout/individual_review"/>
-        <include layout="@layout/individual_review"/>
+
+        <include layout="@layout/component_average_review" />
+
+        <include layout="@layout/component_page_separator"/>
+
+        <include layout="@layout/component_individual_review"/>
+        <include layout="@layout/component_individual_review"/>
+        <include layout="@layout/component_individual_review"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

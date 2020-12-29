@@ -37,10 +37,11 @@
         <item name="android:textSize">@dimen/miniTextSize</item>
     </style>
 
-    <style name="cardHeaderText" parent="viewParent">
-        <item name="android:textSize">@dimen/mediumTextSize</item>
+    <style name="cardHeaderText" parent="parent">
+        <item name="android:textSize">@dimen/cardHeaderSize</item>
         <item name="android:textColor">@color/containerColor</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="smallBlackText" parent="viewParent">

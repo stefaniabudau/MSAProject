@@ -17,12 +17,8 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/reviews"
-            android:textColor="@color/containerColor"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            style="@style/cardHeaderText"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
@@ -33,7 +29,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/average_review"/>
+            <include layout="@layout/component_average_review"/>
 
             <TextView
                 style="@style/bigLightText"

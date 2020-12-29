@@ -10,7 +10,7 @@
     <dimen name="miniTextSize">12sp</dimen>
     <dimen name="smallTextSize">10sp</dimen>
     <dimen name="mediumTextSize">15sp</dimen>
-    <dimen name="cardHeader">18sp</dimen>
+    <dimen name="cardHeaderSize">18sp</dimen>
     <dimen name="bigTextSize">27sp</dimen>
     <dimen name="hugeTextSize">35sp</dimen>
     <dimen name="headerTextSize">30sp</dimen>

@@ -29,9 +29,9 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp">
-            <include layout="@layout/notification"/>
-            <include layout="@layout/notification"/>
-            <include layout="@layout/notification"/>
+            <include layout="@layout/component_notifications"/>
+            <include layout="@layout/component_notifications"/>
+            <include layout="@layout/component_notifications"/>
 
             <TextView
                 android:layout_width="match_parent"
