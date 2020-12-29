@@ -38,4 +38,10 @@
     <string name="notificationDate">21 June</string>
     <string name="notificationTime">14:00</string>
 
+    <!--Rating-->
+    <string name="ratingHonesty">Honesty</string>
+    <string name="ratingPunctuality">Punctuality</string>
+    <string name="ratingAttitude">Attitude</string>
+    <string name="ratingNumber">6 REVIEWS</string>
+
 </resources>

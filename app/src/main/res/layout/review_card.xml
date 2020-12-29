@@ -13,16 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginRight="3dp"
         android:layout_marginBottom="3dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Notifications"
-            android:textColor="@color/containerTitle"
+            android:text="@string/reviews"
+            android:textColor="@color/containerColor"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginBottom="15dp"
@@ -35,8 +33,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/notification"/>
-            <include layout="@layout/notification"/>
+            <include layout="@layout/average_rating"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

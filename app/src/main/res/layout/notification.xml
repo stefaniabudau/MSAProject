@@ -20,17 +20,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/notificationTitle"
-            android:textColor="@color/containerTitle"
+            android:textColor="@color/containerColor"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/notificationDescription"
-            android:textColor="@color/miniDescription"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginBottom="5dp"

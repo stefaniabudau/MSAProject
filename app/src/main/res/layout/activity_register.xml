@@ -8,10 +8,9 @@
     android:layout_alignParentTop="false"
     android:layout_alignParentRight="false"
     android:layout_alignParentBottom="false"
-    android:background="@drawable/login_body"
+    android:background="@drawable/register_bk"
     android:focusableInTouchMode="true">
 
-    <?xml version="1.0" encoding="utf-8"?>
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -24,16 +23,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:background="@drawable/border_shadow">
 
         <TextView
-            style="@style/loginHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="@dimen/loginViewsMargin"
+            style="@style/loginHeaderText"
             android:gravity="center"
+            android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="@string/register" />
 
         <EditText
@@ -43,40 +38,45 @@
             android:inputType="textEmailAddress"
             android:maxLines="1"
             android:importantForAutofill="no" />
+
         <EditText
             android:id="@+id/registerName"
             style="@style/modifiedEditText"
             android:hint="@string/register_name_hint"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:maxLines="1"
             android:importantForAutofill="no" />
+
         <EditText
             android:id="@+id/registerAge"
             style="@style/modifiedEditText"
             android:hint="@string/register_age_hint"
-            android:inputType="textEmailAddress"
+            android:inputType="number"
             android:maxLines="1"
             android:importantForAutofill="no" />
+
         <EditText
             android:id="@+id/registerCountry"
             style="@style/modifiedEditText"
             android:hint="@string/register_country_hint"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:maxLines="1"
             android:importantForAutofill="no" />
+
         <EditText
             android:id="@+id/registerCity"
             style="@style/modifiedEditText"
             android:hint="@string/register_city_hint"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:maxLines="1"
             android:importantForAutofill="no" />
+
         <EditText
             android:id="@+id/registerAddress"
             style="@style/modifiedEditText"
             android:hint="@string/register_address_hint"
-            android:inputType="textEmailAddress"
-            android:maxLines="1"
+            android:inputType="text"
+            android:maxLines="2"
             android:importantForAutofill="no" />
 
         <EditText
@@ -98,21 +98,16 @@
         <Button
             android:id="@+id/registerSubmitButton"
             style="@style/roundButton"
-            android:layout_width="323dp"
-            android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_width="323dp"
             android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="@string/register" />
 
         <TextView
-            style="@style/parent"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/loginViewsMargin"
+            style="@style/loginText"
             android:gravity="center"
-            android:text="@string/register_login_hint"
-            android:textColor="@color/miniTitle"
-            android:textStyle="bold" />
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:text="@string/register_login_hint" />
 
         <Button
             android:id="@+id/loginGoToButton"

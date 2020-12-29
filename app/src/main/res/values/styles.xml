@@ -1,37 +1,17 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-
-    <!--designs login and register-->
+    <!--layout-->
     <style name="parent">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="loginHeader">
-        <item name="android:textColor">@color/lightPink</item>
-        <item name="android:textSize">@dimen/headerTextSize</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="linearParent" parent="parent">
+    <style name="linearVerticalParent" parent="parent">
         <item name="android:orientation">vertical</item>
     </style>
 
-    <style name="modifiedEditText" parent="parent">
-        <item name="android:textSize">@dimen/newsMoreTextSize</item>
+    <style name="linearHorizonalParent" parent="parent">
+        <item name="android:orientation">horizontal</item>
     </style>
 
     <style name="viewParent">
@@ -39,16 +19,67 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+
+    <!--text-->
+    <style name="loginHeaderText" parent="parent">
+        <item name="android:textColor">@color/lightAccentColor</item>
+        <item name="android:textSize">@dimen/headerTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="loginText" parent="parent">
+        <item name="android:textColor">@color/darkAccentColor</item>
+        <item name="android:textSize">@dimen/mediumTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="modifiedEditText" parent="parent">
+        <item name="android:textSize">@dimen/newsMoreTextSize</item>
+    </style>
+
+    <style name="cardHeaderText" parent="viewParent">
+        <item name="android:textSize">@dimen/reviewTextSize</item>
+        <item name="android:textColor">@color/containerColor</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ratingCharacteristic">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/reviewTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ratingCharacteristicText">
+        <item name="android:textColor">@color/containerColor</item>
+        <item name="android:textSize">@dimen/smallTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+
+    <!--buttons-->
+
     <style name="roundButton" parent="viewParent">
-        <item name="android:background">@drawable/round_button</item>
-        <item name="android:textColor">@color/whiteTextColor</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="squareRoundedButton" parent="viewParent">
-        <item name="android:background">@drawable/square_rounded_button</item>
-        <item name="android:textColor">@color/whiteTextColor</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <!--objects-->
+    <style name="rating" parent="Widget.AppCompat.RatingBar.Indicator">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxHeight">15dp</item>
+        <item name="android:minHeight">15dp</item>
+        <item name="colorControlActivated">@color/accentColor</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="android:numStars">5</item>
+    </style>
+
+
 
 </resources>

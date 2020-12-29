@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="8dp"
+    android:layout_marginEnd="24dp"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="8dp"
+    android:orientation="vertical"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/ratingCharacteristicText"
+            android:layout_width="110dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/ratingNumber"></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/ratingCharacteristic"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/ratingHonesty"></TextView>
+
+            <RatingBar
+                android:id="@+id/ratingHonesty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:numStars="5"
+                android:rating="1"
+                android:scaleX="0.6"
+                android:scaleY="0.6"
+                style="@style/Base.Widget.AppCompat.RatingBar.Indicator" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/ratingCharacteristic"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/ratingPunctuality"></TextView>
+
+            <RatingBar
+                android:id="@+id/ratingPunctuality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:numStars="5"
+                android:rating="1"
+                android:scaleX="0.6"
+                android:scaleY="0.6"
+                style="@style/Base.Widget.AppCompat.RatingBar.Indicator" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/ratingCharacteristic"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/ratingAttitude"></TextView>
+
+            <RatingBar
+                android:id="@+id/ratingAttitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:numStars="5"
+                android:rating="1"
+                android:scaleX="0.6"
+                android:scaleY="0.6"
+                style="@style/Base.Widget.AppCompat.RatingBar.Indicator" />
+        </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
+
