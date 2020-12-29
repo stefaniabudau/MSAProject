@@ -16,9 +16,10 @@
             android:layout_height="wrap_content"
             android:text="@string/reviews"
             style="@style/PageTitleText"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:gravity="center" />
         <include layout="@layout/average_review" />
         <include layout="@layout/page_separator"/>
