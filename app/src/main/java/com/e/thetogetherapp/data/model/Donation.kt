@@ -1,4 +1,4 @@
-package com.e.thetogetherapp.model
+package com.e.thetogetherapp.data.model
 
 class Donation {
     var donationId: String? = null
