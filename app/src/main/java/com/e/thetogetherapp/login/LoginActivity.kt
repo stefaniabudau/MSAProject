@@ -1,6 +1,7 @@
 package com.e.thetogetherapp.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -34,6 +35,11 @@ class LoginActivity : AppCompatActivity() {
 
 //        val loading = findViewById<ProgressBar>(R.id.loading)
 
+        register.setOnClickListener {
+            val intent = Intent()
+
+        }
+
         loginViewModel = ViewModelProviders.of(this, LoginViewModelFactory())
                 .get(LoginViewModel::class.java)
 
@@ -54,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.loginResult.observe(this@LoginActivity, Observer {
             val loginResult = it ?: return@Observer
 
-            loading.visibility = View.GONE
+//            loading.visibility = View.GONE
             if (loginResult.error != null) {
                 showLoginFailed(loginResult.error)
             }
