@@ -84,7 +84,7 @@
 
     <!--buttons-->
     <style name="mediumRoundButton" parent="viewParent">
-        <item name="android:background">@drawable/round_button</item>
+        <item name="android:background">@drawable/button_round</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/mediumTextSize</item>
         <item name="android:textStyle">bold</item>
@@ -92,7 +92,7 @@
     </style>
 
     <style name="bigSquareRoundedButton" parent="viewParent">
-        <item name="android:background">@drawable/square_rounded_button</item>
+        <item name="android:background">@drawable/button_square_rounded</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/bigTextSize</item>
         <item name="android:textStyle">bold</item>
@@ -100,7 +100,7 @@
     </style>
 
     <style name="mediumSquareRoundedButton" parent="viewParent">
-        <item name="android:background">@drawable/square_rounded_button</item>
+        <item name="android:background">@drawable/button_square_rounded</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/mediumTextSize</item>
         <item name="android:textStyle">bold</item>
@@ -108,7 +108,7 @@
     </style>
 
     <style name="smallSquareRoundedButton" parent="viewParent">
-        <item name="android:background">@drawable/square_rounded_button</item>
+        <item name="android:background">@drawable/button_square_rounded</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/smallTextSize</item>
         <item name="android:textStyle">bold</item>
