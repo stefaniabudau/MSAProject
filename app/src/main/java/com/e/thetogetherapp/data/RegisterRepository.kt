@@ -1,8 +1,9 @@
 package com.e.thetogetherapp.data
 
 import com.e.thetogetherapp.data.model.RegisteredUser
+import com.e.thetogetherapp.register.RegisterForm
 
-class RegisterRepository(dataSource: RegisterDataSource) {
+class RegisterRepository(val dataSource: RegisterDataSource) {
 
     var user: RegisteredUser? = null
         private set
@@ -16,14 +17,14 @@ class RegisterRepository(dataSource: RegisterDataSource) {
         user = null
     }
 
-    fun logout() {
-        user = null
-        dataSource.logout()
-    }
+//    fun logout() {
+//        user = null
+//        dataSource.logout()
+//    }
 
-    fun register(username: String, password: String): Result<RegisteredUser> {
+    fun register(registerData: RegisterForm): Result<RegisteredUser> {
         // handle login
-        val result = dataSource.register(username, password)
+        val result = dataSource.register(registerData)
 
         if (result is Result.Success) {
             setLoggedInUser(result.data)
