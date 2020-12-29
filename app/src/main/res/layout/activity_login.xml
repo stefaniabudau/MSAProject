@@ -27,28 +27,26 @@
             android:text="@string/login" />
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/loginEmail"
             style="@style/modifiedEditText"
             android:hint="@string/login_email_hint"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
             android:maxLines="1"/>
+
         <EditText
             android:id="@+id/loginPassword"
             style="@style/modifiedEditText"
             android:hint="@string/login_password_hint"
             android:importantForAutofill="no"
             android:inputType="textPassword"
-            android:maxLines="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:maxLines="1"/>
 
         <Button
             android:id="@+id/loginSubmitButton"
             style="@style/roundButton"
             android:layout_gravity="center"
+            android:gravity="center"
             android:layout_width="323dp"
             android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="@string/login"
@@ -66,6 +64,7 @@
             android:id="@+id/registerGoToButton"
             style="@style/roundButton"
             android:layout_gravity="center"
+            android:gravity="center"
             android:layout_width="157dp"
             android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="@string/register"

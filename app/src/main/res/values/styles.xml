@@ -60,13 +60,19 @@
     <!--buttons-->
 
     <style name="roundButton" parent="viewParent">
+        <item name="android:background">@drawable/round_button_style1</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/mediumTextSize</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="squareRoundedButton" parent="viewParent">
+        <item name="android:background">@drawable/square_rounded_button</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/mediumTextSize</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
     <!--objects-->
