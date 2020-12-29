@@ -48,6 +48,14 @@
             android:importantForAutofill="no" />
 
         <EditText
+            android:id="@+id/registerNickname"
+            style="@style/modifiedEditText"
+            android:hint="@string/register_nickname_hint"
+            android:inputType="text"
+            android:maxLines="1"
+            android:importantForAutofill="no" />
+
+        <EditText
             android:id="@+id/registerAge"
             style="@style/modifiedEditText"
             android:hint="@string/register_age_hint"

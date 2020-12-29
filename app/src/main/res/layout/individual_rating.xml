@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -21,12 +20,13 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/reviewerNickName"
             style="@style/ratingCharacteristicText"
             android:layout_width="110dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="@string/ratingNumber"></TextView>
+            android:text="@string/reviewerNickname"></TextView>
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -9,6 +9,7 @@
     <string name="login_password_hint">Password</string>
 
     <string name="register_name_hint">Name</string>
+    <string name="register_nickname_hint">Nickname</string>
     <string name="register_age_hint">Age</string>
     <string name="register_country_hint">Country</string>
     <string name="register_city_hint">City</string>
@@ -34,6 +35,8 @@
     <string name="donations">Donations</string>
 
     <string name="editProfile">editProfile</string>
+
+    <string name="reviewerNickname">Fred Flinstone</string>
 
     <!--Notification-->
     <string name="notificationTitle">New Donation Alert</string>
