@@ -33,7 +33,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/average_rating"/>
+            <include layout="@layout/average_review"/>
+
+            <TextView
+                style="@style/bigLightText"
+                android:layout_marginTop="8dp"
+                android:layout_width="143dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/ratingNumber"></TextView>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -22,7 +22,7 @@
         android:orientation="horizontal">
 
         <TextView
-            style="@style/ratingCharacteristic"
+            style="@style/mediumLightText"
             android:layout_width="95dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
@@ -42,7 +42,7 @@
         android:orientation="horizontal">
 
         <TextView
-            style="@style/ratingCharacteristic"
+            style="@style/mediumLightText"
             android:layout_width="95dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
@@ -62,7 +62,7 @@
         android:orientation="horizontal">
 
         <TextView
-            style="@style/ratingCharacteristic"
+            style="@style/mediumLightText"
             android:layout_width="95dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
@@ -74,15 +74,6 @@
             android:gravity="right"
             android:rating="1" />
     </LinearLayout>
-
-    <TextView
-        style="@style/ratingCharacteristic"
-        android:layout_marginTop="8dp"
-        android:layout_width="143dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="@string/ratingNumber"></TextView>
 
 </LinearLayout>
 

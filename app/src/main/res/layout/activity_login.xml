@@ -14,16 +14,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/border_shadow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:background="@drawable/border_shadow">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             style="@style/loginHeaderText"
             android:gravity="center"
-            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:layout_marginTop="@dimen/mediumViewsMargin"
             android:text="@string/login" />
 
         <EditText
@@ -44,31 +40,29 @@
 
         <Button
             android:id="@+id/loginSubmitButton"
-            style="@style/roundButton"
+            style="@style/mediumSquareRoundedButton"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_width="323dp"
-            android:layout_marginTop="@dimen/loginViewsMargin"
-            android:text="@string/login"
-            android:layout_height="wrap_content" />
+            android:layout_marginTop="@dimen/mediumViewsMargin"
+            android:text="@string/login" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/loginText"
             android:gravity="center"
-            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:layout_marginTop="@dimen/mediumViewsMargin"
             android:text="@string/login_register_hint" />
 
         <Button
             android:id="@+id/registerGoToButton"
-            style="@style/roundButton"
+            style="@style/mediumSquareRoundedButton"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_width="157dp"
-            android:layout_marginTop="@dimen/loginViewsMargin"
-            android:text="@string/register"
-            android:layout_height="wrap_content" />
+            android:layout_marginTop="@dimen/mediumViewsMargin"
+            android:text="@string/register"/>
 
     </LinearLayout>
 

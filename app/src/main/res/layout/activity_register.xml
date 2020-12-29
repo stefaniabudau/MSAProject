@@ -28,7 +28,7 @@
         <TextView
             style="@style/loginHeaderText"
             android:gravity="center"
-            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:layout_marginTop="@dimen/mediumViewsMargin"
             android:text="@string/register" />
 
         <EditText
@@ -105,24 +105,24 @@
 
         <Button
             android:id="@+id/registerSubmitButton"
-            style="@style/roundButton"
+            style="@style/mediumSquareRoundedButton"
             android:layout_gravity="center"
             android:layout_width="323dp"
-            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:layout_marginTop="@dimen/mediumViewsMargin"
             android:text="@string/register" />
 
         <TextView
             style="@style/loginText"
             android:gravity="center"
-            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:layout_marginTop="@dimen/mediumViewsMargin"
             android:text="@string/register_login_hint" />
 
         <Button
             android:id="@+id/loginGoToButton"
-            style="@style/roundButton"
+            style="@style/mediumSquareRoundedButton"
             android:layout_width="157dp"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:layout_marginTop="@dimen/mediumViewsMargin"
             android:text="@string/login" />
 
     </LinearLayout>

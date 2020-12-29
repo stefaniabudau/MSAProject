@@ -34,32 +34,50 @@
     </style>
 
     <style name="modifiedEditText" parent="parent">
-        <item name="android:textSize">@dimen/newsMoreTextSize</item>
+        <item name="android:textSize">@dimen/miniTextSize</item>
     </style>
 
     <style name="cardHeaderText" parent="viewParent">
-        <item name="android:textSize">@dimen/reviewTextSize</item>
+        <item name="android:textSize">@dimen/mediumTextSize</item>
         <item name="android:textColor">@color/containerColor</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="ratingCharacteristic">
+    <style name="smallBlackText" parent="viewParent">
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/reviewTextSize</item>
+        <item name="android:textSize">@dimen/smallTextSize</item>
+    </style>
+
+    <style name="mediumLightText" parent="viewParent">
+        <item name="android:textColor">@color/containerColor</item>
+        <item name="android:textSize">@dimen/mediumTextSize</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="ratingCharacteristicText">
+    <style name="bigLightText" parent="viewParent">
         <item name="android:textColor">@color/containerColor</item>
-        <item name="android:textSize">@dimen/smallTextSize</item>
+        <item name="android:textSize">@dimen/bigTextSize</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="reviewerNicknameText" parent="viewParent">
+        <item name="android:textColor">@color/containerColor</item>
+        <item name="android:textSize">@dimen/mediumTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PageTitleText" parent="viewParent">
+        <item name="android:textColor">@color/containerColor</item>
+        <item name="android:textSize">@dimen/pageTitleSize</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
 
 
 
     <!--buttons-->
-
-    <style name="roundButton" parent="viewParent">
+    <style name="mediumRoundButton" parent="viewParent">
         <item name="android:background">@drawable/round_button</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/mediumTextSize</item>
@@ -67,13 +85,30 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
-    <style name="squareRoundedButton" parent="viewParent">
+    <style name="bigSquareRoundedButton" parent="viewParent">
         <item name="android:background">@drawable/square_rounded_button</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/bigTextSize</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
     </style>
+
+    <style name="mediumSquareRoundedButton" parent="viewParent">
+        <item name="android:background">@drawable/square_rounded_button</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/mediumTextSize</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="smallSquareRoundedButton" parent="viewParent">
+        <item name="android:background">@drawable/square_rounded_button</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/smallTextSize</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
 
     <!--objects-->
     <style name="rating" parent="Widget.AppCompat.RatingBar.Indicator">
@@ -83,7 +118,6 @@
         <item name="colorControlNormal">@color/white</item>
         <item name="android:numStars">5</item>
     </style>
-
 
 
 </resources>

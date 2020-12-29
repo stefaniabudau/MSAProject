@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:layout_marginTop="0dp"
-    android:background="@drawable/border_shadow">
+    android:background="@drawable/soft_border_shadow"
+    android:backgroundTint="@color/bkColor">
 
 
     <LinearLayout
