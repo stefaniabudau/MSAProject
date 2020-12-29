@@ -60,6 +60,12 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="hugeLightText" parent="viewParent">
+        <item name="android:textColor">@color/containerColor</item>
+        <item name="android:textSize">@dimen/hugeTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="reviewerNicknameText" parent="viewParent">
         <item name="android:textColor">@color/containerColor</item>
         <item name="android:textSize">@dimen/mediumTextSize</item>

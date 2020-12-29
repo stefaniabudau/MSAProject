@@ -29,12 +29,22 @@
     <string name="communitySupervisor">Community Supervisor</string>
 
     <!-- Profile info-->
-    <string name="requests">Requests</string>
-    <string name="myRequests">My Requests</string>
-    <string name="volunteers">Volunteers</string>
-    <string name="donations">Donations</string>
+
+    <string name="userNickname">George Jetson</string>
+    <string name="userDescription">I really need help!</string>
 
     <string name="editProfile">editProfile</string>
+
+    <string name="requests">Requests</string>
+    <string name="requestsNumber">15</string>
+    <string name="donations">Donations</string>
+    <string name="donationsNumber">10</string>
+    <string name="ongoingActivity">Activity</string>
+    <string name="ongoingActivityNumber">5</string>
+
+    <string name="myRequests">My Requests</string>
+    <string name="myDonations">My Donations</string>
+
 
     <string name="reviewerNickname">Fred Flinstone</string>
 
