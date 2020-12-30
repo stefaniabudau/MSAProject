@@ -1,11 +1,12 @@
 package com.e.thetogetherapp.register
 
-data class RegisterForm( var email: String?= null,
-                         var name: String? = null,
-                         var age: String? = null,
-                         var country: String? = null,
-                         var city: String? = null,
-                         var address: String? = null,
-                         var password1: String? = null,
-                         var password2: String? = null,
+data class RegisterForm( var email: String= "",
+                         var name: String = "",
+                         var nickname: String = "",
+                         var age: String = "",
+                         var country: String = "",
+                         var city: String = "",
+                         var address: String = "",
+                         var password1: String = "",
+                         var password2: String = "",
                          var type: String)

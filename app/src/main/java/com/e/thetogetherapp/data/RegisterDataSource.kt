@@ -21,49 +21,47 @@ class RegisterDataSource: AppCompatActivity() {
         database = Firebase.database.reference
         auth = Firebase.auth
 
-        var registeredUser: RegisteredUser? = null
 
-        auth.createUserWithEmailAndPassword(registerData.email!!, registerData.password1!!)
+        auth.createUserWithEmailAndPassword(registerData.email, registerData.password1)
             .addOnCompleteListener(this){ task ->
                 Log.d("Register", "register:onComplete:" + task.isSuccessful)
 
-                if(task.isSuccessful){
-                    registeredUser = processUserData(registerData)
-                    writeUser(task.result?.user!!.uid, registeredUser!!)
-                } else {
-                    Toast.makeText(
-                        baseContext, "Register Failed",
-                        Toast.LENGTH_SHORT).show()
+                if(task.isSuccessful) {
+//                    registeredUser = processUserData(registerData)
+                    writeUser(task.result?.user!!.uid, registerData)
                 }
             }
 
-        if(registeredUser != null)
-            return Result.Success(registeredUser!!)
+        if(auth.currentUser != null) {
+            var registeredUser= RegisteredUser(auth.currentUser!!.uid, registerData.email)
+            return Result.Success(registeredUser)
+        }
 
         return Result.Error(IOException("Error on register"))
 
     }
 
 
-    private fun processUserData(registerData: RegisterForm): RegisteredUser{
-        val userLocation = mapOf<String, String>("Country" to registerData.country!!,
-            "City" to registerData.city!!, "Address" to registerData.address!!)
+//    private fun processUserData(registerData: RegisterForm): RegisteredUser{
+//        val userLocation = mapOf<String, String>("Country" to registerData.country!!,
+//            "City" to registerData.city!!, "Address" to registerData.address!!)
+//
+//        val user = RegisteredUser(
+//            displayName = registerData.name,
+//            nickname = registerData.nickname,
+//            email = registerData.email,
+//            age = registerData.age,
+//            location = userLocation,
+//            type = registerData.type
+//        )
+//        return user
+//    }
 
-        val user = RegisteredUser(
-            displayName = registerData.name,
-            email = registerData.email,
-            age = registerData.age,
-            location = userLocation
-        )
 
-        return user
-    }
-
-
-    private fun writeUser(uid: String, registeredUser: RegisteredUser){
+    private fun writeUser(uid: String, registerData: RegisterForm){
         val userReference = database.child("users").child(uid)
 
-        userReference.setValue(registeredUser)
+        userReference.setValue(registerData)
     }
 
 }

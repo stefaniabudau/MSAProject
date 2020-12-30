@@ -18,6 +18,7 @@ import android.widget.Toast
 
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.RegisterTransitionActivity
+import com.e.thetogetherapp.profile.NeedyProfileActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -67,11 +68,12 @@ class LoginActivity : AppCompatActivity() {
             }
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
+                startActivity(Intent(this@LoginActivity, NeedyProfileActivity::class.java))
             }
             setResult(Activity.RESULT_OK)
 
-            //Complete and destroy login activity once successful
             finish()
+
         })
 
         username.afterTextChanged {
@@ -89,16 +91,16 @@ class LoginActivity : AppCompatActivity() {
                 )
             }
 
-            setOnEditorActionListener { _, actionId, _ ->
-                when (actionId) {
-                    EditorInfo.IME_ACTION_DONE ->
-                        loginViewModel.login(
-                                username.text.toString(),
-                                password.text.toString()
-                        )
-                }
-                false
-            }
+//            setOnEditorActionListener { _, actionId, _ ->
+//                when (actionId) {
+//                    EditorInfo.IME_ACTION_DONE ->
+//                        loginViewModel.login(
+//                                username.text.toString(),
+//                                password.text.toString()
+//                        )
+//                }
+//                false
+//            }
 
             login.setOnClickListener {
 //                loading.visibility = View.VISIBLE

@@ -1,6 +1,7 @@
 package com.e.thetogetherapp.register
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -14,6 +15,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.RegisteredUser
+import com.e.thetogetherapp.profile.NeedyProfileActivity
 
 class RegisterActivity: AppCompatActivity(){
 
@@ -35,6 +37,7 @@ class RegisterActivity: AppCompatActivity(){
 
         val email = findViewById<EditText>(R.id.registerEmail)
         val name = findViewById<EditText>(R.id.registerName)
+        val nickname = findViewById<EditText>(R.id.registerNickname)
         val age = findViewById<EditText>(R.id.registerAge)
         val country = findViewById<EditText>(R.id.registerCountry)
         val city = findViewById<EditText>(R.id.registerCity)
@@ -54,19 +57,26 @@ class RegisterActivity: AppCompatActivity(){
 
             register.isEnabled = registerState.isDataValid
 
+            if (registerState.emailError != null) {
+                email.error = getString(registerState.emailError)
+            }
             if (registerState.nameError != null) {
                 name.error = getString(registerState.nameError)
             }
-            if (registerState.emailError != null) {
-                email.error = getString(registerState.emailError)
+            if (registerState.nicknameError != null) {
+                nickname.error = getString(registerState.nicknameError)
             }
             if (registerState.ageError != null) {
                 age.error = getString(registerState.ageError)
             }
-            if (registerState.locationError != null) {
-                address.error = getString(registerState.locationError)
-                country.error = getString(registerState.locationError)
-                city.error = getString(registerState.locationError)
+            if (registerState.countryError != null) {
+                country.error = getString(registerState.countryError)
+            }
+            if (registerState.cityError != null) {
+                city.error = getString(registerState.cityError)
+            }
+            if (registerState.addressError != null) {
+                address.error = getString(registerState.addressError)
             }
             if (registerState.passwordError != null) {
                 password1.error = getString(registerState.passwordError)
@@ -86,6 +96,7 @@ class RegisterActivity: AppCompatActivity(){
             }
             if (registerResult.success != null) {
                 updateUiWithUser(registerResult.success)
+                startActivity(Intent(this@RegisterActivity, NeedyProfileActivity::class.java))
             }
             setResult(Activity.RESULT_OK)
 
@@ -96,6 +107,7 @@ class RegisterActivity: AppCompatActivity(){
         fun updateFormObject(){
             formData.email = email.text.toString()
             formData.name = name.text.toString()
+            formData.nickname = nickname.text.toString()
             formData.age = age.text.toString()
             formData.country = country.text.toString()
             formData.city = city.text.toString()
@@ -146,22 +158,21 @@ class RegisterActivity: AppCompatActivity(){
                 registerViewModel.registerDataChanged(formData)
             }
 
-            setOnEditorActionListener { _, actionId, _ ->
-                when (actionId) {
-                    EditorInfo.IME_ACTION_DONE ->
-                        registerViewModel.register(formData)
-                }
-                false
-            }
+//            setOnEditorActionListener { _, actionId, _ ->
+//                when (actionId) {
+//                    EditorInfo.IME_ACTION_DONE ->
+//                        registerViewModel.register(formData)
+//                }
+//                false
+//            }
 
-            login.setOnClickListener {
-//                loading.visibility = View.VISIBLE
+            register.setOnClickListener {
                 registerViewModel.register(formData)
             }
         }
     }
 
-    private fun updateUiWithUser(model: RegisteredUser) {
+    private fun updateUiWithUser(model: RegisteredUserView) {
         val welcome = getString(R.string.welcome)
         val displayName = model.displayName
         Toast.makeText(

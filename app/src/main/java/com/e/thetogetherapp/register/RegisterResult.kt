@@ -4,6 +4,6 @@ import com.e.thetogetherapp.data.model.RegisteredUser
 
 
 data class RegisterResult(
-    val success: RegisteredUser? = null,
+    val success: RegisteredUserView? = null,
     val error: Int? = null
 )

@@ -21,7 +21,7 @@ class RegisterViewModel(private val registerDataSource: RegisterDataSource): Vie
         val result = registerDataSource.register(registerData)
 
         if (result is Result.Success) {
-            _registerResult.value = RegisterResult(success = RegisteredUser(displayName = result.data.displayName))
+            _registerResult.value = RegisterResult(success = RegisteredUserView(displayName = result.data.displayName))
         } else {
             _registerResult.value = RegisterResult(error = R.string.register_failed)
         }
@@ -31,30 +31,36 @@ class RegisterViewModel(private val registerDataSource: RegisterDataSource): Vie
     // TODO: fix conditions
 
     fun registerDataChanged(formData: RegisterForm) {
-        if (isNull(formData.name)){
-            _registerForm.value = RegisterFormState(nameError = R.string.empty_name)
-        }
-        else if (isNull(formData.email)){
-            _registerForm.value = RegisterFormState(emailError = R.string.empty_email)
-        }
-        else if (!isEmailValid(formData.email!!)){
+        if (!isEmailValid(formData.email)){
             _registerForm.value = RegisterFormState(emailError = R.string.invalid_email)
         }
-        else if (isNull(formData.age)){
+        else if (isEmpty(formData.name)){
+            _registerForm.value = RegisterFormState(nameError = R.string.empty_name)
+        }
+        else if (isEmpty(formData.nickname)){
+            _registerForm.value = RegisterFormState(nicknameError = R.string.empty_nickname)
+        }
+        else if (isEmpty(formData.age)){
             _registerForm.value = RegisterFormState(ageError = R.string.empty_age)
         }
-//        else if (isAbove18(formData.age!!.toInt())){
-//            _registerForm.value = RegisterFormState(ageError = R.string.invalid_age)
-//        }
-        else if (isNull(formData.country) or isNull(formData.city) or isNull(formData.address)){
-            _registerForm.value = RegisterFormState(locationError = R.string.invalid_location)
+        else if (!isAbove18(formData.age.toInt())){
+            _registerForm.value = RegisterFormState(ageError = R.string.invalid_age)
         }
-//        else if (isPasswordValid(formData.password1!!)){
-//            _registerForm.value = RegisterFormState(passwordError = R.string.invalid_password)
-//        }
-//        else if (arePasswordsIdentical(formData.password1!!, formData.password2!!)){
-//            _registerForm.value = RegisterFormState(differentPasswords = R.string.invalid_password)
-//        }
+        else if (isEmpty(formData.country)){
+            _registerForm.value = RegisterFormState(countryError = R.string.invalid_location)
+        }
+        else if (isEmpty(formData.city)){
+            _registerForm.value = RegisterFormState(cityError = R.string.invalid_location)
+        }
+        else if (isEmpty(formData.country)){
+            _registerForm.value = RegisterFormState(addressError = R.string.invalid_location)
+        }
+        else if (!isPasswordValid(formData.password1)){
+            _registerForm.value = RegisterFormState(passwordError = R.string.invalid_password)
+        }
+        else if (!arePasswordsIdentical(formData.password1, formData.password2)){
+            _registerForm.value = RegisterFormState(differentPasswords = R.string.different_passwords)
+        }
         else{
             _registerForm.value = RegisterFormState(isDataValid = true)
 
@@ -66,7 +72,7 @@ class RegisterViewModel(private val registerDataSource: RegisterDataSource): Vie
         return if (email.contains('@')) {
             Patterns.EMAIL_ADDRESS.matcher(email).matches()
         } else {
-            email.isNotBlank()
+            false
         }
     }
 
@@ -82,7 +88,10 @@ class RegisterViewModel(private val registerDataSource: RegisterDataSource): Vie
         return password.length > 5
     }
 
-    private fun isNull(fieldData: String?): Boolean{
-        return fieldData == null
+    private fun isEmpty(fieldData: String?): Boolean{
+        if (fieldData != null) {
+            return fieldData.isBlank()
+        }
+        return true
     }
 }

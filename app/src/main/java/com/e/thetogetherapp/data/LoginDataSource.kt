@@ -1,7 +1,6 @@
 package com.e.thetogetherapp.data
 
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.e.thetogetherapp.data.model.LoggedInUser
 import com.google.firebase.auth.FirebaseAuth
@@ -11,10 +10,9 @@ import java.io.IOException
 
 class LoginDataSource: AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+    private var loggedInUser: LoggedInUser? = null
 
     fun login(username: String, password: String): Result<LoggedInUser> {
-
-        var loggedInUser: LoggedInUser? = null
 
         auth = Firebase.auth
         auth.signInWithEmailAndPassword(username, password)
@@ -23,18 +21,14 @@ class LoginDataSource: AppCompatActivity() {
 
                 if (task.isSuccessful) {
                     loggedInUser = LoggedInUser(task.result?.user!!.uid, username)
-
-                } else {
-                    Toast.makeText(
-                        baseContext, "Sign In Failed",
-                        Toast.LENGTH_SHORT).show()
                 }
             }
 
-        if(loggedInUser != null)
+        if(auth.currentUser!= null) {
+            loggedInUser = LoggedInUser(auth.currentUser!!.uid, username)
             return Result.Success(loggedInUser!!)
-
-        return Result.Error(IOException("Error logging in"))
+        }
+        else return Result.Error(IOException("Error logging in"))
     }
 
     fun logout() {
