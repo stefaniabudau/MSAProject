@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <TextView
+            style="@style/viewParent.headerText"
+            android:text="Settings" />
+
+
+
+        <Switch
+            android:id="@+id/darkModeSwitch"
+            style="@style/settingsText"
+            android:drawableLeft="@drawable/ic_dark_mode"
+            android:text="Dark Mode"/>
+
+        <TextView
+            style="@style/viewParent.headerText.settingsMiniTitle"
+            android:text="Profile"/>
+
+        <TextView
+            style="@style/viewParent.headerText.settingsTextIcon"
+            app:drawableLeftCompat="@drawable/ic_edit_profile"
+            android:text="Edit Profile" />
+
+        <TextView
+            style="@style/viewParent.headerText.settingsTextIcon"
+            app:drawableLeftCompat="@drawable/ic_edit_password"
+            android:layout_marginTop="10dp"
+            android:text="Change Password" />
+
+        <TextView
+            style="@style/viewParent.headerText.settingsMiniTitle"
+            android:text="@string/notifications"/>
+
+        <Switch
+            style="@style/settingsText"
+            android:checked="true"
+            android:drawableLeft="@drawable/ic_notifications"
+            android:text="@string/notifications" />
+
+        <TextView
+            style="@style/viewParent.headerText.settingsMiniTitle"
+            android:text="@string/regional"/>
+
+        <TextView
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:text="@string/language"
+            app:drawableLeftCompat="@drawable/ic_languages" />
+
+        <TextView
+            style="@style/viewParent.headerText.settingsTextIcon"
+            android:text="@string/logout"
+            app:drawableLeftCompat="@drawable/ic_logout" />
+
+    </LinearLayout>
+</ScrollView>

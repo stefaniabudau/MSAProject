@@ -26,7 +26,7 @@
             android:layout_width="95dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="@string/ratingHonesty"></TextView>
+            android:text="@string/ratingHonesty"/>
 
         <RatingBar
             android:id="@+id/averageHonestyRating"
@@ -46,7 +46,7 @@
             android:layout_width="95dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="@string/ratingPunctuality"></TextView>
+            android:text="@string/ratingPunctuality"/>
 
         <RatingBar
             android:id="@+id/averagePunctualityRating"
@@ -66,10 +66,10 @@
             android:layout_width="95dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="@string/ratingAttitude"></TextView>
+            android:text="@string/ratingAttitude"/>
 
         <RatingBar
-            android:id="@+id/averageAttidudeRating"
+            android:id="@+id/averageAttitudeRating"
             style="@style/rating"
             android:gravity="right"
             android:rating="1" />

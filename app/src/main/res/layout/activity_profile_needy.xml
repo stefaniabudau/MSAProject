@@ -14,7 +14,7 @@
         android:layout_marginBottom="148dp"
         tools:ignore="MissingConstraints">
 
-        <include layout="@layout/component_banner_user_info"/>
+        <include layout="@layout/component_user_profile_banner_info"/>
 
         <Button
             android:id="@+id/myRequestsButton"
@@ -25,8 +25,8 @@
             android:layout_marginTop="@dimen/mediumViewsMargin"
             android:text="@string/myRequests" />
 
-        <include layout="@layout/card_notifications"></include>
-        <include layout="@layout/card_review"></include>
+        <include layout="@layout/card_notifications"/>
+        <include layout="@layout/card_review"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

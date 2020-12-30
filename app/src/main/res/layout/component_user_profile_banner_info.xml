@@ -10,7 +10,7 @@
 
 
     <LinearLayout
-        style="@style/linearHorizonalParent"
+        style="@style/linearHorizontalParent"
         android:layout_gravity="center"
         android:gravity="center">
 
@@ -26,14 +26,14 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="@string/requestsNumber"></TextView>
+                android:text="@string/requestsNumber"/>
             <TextView
                 style="@style/mediumLightText"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="@string/requests"></TextView>
+                android:text="@string/requests"/>
         </LinearLayout>
 
         <LinearLayout
@@ -48,14 +48,14 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="@string/donationsNumber"></TextView>
+                android:text="@string/donationsNumber"/>
             <TextView
                 style="@style/mediumLightText"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="@string/donations"></TextView>
+                android:text="@string/donations"/>
         </LinearLayout>
 
         <LinearLayout
@@ -70,14 +70,14 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="@string/ongoingActivityNumber"></TextView>
+                android:text="@string/ongoingActivityNumber"/>
             <TextView
                 style="@style/mediumLightText"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="@string/ongoingActivity"></TextView>
+                android:text="@string/ongoingActivity"/>
         </LinearLayout>
 
     </LinearLayout>

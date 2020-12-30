@@ -60,5 +60,9 @@
     <string name="ratingPunctuality">Punctuality</string>
     <string name="ratingAttitude">Attitude</string>
     <string name="ratingNumber">6 REVIEWS</string>
+    <string name="notifications">Notifications</string>
+    <string name="regional">Regional</string>
+    <string name="language">Language</string>
+    <string name="logout">Logout</string>
 
 </resources>

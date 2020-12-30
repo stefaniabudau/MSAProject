@@ -23,7 +23,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="left"
         android:gravity="center"
-        android:text="@string/reviewerNickname"></TextView>
+        android:text="@string/reviewerNickname"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,10 +36,10 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="@string/ratingHonesty"></TextView>
+            android:text="@string/ratingHonesty"/>
 
         <RatingBar
-            android:id="@+id/averageHonestyRating"
+            android:id="@+id/individualHonestyRating"
             style="@style/rating"
             android:rating="1"
             android:scaleX="0.7"
@@ -57,10 +57,10 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="@string/ratingPunctuality"></TextView>
+            android:text="@string/ratingPunctuality"/>
 
         <RatingBar
-            android:id="@+id/averagePunctualityRating"
+            android:id="@+id/individualPunctualityRating"
             style="@style/rating"
             android:rating="1"
             android:scaleX="0.7"
@@ -78,10 +78,10 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="@string/ratingAttitude"></TextView>
+            android:text="@string/ratingAttitude"/>
 
         <RatingBar
-            android:id="@+id/averageAttidudeRating"
+            android:id="@+id/individualAttitudeRating"
             style="@style/rating"
             android:rating="1"
             android:scaleX="0.7"
