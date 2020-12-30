@@ -41,6 +41,7 @@
         <Button
             android:id="@+id/loginSubmitButton"
             style="@style/mediumSquareRoundedButton"
+            android:enabled="false"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_width="323dp"

@@ -78,6 +78,7 @@
     <string name="empty_age">Empty age field</string>
     <string name="invalid_location">Not a valid location</string>
     <string name="different_passwords">Passwords not identical</string>
+    <string name="empty_nickname">Empty nickname field</string>
 
 </resources>
 
