@@ -47,7 +47,7 @@ class RegisterDataSource: AppCompatActivity() {
 
     private fun processUserData(registerData: RegisterForm): RegisteredUser{
         val userLocation = mapOf<String, String>("Country" to registerData.country!!,
-            "City" to registerData.city!!, "Address" to registerData.country!!)
+            "City" to registerData.city!!, "Address" to registerData.address!!)
 
         val user = RegisteredUser(
             displayName = registerData.name,

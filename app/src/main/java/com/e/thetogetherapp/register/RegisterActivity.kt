@@ -2,11 +2,11 @@ package com.e.thetogetherapp.register
 
 import android.app.Activity
 import android.os.Bundle
-import android.view.View
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
@@ -14,10 +14,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.RegisteredUser
-import com.e.thetogetherapp.login.LoggedInUserView
-import com.e.thetogetherapp.login.LoginViewModel
-import com.e.thetogetherapp.login.LoginViewModelFactory
-import com.e.thetogetherapp.login.afterTextChanged
 
 class RegisterActivity: AppCompatActivity(){
 
@@ -32,6 +28,8 @@ class RegisterActivity: AppCompatActivity(){
         if(userType != null){
             type = userType.getString("type")
         }
+
+        val formData = RegisterForm(type = type!!)
 
         setContentView(R.layout.activity_register)
 
@@ -73,6 +71,10 @@ class RegisterActivity: AppCompatActivity(){
             if (registerState.passwordError != null) {
                 password1.error = getString(registerState.passwordError)
             }
+            if (registerState.differentPasswords != null) {
+                password2.error = getString(registerState.differentPasswords)
+            }
+
         })
 
         registerViewModel.registerResult.observe(this@RegisterActivity, Observer {
@@ -90,50 +92,57 @@ class RegisterActivity: AppCompatActivity(){
             finish()
         })
 
-        val formData: RegisterForm
 
-        formData = RegisterForm(
-            email = email.text.toString(),
-            name = name.text.toString(),
-            age = age.text.toString(),
-            country = country.text.toString(),
-            city = city.text.toString(),
-            address = address.text.toString(),
-            password1 = password1.text.toString(),
-            password2 = password2.text.toString(),
-            type = type!!
-        )
+        fun updateFormObject(){
+            formData.email = email.text.toString()
+            formData.name = name.text.toString()
+            formData.age = age.text.toString()
+            formData.country = country.text.toString()
+            formData.city = city.text.toString()
+            formData.address = address.text.toString()
+            formData.password1 = password1.text.toString()
+            formData.password2 = password2.text.toString()
+        }
+
 
         name.afterTextChanged {
+            updateFormObject()
             registerViewModel.registerDataChanged(formData)
         }
 
         email.afterTextChanged {
+            updateFormObject()
             registerViewModel.registerDataChanged(formData)
         }
 
         age.afterTextChanged {
+            updateFormObject()
             registerViewModel.registerDataChanged(formData)
         }
 
         city.afterTextChanged {
+            updateFormObject()
             registerViewModel.registerDataChanged(formData)
         }
 
         country.afterTextChanged {
+            updateFormObject()
             registerViewModel.registerDataChanged(formData)
         }
 
         address.afterTextChanged {
+            updateFormObject()
             registerViewModel.registerDataChanged(formData)
         }
 
         password1.afterTextChanged {
+            updateFormObject()
             registerViewModel.registerDataChanged(formData)
         }
 
         password2.apply {
             afterTextChanged {
+                updateFormObject()
                 registerViewModel.registerDataChanged(formData)
             }
 
@@ -167,4 +176,14 @@ class RegisterActivity: AppCompatActivity(){
     }
 }
 
+fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
+    this.addTextChangedListener(object : TextWatcher {
+        override fun afterTextChanged(editable: Editable?) {
+            afterTextChanged.invoke(editable.toString())
+        }
 
+        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+
+        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
+    })
+}

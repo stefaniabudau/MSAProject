@@ -17,6 +17,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 
 import com.e.thetogetherapp.R
+import com.e.thetogetherapp.RegisterTransitionActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -36,8 +37,8 @@ class LoginActivity : AppCompatActivity() {
 //        val loading = findViewById<ProgressBar>(R.id.loading)
 
         register.setOnClickListener {
-            val intent = Intent()
-
+            startActivity(Intent(this@LoginActivity, RegisterTransitionActivity::class.java))
+//            finish()
         }
 
         loginViewModel = ViewModelProviders.of(this, LoginViewModelFactory())

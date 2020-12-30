@@ -28,6 +28,8 @@ class RegisterViewModel(private val registerDataSource: RegisterDataSource): Vie
     }
 
 
+    // TODO: fix conditions
+
     fun registerDataChanged(formData: RegisterForm) {
         if (isNull(formData.name)){
             _registerForm.value = RegisterFormState(nameError = R.string.empty_name)
@@ -35,24 +37,24 @@ class RegisterViewModel(private val registerDataSource: RegisterDataSource): Vie
         else if (isNull(formData.email)){
             _registerForm.value = RegisterFormState(emailError = R.string.empty_email)
         }
-        else if (isEmailValid(formData.email!!)){
+        else if (!isEmailValid(formData.email!!)){
             _registerForm.value = RegisterFormState(emailError = R.string.invalid_email)
         }
         else if (isNull(formData.age)){
             _registerForm.value = RegisterFormState(ageError = R.string.empty_age)
         }
-        else if (isAbove18(formData.age!!.toInt())){
-            _registerForm.value = RegisterFormState(ageError = R.string.invalid_age)
-        }
+//        else if (isAbove18(formData.age!!.toInt())){
+//            _registerForm.value = RegisterFormState(ageError = R.string.invalid_age)
+//        }
         else if (isNull(formData.country) or isNull(formData.city) or isNull(formData.address)){
             _registerForm.value = RegisterFormState(locationError = R.string.invalid_location)
         }
-        else if (isPasswordValid(formData.password1!!)){
-            _registerForm.value = RegisterFormState(passwordError = R.string.invalid_password)
-        }
-        else if (arePasswordsIdentical(formData.password1!!, formData.password2!!)){
-            _registerForm.value = RegisterFormState(passwordError = R.string.invalid_password)
-        }
+//        else if (isPasswordValid(formData.password1!!)){
+//            _registerForm.value = RegisterFormState(passwordError = R.string.invalid_password)
+//        }
+//        else if (arePasswordsIdentical(formData.password1!!, formData.password2!!)){
+//            _registerForm.value = RegisterFormState(differentPasswords = R.string.invalid_password)
+//        }
         else{
             _registerForm.value = RegisterFormState(isDataValid = true)
 
