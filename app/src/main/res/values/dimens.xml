@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Login and register-->
+    <dimen name="miniViewsMargin">5dp</dimen>
     <dimen name="smallViewsMargin">10dp</dimen>
     <dimen name="mediumViewsMargin">20dp</dimen>
     <dimen name="largeViewsMargin">60dp</dimen>
@@ -14,7 +15,7 @@
     <dimen name="bigTextSize">27sp</dimen>
     <dimen name="hugeTextSize">35sp</dimen>
     <dimen name="headerTextSize">30sp</dimen>
-    <dimen name="pageTitleSize">50sp</dimen>
+    <dimen name="pageTitleSize">40sp</dimen>
 
 
 
