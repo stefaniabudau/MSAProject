@@ -1,4 +1,11 @@
 package com.e.thetogetherapp
+
+import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
+//DARK MODE -------------------------------------------------------------
 /*
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -33,6 +40,9 @@ class MainActivity : AppCompatActivity() {
 
 }*/
 
+
+//LANGUAGE ------------------------------------------------------------------------
+/*
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -101,5 +111,21 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
         exitProcess(0)
+    }
+}*/
+
+//NAVIGATION BAR ------------------------------------------------------------------
+
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.component_navigation_bar)
+        val bottomBar: BottomNavigationView = findViewById(R.id.bottomBar)
+        bottomBar.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            Toast.makeText(this@MainActivity, item.title, Toast.LENGTH_SHORT).show()
+            true
+        })
     }
 }
