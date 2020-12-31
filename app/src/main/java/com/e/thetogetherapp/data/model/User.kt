@@ -1,6 +1,12 @@
 package com.e.thetogetherapp.data.model
 
-data class User (val uid: String?,
-                 val username: String?,
-                 val password: String?)
+import com.google.firebase.database.IgnoreExtraProperties
+
+@IgnoreExtraProperties
+class User (val email: String? = "",
+             val name: String? = "",
+             val nickname: String? ="",
+             val age: String? = "",
+             val type: String? = "",
+             val location: Map<String, String>? = null)
 

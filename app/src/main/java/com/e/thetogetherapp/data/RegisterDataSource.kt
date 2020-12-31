@@ -33,7 +33,8 @@ class RegisterDataSource: AppCompatActivity() {
             }
 
         if(auth.currentUser != null) {
-            var registeredUser= RegisteredUser(auth.currentUser!!.uid, registerData.email)
+            var registeredUser= RegisteredUser(auth.currentUser!!.uid,
+                registerData.email)
             return Result.Success(registeredUser)
         }
 
@@ -61,7 +62,20 @@ class RegisterDataSource: AppCompatActivity() {
     private fun writeUser(uid: String, registerData: RegisterForm){
         val userReference = database.child("users").child(uid)
 
-        userReference.setValue(registerData)
+//        userReference.setValue(registerData)
+        userReference.setValue(
+            mapOf(
+                "email" to registerData.email,
+                "name" to registerData.name,
+                "nickname" to registerData.nickname,
+                "age" to registerData.age,
+                "type" to registerData.type,
+                "location" to mapOf(
+                    "country" to registerData.country,
+                    "city" to registerData.city,
+                    "address" to registerData.address
+                )
+            )
+        )
     }
-
 }

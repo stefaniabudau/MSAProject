@@ -1,26 +1,12 @@
 package com.e.thetogetherapp.data.model
 
-class Rating {
-    var ratingId: String? = null
-    var toId: String? = null
-    var fromId: String? = null
-    var honesty: Float? = null
-    var attitude: Float? = null
-    var punctuality: Float? = null
+import com.google.firebase.database.IgnoreExtraProperties
 
-    constructor(
-        ratingId: String?,
-        toId: String?,
-        fromId: String?,
-        honesty: Float?,
-        attitude: Float?,
-        punctuality: Float?
-    ) {
-        this.ratingId = ratingId
-        this.toId = toId
-        this.fromId = fromId
-        this.honesty = honesty
-        this.attitude = attitude
-        this.punctuality = punctuality
-    }
-}
+@IgnoreExtraProperties
+data class Rating (
+    var to: String? = "",
+    var from: String? = "",
+    var honesty: String? = "",
+    var attitude: String? = "",
+    var punctuality: String? = ""
+)

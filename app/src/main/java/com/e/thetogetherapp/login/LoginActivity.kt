@@ -9,16 +9,15 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
-import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ProgressBar
 import android.widget.Toast
 
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.RegisterTransitionActivity
+import com.e.thetogetherapp.data.model.LoggedInUser
 import com.e.thetogetherapp.profile.NeedyProfileActivity
+import com.e.thetogetherapp.profile.UserProfileActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -68,12 +67,18 @@ class LoginActivity : AppCompatActivity() {
             }
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
-                startActivity(Intent(this@LoginActivity, NeedyProfileActivity::class.java))
+
+                val user = Bundle()
+                val intent = Intent(this@LoginActivity, UserProfileActivity::class.java)
+
+                user.putString("uid", loginResult.success.uid)
+                intent.putExtras(user)
+
+                startActivity(intent)
             }
             setResult(Activity.RESULT_OK)
 
             finish()
-
         })
 
         username.afterTextChanged {
@@ -109,7 +114,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateUiWithUser(model: LoggedInUserView) {
+    private fun updateUiWithUser(model: LoggedInUser) {
         val welcome = getString(R.string.welcome)
         val displayName = model.displayName
         // TODO : initiate successful logged in experience

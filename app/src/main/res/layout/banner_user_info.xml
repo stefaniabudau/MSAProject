@@ -23,6 +23,7 @@
 
             <TextView
                 style="@style/hugeLightText"
+                android:id="@+id/needyNoOfRequests"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -45,6 +46,7 @@
 
             <TextView
                 style="@style/hugeLightText"
+                android:id="@+id/needyNoOfDonations"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -67,6 +69,7 @@
 
             <TextView
                 style="@style/hugeLightText"
+                android:id="@+id/needyNoOfOngoingActivities"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:gravity="center"

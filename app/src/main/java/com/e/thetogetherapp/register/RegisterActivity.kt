@@ -172,7 +172,7 @@ class RegisterActivity: AppCompatActivity(){
         }
     }
 
-    private fun updateUiWithUser(model: RegisteredUserView) {
+    private fun updateUiWithUser(model: RegisteredUser) {
         val welcome = getString(R.string.welcome)
         val displayName = model.displayName
         Toast.makeText(

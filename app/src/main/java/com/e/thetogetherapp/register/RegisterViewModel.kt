@@ -21,14 +21,13 @@ class RegisterViewModel(private val registerDataSource: RegisterDataSource): Vie
         val result = registerDataSource.register(registerData)
 
         if (result is Result.Success) {
-            _registerResult.value = RegisterResult(success = RegisteredUserView(displayName = result.data.displayName))
+            _registerResult.value = RegisterResult(success = RegisteredUser(uid = result.data.uid,
+                displayName = result.data.displayName))
         } else {
             _registerResult.value = RegisterResult(error = R.string.register_failed)
         }
     }
 
-
-    // TODO: fix conditions
 
     fun registerDataChanged(formData: RegisterForm) {
         if (!isEmailValid(formData.email)){

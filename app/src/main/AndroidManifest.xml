@@ -19,6 +19,7 @@
         <activity android:name=".register.RegisterActivity" />
         <activity android:name=".RegisterTransitionActivity" />
         <activity android:name=".profile.NeedyProfileActivity" />
+        <activity android:name=".profile.UserProfileActivity" />
     </application>
 
 </manifest>
