@@ -1,6 +1,10 @@
 {
   "project_info": {
     "project_number": "128762686789",
+<<<<<<< HEAD
+=======
+    "firebase_url": "https://thetogethermobileapp-default-rtdb.firebaseio.com",
+>>>>>>> master
     "project_id": "thetogethermobileapp",
     "storage_bucket": "thetogethermobileapp.appspot.com"
   },
@@ -14,6 +18,17 @@
       },
       "oauth_client": [
         {
+<<<<<<< HEAD
+=======
+          "client_id": "128762686789-q0rd3so8k7hg4agsjchjh6aepipja4ue.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.e.thetogetherapp",
+            "certificate_hash": "43347b14d0270ef98b01130b79636384640f78be"
+          }
+        },
+        {
+>>>>>>> master
           "client_id": "128762686789-6qr857p5a776ak6gqiicmskflil0f8vl.apps.googleusercontent.com",
           "client_type": 3
         }

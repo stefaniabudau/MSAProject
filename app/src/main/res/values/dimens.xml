@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Login and register-->
+    <dimen name="miniViewsMargin">5dp</dimen>
     <dimen name="smallViewsMargin">10dp</dimen>
     <dimen name="mediumViewsMargin">20dp</dimen>
     <dimen name="largeViewsMargin">60dp</dimen>
@@ -10,11 +11,11 @@
     <dimen name="miniTextSize">12sp</dimen>
     <dimen name="smallTextSize">10sp</dimen>
     <dimen name="mediumTextSize">15sp</dimen>
-    <dimen name="cardHeader">18sp</dimen>
+    <dimen name="cardHeaderSize">18sp</dimen>
     <dimen name="bigTextSize">27sp</dimen>
     <dimen name="hugeTextSize">35sp</dimen>
     <dimen name="headerTextSize">30sp</dimen>
-    <dimen name="pageTitleSize">50sp</dimen>
+    <dimen name="pageTitleSize">40sp</dimen>
 
 
 

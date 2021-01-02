@@ -10,7 +10,7 @@
         <item name="android:orientation">vertical</item>
     </style>
 
-    <style name="linearHorizonalParent" parent="parent">
+    <style name="linearHorizontalParent" parent="parent">
         <item name="android:orientation">horizontal</item>
     </style>
 
@@ -37,10 +37,20 @@
         <item name="android:textSize">@dimen/miniTextSize</item>
     </style>
 
-    <style name="cardHeaderText" parent="viewParent">
-        <item name="android:textSize">@dimen/mediumTextSize</item>
+    <style name="cardHeaderText" parent="parent">
+        <item name="android:textSize">@dimen/cardHeaderSize</item>
         <item name="android:textColor">@color/containerColor</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="editProfileText" parent="parent">
+        <item name="android:textSize">@dimen/smallTextSize</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_marginTop">@dimen/miniViewsMargin</item>
+        <item name="android:layout_marginLeft">3dp</item>
     </style>
 
     <style name="smallBlackText" parent="viewParent">
@@ -84,7 +94,7 @@
 
     <!--buttons-->
     <style name="mediumRoundButton" parent="viewParent">
-        <item name="android:background">@drawable/round_button</item>
+        <item name="android:background">@drawable/button_round</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/mediumTextSize</item>
         <item name="android:textStyle">bold</item>
@@ -92,7 +102,7 @@
     </style>
 
     <style name="bigSquareRoundedButton" parent="viewParent">
-        <item name="android:background">@drawable/square_rounded_button</item>
+        <item name="android:background">@drawable/button_square_rounded</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/bigTextSize</item>
         <item name="android:textStyle">bold</item>
@@ -100,7 +110,7 @@
     </style>
 
     <style name="mediumSquareRoundedButton" parent="viewParent">
-        <item name="android:background">@drawable/square_rounded_button</item>
+        <item name="android:background">@drawable/button_square_rounded</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/mediumTextSize</item>
         <item name="android:textStyle">bold</item>
@@ -108,7 +118,7 @@
     </style>
 
     <style name="smallSquareRoundedButton" parent="viewParent">
-        <item name="android:background">@drawable/square_rounded_button</item>
+        <item name="android:background">@drawable/button_square_rounded</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/smallTextSize</item>
         <item name="android:textStyle">bold</item>
@@ -123,6 +133,46 @@
         <item name="colorControlActivated">@color/accentColor</item>
         <item name="colorControlNormal">@color/white</item>
         <item name="android:numStars">5</item>
+    </style>
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!--styles for education app-->
+
+    <style name="viewParent.headerText">
+        <item name="android:textColor">@color/contentTextColor</item>
+        <item name="android:textSize">@dimen/headerTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="viewParent.headerText.settingsMiniTitle">
+        <item name="android:textColor">#5D5C5C</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_marginTop">20dp</item>
+    </style>
+
+    <style name="settingsText" parent="viewParent.headerText.settingsMiniTitle">
+        <item name="android:textColor">@color/miniTitle</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawablePadding">20dp</item>
+    </style>
+
+    <style name="viewParent.headerText.settingsTextIcon" parent="settingsText">
+        <item name="android:drawableRight">@drawable/ic_left_icon</item>
     </style>
 
 

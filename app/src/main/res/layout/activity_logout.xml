@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <View
+            android:background="@drawable/ic_baseline_west_24"
+            android:layout_height="45dp"
+            android:layout_width="45dp"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            style="@style/bigLightText"
+            android:text="Logout"
+            android:layout_marginBottom="45dp"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Are you sure you want to logout?"
+            style="@style/mediumLightText"/>
+
+
+        <Button
+            android:id="@+id/submitLogoutButton"
+            style="@style/bigSquareRoundedButton"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/mediumViewsMargin"
+            android:text="Yes" />
+
+
+    </LinearLayout>
+
+</ScrollView>

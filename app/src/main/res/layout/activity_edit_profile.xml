@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <View
+            android:background="@drawable/ic_baseline_west_24"
+            android:layout_height="45dp"
+            android:layout_width="45dp"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            style="@style/bigLightText"
+            android:text="@string/edit_profile"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_email_hint"
+            style="@style/editProfileText"/>
+        <EditText
+            android:id="@+id/registerEmail"
+            style="@style/modifiedEditText"
+            android:text="@string/example_email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register_name_hint"
+            style="@style/editProfileText"/>
+        <EditText
+            android:id="@+id/registerName"
+            style="@style/modifiedEditText"
+            android:text="@string/example_name"
+            android:hint="@string/register_name_hint"
+            android:inputType="text"
+            android:maxLines="1"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register_nickname_hint"
+            style="@style/editProfileText"/>
+        <EditText
+            android:id="@+id/registerNickname"
+            style="@style/modifiedEditText"
+            android:text="@string/example_nickname"
+            android:inputType="text"
+            android:maxLines="1"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register_age_hint"
+            style="@style/editProfileText"/>
+        <EditText
+            android:id="@+id/registerAge"
+            style="@style/modifiedEditText"
+            android:text="@string/example_age"
+            android:inputType="number"
+            android:maxLines="1"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register_country_hint"
+            style="@style/editProfileText"/>
+        <EditText
+            android:id="@+id/registerCountry"
+            style="@style/modifiedEditText"
+            android:text="@string/country_example"
+            android:inputType="text"
+            android:maxLines="1"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register_city_hint"
+            style="@style/editProfileText"/>
+        <EditText
+            android:id="@+id/registerCity"
+            style="@style/modifiedEditText"
+            android:text="@string/city_example"
+            android:inputType="text"
+            android:maxLines="1"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register_address_hint"
+            style="@style/editProfileText"/>
+        <EditText
+            android:id="@+id/registerAddress"
+            style="@style/modifiedEditText"
+            android:text="@string/example_address"
+            android:inputType="text"
+            android:maxLines="2"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor"/>
+
+
+        <Button
+            android:id="@+id/saveEditProfileButton"
+            style="@style/bigSquareRoundedButton"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/mediumViewsMargin"
+            android:text="@string/save" />
+
+    </LinearLayout>
+
+</ScrollView>

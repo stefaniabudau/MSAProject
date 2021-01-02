@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,18 +13,7 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/soft_border_shadow"
-    android:backgroundTint="@color/bkColor">
-
-    <TextView
-        style="@style/bigLightText"
-        android:layout_marginTop="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="left"
-        android:gravity="center"
-        android:text="@string/reviewerNickname"></TextView>
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,17 +23,16 @@
 
         <TextView
             style="@style/mediumLightText"
-            android:layout_width="80dp"
+            android:layout_width="95dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="@string/ratingHonesty"></TextView>
+            android:text="@string/ratingHonesty"/>
 
         <RatingBar
             android:id="@+id/averageHonestyRating"
             style="@style/rating"
-            android:rating="1"
-            android:scaleX="0.7"
-            android:scaleY="0.7"/>
+            android:gravity="right"
+            android:rating="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -54,17 +43,16 @@
 
         <TextView
             style="@style/mediumLightText"
-            android:layout_width="80dp"
+            android:layout_width="95dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="@string/ratingPunctuality"></TextView>
+            android:text="@string/ratingPunctuality"/>
 
         <RatingBar
             android:id="@+id/averagePunctualityRating"
             style="@style/rating"
-            android:rating="1"
-            android:scaleX="0.7"
-            android:scaleY="0.7"/>
+            android:gravity="right"
+            android:rating="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -75,19 +63,17 @@
 
         <TextView
             style="@style/mediumLightText"
-            android:layout_width="80dp"
+            android:layout_width="95dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="@string/ratingAttitude"></TextView>
+            android:text="@string/ratingAttitude"/>
 
         <RatingBar
-            android:id="@+id/averageAttidudeRating"
+            android:id="@+id/averageAttitudeRating"
             style="@style/rating"
-            android:rating="1"
-            android:scaleX="0.7"
-            android:scaleY="0.7"/>
+            android:gravity="right"
+            android:rating="1" />
     </LinearLayout>
-
 
 </LinearLayout>
 
