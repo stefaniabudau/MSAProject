@@ -34,7 +34,6 @@ class LoginActivity : AppCompatActivity() {
         val login = findViewById<Button>(R.id.loginSubmitButton)
         val register = findViewById<Button>(R.id.registerGoToButton)
 
-//        val loading = findViewById<ProgressBar>(R.id.loading)
 
         register.setOnClickListener {
             startActivity(Intent(this@LoginActivity, RegisterTransitionActivity::class.java))

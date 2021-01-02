@@ -32,6 +32,6 @@ class LoginDataSource: AppCompatActivity() {
     }
 
     fun logout() {
-        // TODO: revoke authentication
+        auth.signOut()
     }
 }

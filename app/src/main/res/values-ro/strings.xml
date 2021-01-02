@@ -81,4 +81,27 @@
 
     <string name="thank_you">Multumesc</string>
 
+
+    <!-- Kotlin and Firebase strings-->
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Parola</string>
+    <string name="action_sign_in">Autentificare sau inregistrare</string>
+    <string name="action_sign_in_short">Autentificare</string>
+    <string name="welcome">"Bine ai venit !"</string>
+    <string name="invalid_username">Username invalid</string>
+    <string name="invalid_password">Parola trebuie sa aiba cel putin 5 caractere</string>
+    <string name="login_failed">"Autentificarea a esuat"</string>
+    <!-- Strings related to register -->
+    <string name="register_failed">"Inregistrarea a esuat"</string>
+    <string name="empty_name">Numele nu a fost completat</string>
+    <string name="empty_email">Email-ul nu a fost completat</string>
+    <string name="invalid_email">Adresa de email invalida</string>
+    <string name="invalid_age">Varsta invalida</string>
+    <string name="empty_age">Varsta nu a fost completata</string>
+    <string name="invalid_location">Locatie invalida</string>
+    <string name="different_passwords">Parolele trebuie sa fie identice</string>
+    <string name="empty_nickname">Porecla nu a fost completata</string>
+
 </resources>

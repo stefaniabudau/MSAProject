@@ -1,15 +1,15 @@
 package com.e.thetogetherapp.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.e.thetogetherapp.R
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
+import com.e.thetogetherapp.pages.MyRequests
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
@@ -29,7 +29,7 @@ class NeedyProfileActivity : AppCompatActivity() {
 
         database = Firebase.database.reference
 
-        setContentView(R.layout.activity_needy_profile)
+        setContentView(R.layout.activity_profile_needy)
 
         val requests= findViewById<TextView>(R.id.needyNoOfRequests)
         val donations= findViewById<TextView>(R.id.needyNoOfDonations)
@@ -37,31 +37,73 @@ class NeedyProfileActivity : AppCompatActivity() {
 
         val myRequests = findViewById<Button>(R.id.myRequestsButton)
 
+        // PROFILE BANNER
 
-        val requestsRef = database.child("requests")
-        requestsRef.addValueEventListener(object : ValueEventListener{
+       database.addValueEventListener(object : ValueEventListener{
+           override fun onCancelled(error: DatabaseError) {
+               Log.w(TAG, "loadBannerData:onCancelled", error.toException())
+           }
+
+           override fun onDataChange(snapshot: DataSnapshot) {
+               val allRequests = snapshot.child("requests").children
+               val userRequests = allRequests.filter { it.child("needy").value == uid }
+               val ongoingRequests = userRequests.filter { it.child("status").value == "ongoing" }
+
+               val allDonations = snapshot.child("donations").children
+               val userDonations = allDonations.filter { it.child("needy").value == uid }
+               val ongoingDonations = userDonations.filter { it.child("status").value == "ongoing" }
+
+               val ongoingActivities = ongoingDonations.count() + ongoingRequests.count()
+
+               requests.text = userRequests.count().toString()
+               donations.text = userDonations.count().toString()
+               activities.text = ongoingActivities.toString()
+
+           }
+       })
+
+        // MY REQUESTS
+
+        myRequests.setOnClickListener{
+            startActivity(Intent(this@NeedyProfileActivity, MyRequests::class.java))
+        }
+
+        // REVIEWS AND RATINGS
+
+        val ratingsHonesty = findViewById<RatingBar>(R.id.averageHonestyRating)
+        val ratingsAttitude = findViewById<RatingBar>(R.id.averageAttitudeRating)
+        val ratingsPunctuality = findViewById<RatingBar>(R.id.averagePunctualityRating)
+        val nrRatings = findViewById<TextView>(R.id.reviewsNumber)
+
+
+        val ratingsRef = database.child("ratings")
+        ratingsRef.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(error: DatabaseError) {
-                Log.w(TAG, "loadRequests:onCancelled", error.toException())
+                Log.w(TAG, "loadRatings:onCancelled", error.toException())
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                val allRequests = snapshot.children
-                val userRequests = allRequests.filter { (it.value as Map<*,*>)["needy"] == uid }.count()
-                requests.text = userRequests.toString()
-            }
-        })
+                val ratings = snapshot.children
+                val userRatings = ratings.filter { it.child("to").value == uid }
+                val numberOfRatings = userRatings.count()
 
+                if (numberOfRatings == 0){
+                    ratingsAttitude.rating = 0F
+                    ratingsPunctuality.rating = 0F
+                    ratingsHonesty.rating = 0F
+                    nrRatings.text = "0"
+                }
+                else{
+                    fun getAverageRating(ratings:List<DataSnapshot>, characteristic:String, n:Int): Float{
+                        return ratings.map { it.child(characteristic).value.toString().toFloat() }.sum() / n
+                    }
 
-        val donationsRef = database.child("donations")
-        donationsRef.addValueEventListener(object : ValueEventListener{
-            override fun onCancelled(error: DatabaseError) {
-                Log.w(TAG, "loadDonations:onCancelled", error.toException())
-            }
+                    ratingsAttitude.rating = getAverageRating(userRatings, "attitude", numberOfRatings)
+                    ratingsPunctuality.rating = getAverageRating(userRatings, "punctuality", numberOfRatings)
+                    ratingsHonesty.rating = getAverageRating(userRatings, "honesty", numberOfRatings)
+                    nrRatings.text = numberOfRatings.toString()
+                }
 
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val allDonations = snapshot.children
-                val userDonations = allDonations.filter { (it.value as Map<*,*>)["needy"] == uid }.count()
-                donations.text = userDonations.toString()
             }
         })
 

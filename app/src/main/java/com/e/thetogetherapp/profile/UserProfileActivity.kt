@@ -31,7 +31,7 @@ class UserProfileActivity :AppCompatActivity(){
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                val userType:String = (snapshot.value as Map<*, *>)["type"].toString()
+                val userType:String = snapshot.child("type").value.toString()
                 val intent: Intent
 
                 val extras = Bundle()
