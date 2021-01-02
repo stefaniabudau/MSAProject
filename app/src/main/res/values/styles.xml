@@ -125,6 +125,14 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
+    <style name="miniSquareRoundedButton" parent="viewParent">
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/miniTextSize</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
 
     <!--objects-->
     <style name="rating" parent="Widget.AppCompat.RatingBar.Indicator">
