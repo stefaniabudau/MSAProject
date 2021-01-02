@@ -11,7 +11,12 @@
         android:orientation="vertical"
         android:padding="30dp">
 
-        <include layout="@layout/component_user_profile_banner_info"/>
+<!--        <include layout="@layout/component_user_profile_banner_info"/>-->
+        <fragment
+            android:id="@+id/banner_fragment"
+            class="com.e.thetogetherapp.fragments.ProfileBannerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/myRequestsButton"
@@ -23,7 +28,14 @@
             android:text="@string/myRequests" />
 
         <include layout="@layout/card_notifications"/>
-        <include layout="@layout/card_review"/>
+
+<!--        <include layout="@layout/card_review"/>-->
+        <fragment
+            android:id="@+id/avg_review_fragment"
+            class="com.e.thetogetherapp.fragments.AverageReviewCardFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
 </ScrollView>

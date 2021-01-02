@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.RegisteredUser
 import com.e.thetogetherapp.profile.NeedyProfileActivity
+import com.e.thetogetherapp.profile.UserProfileActivity
 
 class RegisterActivity: AppCompatActivity(){
 
@@ -96,7 +97,14 @@ class RegisterActivity: AppCompatActivity(){
             }
             if (registerResult.success != null) {
                 updateUiWithUser(registerResult.success)
-                startActivity(Intent(this@RegisterActivity, NeedyProfileActivity::class.java))
+
+                val user = Bundle()
+                val intent = Intent(this@RegisterActivity, UserProfileActivity::class.java)
+
+                user.putString("uid", registerResult.success.uid)
+                intent.putExtras(user)
+
+                startActivity(intent)
             }
             setResult(Activity.RESULT_OK)
 
