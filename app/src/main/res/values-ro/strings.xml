@@ -29,7 +29,7 @@
     <string name="communitySupervisor">Community Supervisor</string>
 
     <!-- Profile info-->
-
+    <string name="userType">Voluntar</string>
     <string name="userNickname">George Jetson</string>
     <string name="userDescription">I really need help!</string>
 

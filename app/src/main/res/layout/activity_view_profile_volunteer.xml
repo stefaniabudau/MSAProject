@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:padding="30dp">
 
-        <include layout="@layout/component_user_profile_banner_info"/>
+        <include layout="@layout/component_user_profile_header"/>
         
         <include layout="@layout/card_review"/>
     </LinearLayout>

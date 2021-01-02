@@ -8,12 +8,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="30dp">
+        android:orientation="vertical">
 
-        <include layout="@layout/component_user_profile_banner_info"/>
+        <include layout="@layout/component_user_profile_header"/>
 
-        <include layout="@layout/card_review"/>
+        <include layout="@layout/card_review" />
     </LinearLayout>
 
 </ScrollView>

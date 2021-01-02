@@ -135,5 +135,8 @@
             android:backgroundTint="@color/darkAccentColor"
             tools:targetApi="lollipop" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="150dp"/>
     </LinearLayout>
 </ScrollView>

@@ -17,14 +17,7 @@
         android:top="0dp"
         android:bottom="3dp">
         <shape android:shape="rectangle">
-            <padding
-                android:bottom="40dp"
-                android:top="40dp"
-                android:right="10dp"
-                android:left="10dp"
-                >
-            </padding>
-            <corners android:radius="2dp" />
+
         </shape>
     </item>
 </layer-list>

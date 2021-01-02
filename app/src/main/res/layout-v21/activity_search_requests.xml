@@ -127,6 +127,8 @@
             app:drawableTopCompat="@drawable/ic_baseline_add_24"
             android:background="@drawable/border_soft_shadow"
             android:backgroundTint="@color/darkAccentColor"/>
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="150dp"/>
     </LinearLayout>
 </ScrollView>

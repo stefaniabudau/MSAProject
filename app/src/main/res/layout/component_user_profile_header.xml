@@ -1,46 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginTop="0dp"
-    android:background="@drawable/border_soft_shadow"
-    android:backgroundTint="@color/bkColor">
+    android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/profile_header_box">
+
+        <View
+            android:background="@drawable/ic_baseline_menu_24"
+            android:layout_height="45dp"
+            android:layout_width="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="end" />
+
+        <TextView
+            android:id="@+id/userNicknameProfileText"
+            style="@style/hugeLightText"
+            android:text="@string/example_nickname"
+            android:layout_marginBottom="15dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp" />
+        <TextView
+            android:id="@+id/userTypeProfileText"
+            style="@style/mediumLightText"
+            android:text="@string/userType"
+            android:layout_marginBottom="15dp"
+            android:layout_gravity="center"
+            android:textAllCaps="true"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginLeft="5dp"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:layout_marginTop="-55dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/border_shadow"
+        android:backgroundTint="@color/accentColor"
+        tools:targetApi="lollipop">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/notificationTitle"
-            android:textColor="@color/containerColor"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/notificationDescription"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+        <LinearLayout
+            style="@style/linearHorizontalParent"
+            android:layout_gravity="center"
+            android:gravity="center">
 
-        !--add objects
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
 
-    </LinearLayout>
+                <TextView
+                    style="@style/hugeLightText"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="@string/requestsNumber"/>
+                <TextView
+                    style="@style/mediumLightText"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="@string/requests"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <TextView
+                    style="@style/hugeLightText"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="@string/donationsNumber"/>
+                <TextView
+                    style="@style/mediumLightText"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="@string/donations"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <TextView
+                    style="@style/hugeLightText"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="@string/ongoingActivityNumber"/>
+                <TextView
+                    style="@style/mediumLightText"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="@string/ongoingActivity"/>
+            </LinearLayout>
+
+        </LinearLayout>
 </LinearLayout>
-
+</LinearLayout>
 
