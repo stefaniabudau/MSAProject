@@ -115,6 +115,7 @@ class NeedyProfileActivity : AppCompatActivity() {
 
 //        TODO: handle review page transition
         goToReviewsPage.setOnClickListener{
+            startActivity(Intent(this@NeedyProfileActivity, SettingsPage::class.java))
         }
 
 

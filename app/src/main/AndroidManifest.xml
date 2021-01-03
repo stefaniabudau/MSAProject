@@ -20,7 +20,9 @@
         <activity android:name=".RegisterTransitionActivity" />
         <activity android:name=".profile.NeedyProfileActivity" />
         <activity android:name=".profile.UserProfileActivity" />
-        <activity android:name=".pages.MyRequests" />
+        <activity android:name=".pages.MyRequestsPage" />
+        <activity android:name=".pages.SettingsPage" />
+        <activity android:name=".pages.EditProfilePage" />
     </application>
 
 </manifest>

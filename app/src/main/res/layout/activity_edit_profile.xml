@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="user" type="com.e.thetogetherapp.data.model.User"/>
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,9 +30,9 @@
             android:text="@string/login_email_hint"
             style="@style/editProfileText"/>
         <EditText
-            android:id="@+id/registerEmail"
+            android:id="@+id/editEmail"
             style="@style/modifiedEditText"
-            android:text="@string/example_email"
+            android:text="@={user.email}"
             android:inputType="textEmailAddress"
             android:maxLines="1"
             android:importantForAutofill="no"
@@ -41,9 +44,9 @@
             android:text="@string/register_name_hint"
             style="@style/editProfileText"/>
         <EditText
-            android:id="@+id/registerName"
+            android:id="@+id/editName"
             style="@style/modifiedEditText"
-            android:text="@string/example_name"
+            android:text="@={user.name}"
             android:hint="@string/register_name_hint"
             android:inputType="text"
             android:maxLines="1"
@@ -56,9 +59,9 @@
             android:text="@string/register_nickname_hint"
             style="@style/editProfileText"/>
         <EditText
-            android:id="@+id/registerNickname"
+            android:id="@+id/editNickname"
             style="@style/modifiedEditText"
-            android:text="@string/example_nickname"
+            android:text="@={user.nickname}"
             android:inputType="text"
             android:maxLines="1"
             android:importantForAutofill="no"
@@ -70,9 +73,9 @@
             android:text="@string/register_age_hint"
             style="@style/editProfileText"/>
         <EditText
-            android:id="@+id/registerAge"
+            android:id="@+id/editAge"
             style="@style/modifiedEditText"
-            android:text="@string/example_age"
+            android:text="@={user.age}"
             android:inputType="number"
             android:maxLines="1"
             android:importantForAutofill="no"
@@ -84,9 +87,9 @@
             android:text="@string/register_country_hint"
             style="@style/editProfileText"/>
         <EditText
-            android:id="@+id/registerCountry"
+            android:id="@+id/editCountry"
             style="@style/modifiedEditText"
-            android:text="@string/country_example"
+            android:text="@={user.location[&quot;country&quot;]}"
             android:inputType="text"
             android:maxLines="1"
             android:importantForAutofill="no"
@@ -98,9 +101,9 @@
             android:text="@string/register_city_hint"
             style="@style/editProfileText"/>
         <EditText
-            android:id="@+id/registerCity"
+            android:id="@+id/editCity"
             style="@style/modifiedEditText"
-            android:text="@string/city_example"
+            android:text='@={user.location[&quot;city&quot;]}'
             android:inputType="text"
             android:maxLines="1"
             android:importantForAutofill="no"
@@ -112,9 +115,9 @@
             android:text="@string/register_address_hint"
             style="@style/editProfileText"/>
         <EditText
-            android:id="@+id/registerAddress"
+            android:id="@+id/editAddress"
             style="@style/modifiedEditText"
-            android:text="@string/example_address"
+            android:text='@={user.location[&quot;address&quot;]}'
             android:inputType="text"
             android:maxLines="2"
             android:importantForAutofill="no"
@@ -131,4 +134,4 @@
 
     </LinearLayout>
 
-</ScrollView>
+</layout>
