@@ -18,7 +18,7 @@ class User(
             "email" to email,
             "name" to name,
             "nickname" to nickname,
-            "age" to "age",
+            "age" to age,
             "location" to mapOf(
                 "city" to location!!["city"],
                 "country" to location!!["country"],

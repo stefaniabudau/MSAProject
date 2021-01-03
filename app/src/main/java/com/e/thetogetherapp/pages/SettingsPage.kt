@@ -48,6 +48,10 @@ class SettingsPage :AppCompatActivity(){
             startActivity(Intent(this@SettingsPage, EditProfilePage::class.java))
         }
 
+        changePassword.setOnClickListener{
+            startActivity(Intent(this@SettingsPage, ChangePasswordPage::class.java))
+        }
+
         logout.setOnClickListener{
             auth.signOut()
             finishAffinity()

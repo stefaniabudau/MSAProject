@@ -26,7 +26,6 @@ class EditProfilePage:AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private lateinit var auth: FirebaseAuth
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -52,8 +51,7 @@ class EditProfilePage:AppCompatActivity() {
 
         submitButton.setOnClickListener{
             ref.updateChildren(binding.user!!.toMap())
+//            auth.currentUser!!.updateEmail(binding.user.email.toString())
         }
-
-
     }
 }

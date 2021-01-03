@@ -103,5 +103,9 @@
     <string name="invalid_location">Locatie invalida</string>
     <string name="different_passwords">Parolele trebuie sa fie identice</string>
     <string name="empty_nickname">Porecla nu a fost completata</string>
+    <!--Strings related to settings-->
+    <string name="password_update_success">Succes - Parola a fost modificata</string>
+    <string name="password_update_fail">Esec - Parola nu poate fi modificata</string>
+    <string name="not_new_password">Noua parola nu poate fi identica cu parola veche</string>
 
 </resources>

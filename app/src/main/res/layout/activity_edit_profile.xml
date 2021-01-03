@@ -24,19 +24,19 @@
             android:text="@string/edit_profile"
             android:layout_marginBottom="15dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/login_email_hint"
-            style="@style/editProfileText"/>
-        <EditText
-            android:id="@+id/editEmail"
-            style="@style/modifiedEditText"
-            android:text="@={user.email}"
-            android:inputType="textEmailAddress"
-            android:maxLines="1"
-            android:importantForAutofill="no"
-            tools:ignore="LabelFor"/>
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/login_email_hint"-->
+<!--            style="@style/editProfileText"/>-->
+<!--        <EditText-->
+<!--            android:id="@+id/editEmail"-->
+<!--            style="@style/modifiedEditText"-->
+<!--            android:text="@={user.email}"-->
+<!--            android:inputType="textEmailAddress"-->
+<!--            android:maxLines="1"-->
+<!--            android:importantForAutofill="no"-->
+<!--            tools:ignore="LabelFor"/>-->
 
         <TextView
             android:layout_width="match_parent"

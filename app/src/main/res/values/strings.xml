@@ -103,5 +103,10 @@
     <string name="invalid_location">Not a valid location</string>
     <string name="different_passwords">Passwords not identical</string>
     <string name="empty_nickname">Empty nickname field</string>
+    <!--Strings related to settings-->
+    <string name="password_update_success">Success - Password was updated</string>
+    <string name="password_update_fail">Fail - Password can t be updated</string>
+    <string name="not_new_password">New password can t be the same as the old one</string>
+
 </resources>
 

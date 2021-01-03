@@ -23,6 +23,7 @@
         <activity android:name=".pages.MyRequestsPage" />
         <activity android:name=".pages.SettingsPage" />
         <activity android:name=".pages.EditProfilePage" />
+        <activity android:name=".pages.ChangePasswordPage" />
     </application>
 
 </manifest>
