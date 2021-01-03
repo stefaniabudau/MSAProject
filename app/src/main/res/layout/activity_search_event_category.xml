@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_top_shadow_1">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,38 +12,31 @@
         android:orientation="vertical"
         android:padding="30dp">
 
+        <View
+            android:background="@drawable/ic_baseline_west_24"
+            android:layout_height="45dp"
+            android:layout_width="45dp"
+            android:layout_marginBottom="10dp"/>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/notification"
-            style="@style/PageTitleText"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            android:gravity="center" />
-
-        <Button
-            android:id="@+id/clearNotificationsButton"
-            style="@style/miniSquareRoundedButton"
-            android:layout_width="90dp"
-            android:layout_marginTop="@dimen/mediumViewsMargin"
-            android:layout_marginRight="@dimen/smallViewsMargin"
-            android:text="@string/clearNotifications"
-            android:layout_gravity="end"
-            android:layout_marginEnd="@dimen/smallViewsMargin" />
+            android:id="@+id/categoryNameEvents"
+            style="@style/bigLightText"
+            android:text="Category Name"
+            android:layout_marginBottom="15dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="20dp">
-            <include layout="@layout/component_notifications"/>
-            <include layout="@layout/component_notifications"/>
-            <include layout="@layout/component_notifications"/>
+
+            <include layout="@layout/component_event"/>
+            <include layout="@layout/component_event"/>
+            <include layout="@layout/component_event"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/noOtherNotifications"
+                android:text="No other donations"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:textColor="@color/black"

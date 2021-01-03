@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CREATE NEW"
+            style="@style/PageTitleText"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            style="@style/editProfileText"/>
+        <EditText
+            android:id="@+id/createEventTitle"
+            style="@style/modifiedEditText"
+            android:maxLines="1"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            style="@style/editProfileText"/>
+        <EditText
+            android:id="@+id/createEventLocation"
+            style="@style/modifiedEditText"
+            android:maxLines="1"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            style="@style/editProfileText"/>
+        <EditText
+            android:id="@+id/createEventDate"
+            style="@style/modifiedEditText"
+            android:maxLines="1"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Time"
+            style="@style/editProfileText"/>
+        <EditText
+            android:id="@+id/createEventTime"
+            style="@style/modifiedEditText"
+            android:maxLines="1"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            style="@style/editProfileText"/>
+        <EditText
+            android:id="@+id/createEventDescription"
+            style="@style/modifiedEditText"
+            android:maxLines="15"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Category"
+            style="@style/editProfileText"/>
+        <EditText
+            android:id="@+id/createEventCategory"
+            style="@style/modifiedEditText"
+            android:maxLines="15"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor"/>
+
+        <Button
+            android:id="@+id/createEventButton"
+            style="@style/bigSquareRoundedButton"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/mediumViewsMargin"
+            android:text="Create" />
+
+    </LinearLayout>
+
+</ScrollView>

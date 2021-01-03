@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,33 +9,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-<!--        <include layout="@layout/component_user_profile_banner_info"/>-->
-        <fragment
-            android:id="@+id/banner_fragment"
-            class="com.e.thetogetherapp.fragments.ProfileBannerFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+        <include layout="@layout/component_user_profile_header"/>
 
         <Button
-            android:id="@+id/myRequestsButton"
+            android:id="@+id/myDonationsButton"
             style="@style/mediumSquareRoundedButton"
             android:layout_width="245dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/mediumViewsMargin"
-            android:text="@string/myRequests" />
+            android:text="@string/myDonations" />
 
         <include layout="@layout/card_notifications"/>
-
-
-<!--        <include layout="@layout/card_review"/>-->
-        <fragment
-            android:id="@+id/avg_review_fragment"
-            class="com.e.thetogetherapp.fragments.AverageReviewCardFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+        <include layout="@layout/card_review"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="150dp"/>
