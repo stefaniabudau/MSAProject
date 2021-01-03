@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -18,34 +17,28 @@
             android:layout_marginBottom="10dp"/>
         <TextView
             style="@style/bigLightText"
-            android:text="Language"
+            android:text="@string/text_language"
             android:layout_marginBottom="45dp"/>
-
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select language"
+            android:text="@string/text_select_language"
             style="@style/mediumLightText"/>
 
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/string"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/spinner"
-            android:layout_centerInParent="true"
             android:text="@string/text_thank_you"
             android:textColor="@android:color/holo_orange_dark"
             android:textSize="24sp"
             android:textStyle="bold" />
 
-
     </LinearLayout>
-
 </ScrollView>

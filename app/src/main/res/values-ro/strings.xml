@@ -26,6 +26,11 @@
     <string name="text_pending_requests">În așteptare</string>
     <string name="text_reviews">Recenzii</string>
 
+    <!--NavigationBar-->
+    <string name="text_home">Casa</string>
+    <string name="text_search">Căutare</string>
+    <string name="text_add_new">Crează</string>
+
     <!-- Profile info-->
     <string name="text_user_type_volunteer">Voluntar</string>
     <string name="text_user_type_needy">User</string>
@@ -67,8 +72,10 @@
     <string name="text_change_password">Schimbă parola</string>
     <string name="text_regional">Regional</string>
     <string name="text_language">Limbă</string>
+    <string name="text_select_language">Limbă</string>
     <string name="text_thank_you">Multumesc</string>
     <string name="text_logout">Deconectare</string>
+    <string name="text_ask_logout">Ești sigur că vrei să te deconectezi??</string>
 
     <!--Edit Profile-->
     <string name="value_profile_address">str. Victoriei nr.21</string>
@@ -99,6 +106,7 @@
     <!--events-->
     <string name="text_event_date">Data</string>
     <string name="value_event_date">2 iunie 2021</string>
+    <string name="text_event_title">Titlu</string>
     <string name="value_event_title">Titlul Evenimentului</string>
     <string name="text_event_location">Locație</string>
     <string name="value_event_location">Sebiș, Arad</string>
@@ -115,11 +123,29 @@
     <string name="value_user_type_volunteer">Voluntar</string>
     <string name="value_user_type_needy">User</string>
 
-    <string name="text_recieved_ratings">Recenziile Primite</string>
+    <string name="text_received_ratings">Recenziile Primite</string>
 
     <string name="value_event_category_name">Numele Categoriei</string>
     <string name="text_submit_donation">Postează Donația</string>
     <string name="text_submit_request">Postează Cererea</string>
     <string name="text_new_donation">Donație noua</string>
     <string name="text_new_request">Cerere Noua</string>
+
+    <string name="text_mark_as_completed">Confirmă Completare</string>
+    <string name="text_cancel">Anulează</string>
+    <string name="text_delete">Șterge</string>
+    <string name="text_remove_assignee">Șterge userul asignat</string>
+    <string name="text_ask_delete">Ești sigur că vrei să ștergi acest eveniment?</string>
+    <string name="text_yes">Da</string>
+    <string name="text_edit">Editează</string>
+    <string name="text_accept">Acceptă</string>
+
+    <!--Change password-->
+    <string name="text_current_password">Parola currentă</string>
+    <string name="text_new_password">Parola nouă</string>
+    <string name="text_confirm_new_password">Confirmă parola noua</string>
+    <string name="text_submit">Salvează</string>
+
+
+
 </resources>

@@ -1,16 +1,12 @@
 package com.e.thetogetherapp
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 //DARK MODE -------------------------------------------------------------
-/*
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.Switch
+
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.SwitchCompat
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
 
         // Declare the switch from the layout file
-        val btn = findViewById<Switch>(R.id.darkModeSwitch)
+        val btn = findViewById<SwitchCompat>(R.id.darkModeSwitch)
 
         // set the switch to listen on checked change
         btn.setOnCheckedChangeListener { _, isChecked ->
@@ -38,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-}*/
+}
 
 
 //LANGUAGE ------------------------------------------------------------------------
@@ -115,8 +111,7 @@ class MainActivity : AppCompatActivity() {
 }*/
 
 //NAVIGATION BAR ------------------------------------------------------------------
-
-
+/*
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -128,4 +123,5 @@ class MainActivity : AppCompatActivity() {
             true
         })
     }
-}
+}*/
+

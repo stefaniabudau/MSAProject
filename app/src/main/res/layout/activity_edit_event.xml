@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
@@ -18,84 +17,90 @@
             android:layout_marginBottom="10dp"/>
         <TextView
             style="@style/bigLightText"
-            android:text="Edit "
+            android:text="@string/text_edit"
             android:layout_marginBottom="15dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Title"
+            android:text="@string/text_event_title"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/editEventTitle"
             style="@style/modifiedEditText"
-            android:text="add title"
+            android:text="@string/value_event_title"
             android:maxLines="1"
             android:importantForAutofill="no"
+            android:inputType="text"
             tools:ignore="LabelFor"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Location"
+            android:text="@string/text_event_location"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/editEventLocation"
             style="@style/modifiedEditText"
-            android:text="add location"
+            android:text="@string/value_event_location"
             android:maxLines="1"
+            android:inputType="text"
             android:importantForAutofill="no"
             tools:ignore="LabelFor"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Date"
+            android:text="@string/text_event_date"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/editEventDate"
             style="@style/modifiedEditText"
-            android:text="add time"
+            android:text="@string/value_event_date"
             android:maxLines="1"
+            android:inputType="date"
             android:importantForAutofill="no"
             tools:ignore="LabelFor"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Time"
+            android:text="@string/text_event_time"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/editEventTime"
             style="@style/modifiedEditText"
-            android:text="add time"
+            android:text="@string/value_event_time"
             android:maxLines="1"
+            android:inputType="time"
             android:importantForAutofill="no"
             tools:ignore="LabelFor"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description"
+            android:text="@string/text_event_description"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/editEventDescription"
             style="@style/modifiedEditText"
-            android:text="add description"
+            android:text="@string/value_event_description"
             android:maxLines="15"
+            android:inputType="text"
             android:importantForAutofill="no"
             tools:ignore="LabelFor"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Category"
+            android:text="@string/text_event_category"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/editEventCategory"
             style="@style/modifiedEditText"
-            android:text="add category"
+            android:text="@string/value_event_category"
             android:maxLines="15"
+            android:inputType="text"
             android:importantForAutofill="no"
             tools:ignore="LabelFor"/>
 
