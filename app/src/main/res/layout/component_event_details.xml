@@ -5,69 +5,68 @@
     android:orientation="vertical"
     android:padding="30dp"
     android:background="@drawable/border_shadow"
-    xmlns:android="http://schemas.android.com/apk/res/android">>
-
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
         android:layout_width="match_parent"
         android:id="@+id/eventTitle"
         style="@style/bigLightText"
-        android:text="Event Title"
+        android:text="@string/value_event_title"
         android:layout_marginBottom="15dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Location"
+        android:text="@string/text_event_location"
         style="@style/mediumLightText"/>
     <TextView
         android:id="@+id/eventLocation"
         style="@style/mediumBlackText"
-        android:text="Sebis, Arad"/>
+        android:text="@string/value_event_location"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Date"
+        android:text="@string/text_event_date"
         android:layout_marginTop="@dimen/miniViewsMargin"
         style="@style/mediumLightText"/>
     <TextView
         android:id="@+id/eventDate"
         style="@style/mediumBlackText"
-        android:text="June 2, 2021"/>
+        android:text="@string/value_event_date"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Time"
+        android:text="@string/text_event_time"
         android:layout_marginTop="@dimen/miniViewsMargin"
         style="@style/mediumLightText"/>
     <TextView
         android:id="@+id/eventTime"
         style="@style/mediumBlackText"
-        android:text="14:00-13:00"/>
+        android:text="@string/value_event_time"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Description"
+        android:text="@string/text_event_description"
         android:layout_marginTop="@dimen/miniViewsMargin"
         style="@style/mediumLightText"/>
     <TextView
         android:id="@+id/eventDescription"
         style="@style/mediumBlackText"
-        android:text="I need someone to help me buy groceries."/>
+        android:text="@string/value_event_description"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Category"
+        android:text="@string/text_event_category"
         android:layout_marginTop="@dimen/miniViewsMargin"
         style="@style/mediumLightText"/>
     <TextView
         android:id="@+id/eventCategory"
         style="@style/mediumBlackText"
-        android:text="Food"/>
+        android:text="@string/value_event_category"/>
 
 
 

@@ -2,7 +2,6 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/border_shadow"
     android:orientation="vertical"
     android:padding="30dp"
@@ -12,19 +11,19 @@
     <TextView
         android:layout_width="match_parent"
         style="@style/bigLightText"
-        android:text="Recieved Ratings"
+        android:text="@string/text_received_ratings"
         android:layout_marginBottom="@dimen/mediumViewsMargin"/>
     <TextView
         android:layout_width="match_parent"
-        android:id="@+id/creatorNicknameText"
+        android:id="@+id/creatorNicknameReviewText"
         style="@style/bigLightText"
-        android:text="Nickname"/>
+        android:text="@string/value_event_nickname_creator"/>
     <include layout="@layout/component_average_review"/>
     <TextView
         android:layout_width="match_parent"
         android:id="@+id/assigneeNicknameText"
         style="@style/bigLightText"
-        android:text="Nickname"/>
+        android:text="@string/value_event_nickname_assignee"/>
     <include layout="@layout/component_average_review"/>
 
 </LinearLayout>

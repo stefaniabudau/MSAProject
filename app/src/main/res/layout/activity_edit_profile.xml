@@ -21,33 +21,35 @@
             android:layout_marginBottom="10dp"/>
         <TextView
             style="@style/bigLightText"
-            android:text="@string/edit_profile"
+            android:text="@string/text_edit_profile"
             android:layout_marginBottom="15dp"/>
 
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/login_email_hint"-->
-<!--            style="@style/editProfileText"/>-->
-<!--        <EditText-->
-<!--            android:id="@+id/editEmail"-->
-<!--            style="@style/modifiedEditText"-->
-<!--            android:text="@={user.email}"-->
-<!--            android:inputType="textEmailAddress"-->
-<!--            android:maxLines="1"-->
-<!--            android:importantForAutofill="no"-->
-<!--            tools:ignore="LabelFor"/>-->
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/register_name_hint"
+            android:text="@string/text_login_email"
+            style="@style/editProfileText"/>
+        <EditText
+            android:id="@+id/registerEmail"
+            style="@style/modifiedEditText"
+            android:text="@string/value_profile_email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:importantForAutofill="no"
+            tools:ignore="LabelFor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_register_name"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/editName"
             style="@style/modifiedEditText"
-            android:text="@={user.name}"
-            android:hint="@string/register_name_hint"
+            android:text="@string/value_profile_name"
+            android:hint="@string/text_register_name"
+
             android:inputType="text"
             android:maxLines="1"
             android:importantForAutofill="no"
@@ -56,7 +58,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/register_nickname_hint"
+            android:text="@string/text_register_nickname"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/editNickname"
@@ -70,7 +72,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/register_age_hint"
+            android:text="@string/text_register_age"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/editAge"
@@ -84,7 +86,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/register_country_hint"
+            android:text="@string/text_register_country"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/editCountry"
@@ -98,7 +100,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/register_city_hint"
+            android:text="@string/text_register_city"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/editCity"
@@ -112,7 +114,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/register_address_hint"
+            android:text="@string/text_register_address"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/editAddress"
@@ -130,7 +132,7 @@
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/mediumViewsMargin"
-            android:text="@string/save" />
+            android:text="@string/text_save" />
 
     </LinearLayout>
 

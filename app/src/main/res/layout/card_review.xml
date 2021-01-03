@@ -3,28 +3,34 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
-    android:layout_marginTop="20dp"
+    android:layout_marginTop="23dp"
     android:layout_marginRight="20dp"
     android:layout_marginLeft="20dp"
-    android:background="@drawable/border_shadow">
+    android:background="@drawable/border_shadow"
+    android:layout_marginBottom="3dp"
+    android:orientation="vertical">
 
+    <TextView
+        android:text="@string/text_reviews"
+        style="@style/cardHeaderText"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:drawableRightCompat="@drawable/ic_right_icon" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="3dp"
         android:orientation="vertical">
 
-        <TextView
-            android:text="@string/reviews"
-            style="@style/cardHeaderText"
-            android:id="@+id/goToReviewsPageArrow"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            app:drawableRightCompat="@drawable/ic_right_icon" />
+<!--        <TextView-->
+<!--            android:text="@string/reviews"-->
+<!--            style="@style/cardHeaderText"-->
+<!--            android:id="@+id/goToReviewsPageArrow"-->
+<!--            android:layout_marginBottom="15dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginRight="30dp"-->
+<!--            app:drawableRightCompat="@drawable/ic_right_icon" />-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,7 +49,9 @@
                 android:gravity="center"
                 android:text="@string/ratingNumber"/>
         </LinearLayout>
+
     </LinearLayout>
+
 </LinearLayout>
 
 

@@ -20,60 +20,64 @@
             android:background="@drawable/ic_baseline_west_24" />
         <TextView
             style="@style/bigLightText"
-            android:text="@string/settings"
+            android:text="@string/text_settings"
             android:layout_marginBottom="15dp"/>
 
 
-<!--        <SwitchCompat-->
-<!--            android:id="@+id/darkModeSwitch"-->
-<!--            style="@style/settingsText"-->
-<!--            android:drawableLeft="@drawable/ic_dark_mode"-->
-<!--            android:text="@string/dark_mode"-->
-<!--            android:drawableStart="@drawable/ic_dark_mode" />-->
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/darkModeSwitch"
+            style="@style/settingsText"
+            android:drawableLeft="@drawable/ic_dark_mode"
+            android:text="@string/text_dark_mode"
+            android:drawableStart="@drawable/ic_dark_mode" />
+
 
         <TextView
             style="@style/viewParent.headerText.settingsMiniTitle"
-            android:text="@string/profile"/>
+            android:text="@string/text_profile"/>
 
         <TextView
             style="@style/viewParent.headerText.settingsTextIcon"
             app:drawableLeftCompat="@drawable/ic_edit_profile"
             android:id="@+id/editProfile"
-            android:text="@string/edit_profile" />
+            android:text="@string/text_edit_profile" />
+
 
         <TextView
             style="@style/viewParent.headerText.settingsTextIcon"
             app:drawableLeftCompat="@drawable/ic_edit_password"
             android:id="@+id/changePassword"
             android:layout_marginTop="10dp"
-            android:text="@string/change_password" />
+            android:text="@string/text_change_password" />
 
         <TextView
             style="@style/viewParent.headerText.settingsMiniTitle"
-            android:text="@string/notifications"/>
+            android:text="@string/text_notifications"/>
 
-<!--        <SwitchCompat-->
-<!--            style="@style/settingsText"-->
-<!--            android:id="@+id/notificationSwitch"-->
-<!--            android:checked="true"-->
-<!--            android:drawableLeft="@drawable/ic_notifications"-->
-<!--            android:text="@string/notifications"-->
-<!--            android:drawableStart="@drawable/ic_notifications" />-->
+
+        <androidx.appcompat.widget.SwitchCompat
+            style="@style/settingsText"
+            android:checked="true"
+            android:drawableLeft="@drawable/ic_notifications"
+            android:text="@string/text_notifications"
+            android:drawableStart="@drawable/ic_notifications" />
+
 
         <TextView
             style="@style/viewParent.headerText.settingsMiniTitle"
-            android:text="@string/regional"/>
+            android:text="@string/text_regional"/>
 
         <TextView
             style="@style/viewParent.headerText.settingsTextIcon"
             android:id="@+id/language"
-            android:text="@string/language"
+            android:text="@string/text_language"
             app:drawableLeftCompat="@drawable/ic_languages" />
 
         <TextView
             style="@style/viewParent.headerText.settingsTextIcon"
             android:id="@+id/logout"
-            android:text="@string/logout"
+            android:text="@string/text_logout"
+
             app:drawableLeftCompat="@drawable/ic_logout" />
 
     </LinearLayout>
