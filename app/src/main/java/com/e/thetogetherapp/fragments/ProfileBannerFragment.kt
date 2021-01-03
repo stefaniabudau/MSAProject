@@ -1,5 +1,6 @@
 package com.e.thetogetherapp.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.User
+import com.e.thetogetherapp.pages.SettingsPage
 import com.e.thetogetherapp.profile.NeedyProfileActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -43,6 +45,12 @@ class ProfileBannerFragment: Fragment() {
 
         val nickname = view.findViewById<TextView>(R.id.userNicknameProfileText)
         val type = view.findViewById<TextView>(R.id.userTypeProfileText)
+        val goToSetting = view.findViewById<View>(R.id.goToSettingsButton)
+
+        goToSetting.setOnClickListener{
+//            startActivity(Intent(, SettingsPage::class.java))
+        }
+
 
         val userRef = database.child("users").child(auth.currentUser!!.uid)
         userRef.addValueEventListener(object : ValueEventListener{

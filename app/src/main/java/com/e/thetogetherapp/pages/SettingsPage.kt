@@ -1,18 +1,16 @@
 package com.e.thetogetherapp.pages
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Switch
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.widget.SwitchCompat
 import com.e.thetogetherapp.R
+import com.e.thetogetherapp.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlin.system.exitProcess
+
 
 class SettingsPage :AppCompatActivity(){
 
@@ -33,6 +31,11 @@ class SettingsPage :AppCompatActivity(){
         val language = findViewById<TextView>(R.id.language)
         val logout = findViewById<TextView>(R.id.logout)
 
+        val back = findViewById<View>(R.id.settingsBackButton)
+
+        back.setOnClickListener{
+            finish()
+        }
 
 //        darkModeSwitch.setOnCheckedChangeListener { _, isChecked ->
 //            if (darkModeSwitch.isChecked) {
@@ -54,9 +57,13 @@ class SettingsPage :AppCompatActivity(){
 
         logout.setOnClickListener{
             auth.signOut()
-            finishAffinity()
+            val intnt = Intent(this@SettingsPage, LoginActivity::class.java)
+            intnt.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            intnt.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            intnt.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intnt.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intnt)
+//            finishAffinity()
         }
-
-
     }
 }
