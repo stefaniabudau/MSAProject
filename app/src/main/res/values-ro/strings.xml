@@ -2,100 +2,150 @@
     <string name="app_name">TheTogetherApp</string>
 
     <!--login and register-->
-    <string name="register">Inregistreaza-te</string>
-    <string name="login">Logheaza-te</string>
+    <string name="text_register">Înregistrează-te</string>
+    <string name="text_login">Autentificare</string>
 
-    <string name="login_email_hint">Email</string>
-    <string name="login_password_hint">Parola</string>
+    <string name="text_login_email">Email</string>
+    <string name="text_login_password">Parolă</string>
 
-    <string name="register_name_hint">Nume</string>
-    <string name="register_nickname_hint">Porecla</string>
-    <string name="register_age_hint">Varsta</string>
-    <string name="register_country_hint">Tara</string>
-    <string name="register_city_hint">Oras</string>
-    <string name="register_address_hint">Adresa</string>
+    <string name="text_register_name">Nume</string>
+    <string name="text_register_nickname">Poreclă</string>
+    <string name="text_register_age">Vârstă</string>
+    <string name="text_register_country">Țară</string>
+    <string name="text_register_city">Oraș</string>
+    <string name="text_register_address">Adresă</string>
 
-    <string name="register_login_hint">Ai un cont deja?</string>
-    <string name="login_register_hint">Nu ai un cont?</string>
+    <string name="text_go_to_login">Ai deja un cont?</string>
+    <string name="text_go_to_register">Nu ai un cont?</string>
 
-    <string name="register_as_needy">Inregistreaza-te ca si nevoias</string>
-    <string name="register_as_volunteer">Inregistreaza-te ca si voluntar</string>
+    <string name="text_register_as_needy">Înregistrează-te ca și user</string>
+    <string name="text_register_as_volunteer">Înregistrează-te ca și voluntar</string>
 
     <!-- Card Titles-->
-    <string name="notification">Notificari</string>
-    <string name="pendingRequests">Pending Requests</string>
-    <string name="reviews">ReCENZII</string>
-    <string name="volunteerSubscribers">My volunteer subscribers</string>
-    <string name="communitySupervisor">Community Supervisor</string>
+    <string name="text_notifications">Notificări</string>
+    <string name="text_pending_requests">În așteptare</string>
+    <string name="text_reviews">Recenzii</string>
+
+    <!--NavigationBar-->
+    <string name="text_home">Casa</string>
+    <string name="text_search">Căutare</string>
+    <string name="text_add_new">Crează</string>
 
     <!-- Profile info-->
-    <string name="userType">Voluntar</string>
-    <string name="userNickname">George Jetson</string>
-    <string name="userDescription">I really need help!</string>
+    <string name="text_user_type_volunteer">Voluntar</string>
+    <string name="text_user_type_needy">User</string>
+    <string name="value_user_nickname">Vasile Pop</string>
 
-    <string name="editProfile">Editeaza Profilul</string>
+    <string name="text_requests">Cerere</string>
+    <string name="value_requests_number">15</string>
 
-    <string name="requests">Requests</string>
-    <string name="requestsNumber">15</string>
-    <string name="donations">Donatii</string>
-    <string name="donationsNumber">10</string>
-    <string name="ongoingActivity">Activity</string>
-    <string name="ongoingActivityNumber">5</string>
+    <string name="text_donations">Donații</string>
+    <string name="value_donations_number">10</string>
 
-    <string name="myRequests">My Requests</string>
-    <string name="myDonations">Donatiile mele</string>
+    <string name="text_activity">Activități</string>
+    <string name="value_activity_number">5</string>
 
-
-    <string name="reviewerNickname">Fred Flinstone</string>
+    <string name="text_my_requests">Cererile mele</string>
+    <string name="text_my_donations">Donatiile mele</string>
+    <string name="value_reviewer_nickname">Ana Lecu</string>
 
     <!--Notification-->
-    <string name="notificationTitle">New Donation Alert</string>
-    <string name="notificationDescription">Donating Clothes</string>
-    <string name="notificationDate">21 June</string>
-    <string name="notificationTime">14:00</string>
-    <string name="noOtherNotifications">No Older Notifications</string>
-    <string name="clearNotifications">Sterge</string>
+    <string name="value_notification_title">Donație noua</string>
+    <string name="value_notification_description">Donez haine</string>
+    <string name="value_notification_date">21 iunie</string>
+    <string name="value_notification_time">14:00</string>
+
+    <string name="text_no_other_notifications">Nu sunt alte notificări</string>
+    <string name="text_clear">Clear</string>
 
     <!--Rating-->
-    <string name="ratingHonesty">Onestitate</string>
-    <string name="ratingPunctuality">Punctualitate</string>
-    <string name="ratingAttitude">Attitudine</string>
-    <string name="ratingNumber">6 REVIEWS</string>
-    <string name="notifications">Notifications</string>
-    <string name="regional">Regional</string>
-    <string name="language">Limba</string>
-    <string name="logout">Logout</string>
-    <string name="settings">Setari</string>
-    <string name="profile">Profil</string>
-    <string name="edit_profile">Editeaza Profilul</string>
-    <string name="change_password">Schimba Parola</string>
-    <string name="dark_mode">Dark Mode</string>
-    <string name="example_address">str. Victoriei nr.21</string>
-    <string name="city_example">Brasov</string>
-    <string name="country_example">Romania</string>
-    <string name="example_age">30</string>
-    <string name="example_nickname">Cinderella</string>
-    <string name="example_email">fred@email.com</string>
-    <string name="example_name">Fred Flinstone</string>
-    <string name="save">SALVEAZA</string>
+    <string name="text_rating_honesty">Onestitate</string>
+    <string name="text_rating_punctuality">Punctualitate</string>
+    <string name="text_rating_attitude">Atitudine</string>
+    <string name="value_rating_number">6 Recenzii</string>
+
+    <!--Settings-->
+    <string name="text_settings">Setări</string>
+    <string name="text_dark_mode">Mod noapte</string>
+    <string name="text_profile">Profil</string>
+    <string name="text_edit_profile">Editează profilul</string>
+    <string name="text_change_password">Schimbă parola</string>
+    <string name="text_regional">Regional</string>
+    <string name="text_language">Limbă</string>
+    <string name="text_select_language">Limbă</string>
+    <string name="text_thank_you">Multumesc</string>
+    <string name="text_logout">Deconectare</string>
+    <string name="text_ask_logout">Ești sigur că vrei să te deconectezi??</string>
+
+    <!--Edit Profile-->
+    <string name="value_profile_address">str. Victoriei nr.21</string>
+    <string name="value_profile_city">Brașov</string>
+    <string name="value_profile_country">România</string>
+    <string name="value_profile_age">30</string>
+    <string name="value_profile_nickname">Cenușăreasa</string>
+    <string name="value_profile_email">fred@email.com</string>
+    <string name="value_profile_name">Fred Flinstone</string>
+    <string name="text_save">Salvează</string>
+
+    <!--Donations-->
+    <string name="text_category_food">Mâncare</string>
+    <string name="text_category_baby_supplies">Provizii pentru bebeluși</string>
+    <string name="text_category_school_supplies">Provizii pentru școala</string>
+    <string name="text_category_other">Altele</string>
+    <string name="text_category_near_you">Aproape de tine</string>
+    <string name="text_category_errands">Comisioane</string>
+    <string name="text_category_devices">Dispozitive</string>
+
+    <!--My activity-->
+    <string name="text_unassigned">Neatribuite</string>
+    <string name="text_my_activity">Activitatea mea</string>
+    <string name="text_pending">În Așteptare</string>
+    <string name="text_completed">Completate</string>
+    <string name="text_no_other">Nu sunt altele</string>
+
+    <!--events-->
+    <string name="text_event_date">Data</string>
+    <string name="value_event_date">2 iunie 2021</string>
+    <string name="text_event_title">Titlu</string>
+    <string name="value_event_title">Titlul Evenimentului</string>
+    <string name="text_event_location">Locație</string>
+    <string name="value_event_location">Sebiș, Arad</string>
+    <string name="text_event_time">Ora</string>
+    <string name="value_event_time">14:00-13:00</string>
+    <string name="text_event_description">Descriere</string>
+    <string name="value_event_description">Am nevoie ca cineva sa imi cumpere de mancare.</string>
+    <string name="text_event_category">Categorie</string>
+    <string name="value_event_category">Mâncare</string>
+
+    <string name="value_event_nickname_creator">Porecla Creatorului</string>
+    <string name="value_event_nickname_assignee">Porecla celui asignat</string>
+
+    <string name="value_user_type_volunteer">Voluntar</string>
+    <string name="value_user_type_needy">User</string>
+
+    <string name="text_received_ratings">Recenziile Primite</string>
+
+    <string name="value_event_category_name">Numele Categoriei</string>
+    <string name="text_submit_donation">Postează Donația</string>
+    <string name="text_submit_request">Postează Cererea</string>
+    <string name="text_new_donation">Donație noua</string>
+    <string name="text_new_request">Cerere Noua</string>
+
+    <string name="text_mark_as_completed">Confirmă Completare</string>
+    <string name="text_cancel">Anulează</string>
+    <string name="text_delete">Șterge</string>
+    <string name="text_remove_assignee">Șterge userul asignat</string>
+    <string name="text_ask_delete">Ești sigur că vrei să ștergi acest eveniment?</string>
+    <string name="text_yes">Da</string>
+    <string name="text_edit">Editează</string>
+    <string name="text_accept">Acceptă</string>
+
+    <!--Change password-->
+    <string name="text_current_password">Parola currentă</string>
+    <string name="text_new_password">Parola nouă</string>
+    <string name="text_confirm_new_password">Confirmă parola noua</string>
+    <string name="text_submit">Salvează</string>
 
 
-    <string name="thank_you">Multumesc</string>
-    <string name="food">Food</string>
-    <string name="baby_supplies">Baby supplies</string>
-    <string name="school_supplies">School supplies</string>
-    <string name="other">Other</string>
-    <string name="near_you">Near You</string>
-    <string name="errands">Errands</string>
-    <string name="food">Food</string>
-    <string name="devices">Devices</string>
-    <string name="school_supplies">School supplies</string>
-    <string name="other">Other</string>
-    <string name="baby_supplies">Baby supplies</string>
-    <string name="school_supplies">School supplies</string>
-    <string name="baby_supplies">Baby supplies</string>
-    <string name="other">Other</string>
-    <string name="errands">Errands</string>
-    <string name="near_you">Near You</string>
 
 </resources>

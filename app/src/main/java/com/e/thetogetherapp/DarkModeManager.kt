@@ -1,8 +1,8 @@
 package com.e.thetogetherapp
 import android.os.Bundle
-import android.widget.Switch
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.SwitchCompat
 
 class DarkModeManager : AppCompatActivity() {
 
@@ -11,7 +11,7 @@ class DarkModeManager : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
 
         // Declare the switch from the layout file
-        val btn = findViewById<Switch>(R.id.darkModeSwitch)
+        val btn = findViewById<SwitchCompat>(R.id.darkModeSwitch)
 
         // set the switch to listen on checked change
         btn.setOnCheckedChangeListener { _, isChecked ->

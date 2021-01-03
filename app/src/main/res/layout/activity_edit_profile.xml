@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
@@ -18,18 +17,18 @@
             android:layout_marginBottom="10dp"/>
         <TextView
             style="@style/bigLightText"
-            android:text="@string/edit_profile"
+            android:text="@string/text_edit_profile"
             android:layout_marginBottom="15dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_email_hint"
+            android:text="@string/text_login_email"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/registerEmail"
             style="@style/modifiedEditText"
-            android:text="@string/example_email"
+            android:text="@string/value_profile_email"
             android:inputType="textEmailAddress"
             android:maxLines="1"
             android:importantForAutofill="no"
@@ -38,13 +37,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/register_name_hint"
+            android:text="@string/text_register_name"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/registerName"
             style="@style/modifiedEditText"
-            android:text="@string/example_name"
-            android:hint="@string/register_name_hint"
+            android:text="@string/value_profile_name"
+            android:hint="@string/text_register_name"
             android:inputType="text"
             android:maxLines="1"
             android:importantForAutofill="no"
@@ -53,12 +52,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/register_nickname_hint"
+            android:text="@string/text_register_nickname"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/registerNickname"
             style="@style/modifiedEditText"
-            android:text="@string/example_nickname"
+            android:text="@string/value_profile_nickname"
             android:inputType="text"
             android:maxLines="1"
             android:importantForAutofill="no"
@@ -67,12 +66,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/register_age_hint"
+            android:text="@string/text_register_age"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/registerAge"
             style="@style/modifiedEditText"
-            android:text="@string/example_age"
+            android:text="@string/value_profile_age"
             android:inputType="number"
             android:maxLines="1"
             android:importantForAutofill="no"
@@ -81,12 +80,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/register_country_hint"
+            android:text="@string/text_register_country"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/registerCountry"
             style="@style/modifiedEditText"
-            android:text="@string/country_example"
+            android:text="@string/value_profile_country"
             android:inputType="text"
             android:maxLines="1"
             android:importantForAutofill="no"
@@ -95,12 +94,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/register_city_hint"
+            android:text="@string/text_register_city"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/registerCity"
             style="@style/modifiedEditText"
-            android:text="@string/city_example"
+            android:text="@string/value_profile_city"
             android:inputType="text"
             android:maxLines="1"
             android:importantForAutofill="no"
@@ -109,12 +108,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/register_address_hint"
+            android:text="@string/text_register_address"
             style="@style/editProfileText"/>
         <EditText
             android:id="@+id/registerAddress"
             style="@style/modifiedEditText"
-            android:text="@string/example_address"
+            android:text="@string/value_profile_address"
             android:inputType="text"
             android:maxLines="2"
             android:importantForAutofill="no"
@@ -127,7 +126,7 @@
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/mediumViewsMargin"
-            android:text="@string/save" />
+            android:text="@string/text_save" />
 
     </LinearLayout>
 

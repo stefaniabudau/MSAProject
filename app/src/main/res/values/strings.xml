@@ -2,90 +2,149 @@
     <string name="app_name">TheTogetherApp</string>
 
     <!--login and register-->
-    <string name="register">REGISTER</string>
-    <string name="login">Login</string>
+    <string name="text_register">REGISTER</string>
+    <string name="text_login">Login</string>
 
-    <string name="login_email_hint">Email</string>
-    <string name="login_password_hint">Password</string>
+    <string name="text_login_email">Email</string>
+    <string name="text_login_password">Password</string>
 
-    <string name="register_name_hint">Name</string>
-    <string name="register_nickname_hint">Nickname</string>
-    <string name="register_age_hint">Age</string>
-    <string name="register_country_hint">Country</string>
-    <string name="register_city_hint">City</string>
-    <string name="register_address_hint">Address</string>
+    <string name="text_register_name">Name</string>
+    <string name="text_register_nickname">Nickname</string>
+    <string name="text_register_age">Age</string>
+    <string name="text_register_country">Country</string>
+    <string name="text_register_city">City</string>
+    <string name="text_register_address">Address</string>
 
-    <string name="register_login_hint">Already have an account?</string>
-    <string name="login_register_hint">Dont have an account?</string>
+    <string name="text_go_to_login">Already have an account?</string>
+    <string name="text_go_to_register">Dont have an account?</string>
 
-    <string name="register_as_needy">Register as a needy</string>
-    <string name="register_as_volunteer">Register as a volunteer</string>
+    <string name="text_register_as_needy">Register as a needy</string>
+    <string name="text_register_as_volunteer">Register as a volunteer</string>
 
     <!-- Card Titles-->
-    <string name="notification">Notifications</string>
-    <string name="pendingRequests">Pending Requests</string>
-    <string name="reviews">Reviews</string>
-    <string name="volunteerSubscribers">My volunteer subscribers</string>
-    <string name="communitySupervisor">Community Supervisor</string>
+    <string name="text_notifications">Notifications</string>
+    <string name="text_pending_requests">Pending Requests</string>
+    <string name="text_reviews">Reviews</string>
+
+    <!--NavigationBar-->
+    <string name="text_home">Home</string>
+    <string name="text_search">Search</string>
+    <string name="text_add_new">Add New</string>
 
     <!-- Profile info-->
+    <string name="text_user_type_volunteer">Volunteer</string>
+    <string name="text_user_type_needy">User</string>
+    <string name="value_user_nickname">George Jetson</string>
 
-    <string name="userType">Volunteer</string>
-    <string name="userNickname">George Jetson</string>
-    <string name="userDescription">I really need help!</string>
+    <string name="text_requests">Requests</string>
+    <string name="value_requests_number">15</string>
 
-    <string name="editProfile">editProfile</string>
+    <string name="text_donations">Donations</string>
+    <string name="value_donations_number">10</string>
 
-    <string name="requests">Requests</string>
-    <string name="requestsNumber">15</string>
-    <string name="donations">Donations</string>
-    <string name="donationsNumber">10</string>
-    <string name="ongoingActivity">Activity</string>
-    <string name="ongoingActivityNumber">5</string>
+    <string name="text_activity">Activity</string>
+    <string name="value_activity_number">5</string>
 
-    <string name="myRequests">My Requests</string>
-    <string name="myDonations">My Donations</string>
-
-
-    <string name="reviewerNickname">Fred Flinstone</string>
+    <string name="text_my_requests">My Requests</string>
+    <string name="text_my_donations">My Donations</string>
+    <string name="value_reviewer_nickname">Fred Flinstone</string>
 
     <!--Notification-->
-    <string name="notificationTitle">New Donation Alert</string>
-    <string name="notificationDescription">Donating Clothes</string>
-    <string name="notificationDate">21 June</string>
-    <string name="notificationTime">14:00</string>
-    <string name="noOtherNotifications">No Older Notifications</string>
-    <string name="clearNotifications">Clear</string>
+    <string name="value_notification_title">New Donation Alert</string>
+    <string name="value_notification_description">Donating Clothes</string>
+    <string name="value_notification_date">21 June</string>
+    <string name="value_notification_time">14:00</string>
+
+    <string name="text_no_other_notifications">No Older Notifications</string>
+    <string name="text_clear">Clear</string>
 
     <!--Rating-->
-    <string name="ratingHonesty">Honesty</string>
-    <string name="ratingPunctuality">Punctuality</string>
-    <string name="ratingAttitude">Attitude</string>
-    <string name="ratingNumber">6 REVIEWS</string>
-    <string name="notifications">Notifications</string>
-    <string name="regional">Regional</string>
-    <string name="language">Language</string>
-    <string name="logout">Logout</string>
-    <string name="settings">Settings</string>
-    <string name="profile">Profile</string>
-    <string name="edit_profile">Edit Profile</string>
-    <string name="change_password">Change Password</string>
-    <string name="dark_mode">Dark Mode</string>
-    <string name="example_address">str. Victoriei nr.21</string>
-    <string name="city_example">Brasov</string>
-    <string name="country_example">Romania</string>
-    <string name="example_age">30</string>
-    <string name="example_nickname">Cinderella</string>
-    <string name="example_email">fred@email.com</string>
-    <string name="example_name">Fred Flinstone</string>
-    <string name="save">SAVE</string>
+    <string name="text_rating_honesty">Honesty</string>
+    <string name="text_rating_punctuality">Punctuality</string>
+    <string name="text_rating_attitude">Attitude</string>
+    <string name="value_rating_number">6 REVIEWS</string>
 
-    <string name="thank_you">Thank You</string>
-    <string name="food">Food</string>
-    <string name="baby_supplies">Baby supplies</string>
-    <string name="school_supplies">School supplies</string>
-    <string name="other">Other</string>
-    <string name="near_you">Near You</string>
-    <string name="errands">Errands</string>
-    <string name="devices">Devices</string>
+    <!--Settings-->
+    <string name="text_settings">Settings</string>
+    <string name="text_dark_mode">Dark Mode</string>
+    <string name="text_profile">Profile</string>
+    <string name="text_edit_profile">Edit Profile</string>
+    <string name="text_change_password">Change Password</string>
+    <string name="text_regional">Regional</string>
+    <string name="text_language">Language</string>
+    <string name="text_select_language">Language</string>
+    <string name="text_thank_you">Thank You</string>
+    <string name="text_logout">Logout</string>
+    <string name="text_ask_logout">Are you sure you want to logout?</string>
+
+    <!--Edit Profile-->
+    <string name="value_profile_address">str. Victoriei nr.21</string>
+    <string name="value_profile_city">Brasov</string>
+    <string name="value_profile_country">Romania</string>
+    <string name="value_profile_age">30</string>
+    <string name="value_profile_nickname">Cinderella</string>
+    <string name="value_profile_email">fred@email.com</string>
+    <string name="value_profile_name">Fred Flinstone</string>
+    <string name="text_save">Save</string>
+
+    <!--Donations-->
+    <string name="text_category_food">Food</string>
+    <string name="text_category_baby_supplies">Baby supplies</string>
+    <string name="text_category_school_supplies">School supplies</string>
+    <string name="text_category_other">Other</string>
+    <string name="text_category_near_you">Near You</string>
+    <string name="text_category_errands">Errands</string>
+    <string name="text_category_devices">Devices</string>
+
+    <!--My activity-->
+    <string name="text_unassigned">Unassigned</string>
+    <string name="text_my_activity">My Activity</string>
+    <string name="text_pending">Pending</string>
+    <string name="text_completed">Completed</string>
+    <string name="text_no_other">No other</string>
+
+    <!--events-->
+    <string name="text_event_date">Date</string>
+    <string name="value_event_date">June 2, 2021</string>
+    <string name="text_event_title">Title</string>
+    <string name="value_event_title">Event Title</string>
+    <string name="text_event_location">Location</string>
+    <string name="value_event_location">Sebis, Arad</string>
+    <string name="text_event_time">Time</string>
+    <string name="value_event_time">14:00-13:00</string>
+    <string name="text_event_description">Description</string>
+    <string name="value_event_description">I need someone to help me buy groceries.</string>
+    <string name="text_event_category">Category</string>
+    <string name="value_event_category">Food</string>
+
+    <string name="value_event_nickname_creator">Nickname Creator</string>
+    <string name="value_event_nickname_assignee">Nickname Assignee</string>
+
+    <string name="value_user_type_volunteer">Volunteer</string>
+    <string name="value_user_type_needy">User</string>
+
+    <string name="text_received_ratings">Received Ratings</string>
+
+    <string name="value_event_category_name">Category Name</string>
+    <string name="text_submit_donation">Submit Donation</string>
+    <string name="text_submit_request">Submit Request</string>
+    <string name="text_new_donation">New Donation</string>
+    <string name="text_new_request">New Request</string>
+
+    <string name="text_mark_as_completed">Mark as Completed</string>
+    <string name="text_cancel">Cancel</string>
+    <string name="text_delete">Delete</string>
+    <string name="text_remove_assignee">Remove Assignee</string>
+    <string name="text_ask_delete">Are you sure you want to delete this event?</string>
+    <string name="text_yes">Yes</string>
+    <string name="text_edit">Edit</string>
+    <string name="text_accept">Accept</string>
+
+    <!--Change password-->
+    <string name="text_current_password">Current Password</string>
+    <string name="text_new_password">New Password</string>
+    <string name="text_confirm_new_password">Confirm New Password</string>
+    <string name="text_submit">SUBMIT</string>
+
+
 </resources>

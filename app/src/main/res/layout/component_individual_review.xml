@@ -25,7 +25,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="@string/reviewerNickname"/>
+        android:text="@string/value_reviewer_nickname"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="@string/ratingHonesty"/>
+            android:text="@string/text_rating_honesty"/>
 
         <RatingBar
             android:id="@+id/individualHonestyRating"
@@ -59,7 +59,7 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="@string/ratingPunctuality"/>
+            android:text="@string/text_rating_punctuality"/>
 
         <RatingBar
             android:id="@+id/individualPunctualityRating"
@@ -80,7 +80,7 @@
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:text="@string/ratingAttitude"/>
+            android:text="@string/text_rating_attitude"/>
 
         <RatingBar
             android:id="@+id/individualAttitudeRating"

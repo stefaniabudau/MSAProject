@@ -13,12 +13,12 @@
         android:layout_width="match_parent"
         android:id="@+id/creatorNicknameText"
         style="@style/bigLightText"
-        android:text="Nickname"
+        android:text="@string/value_event_nickname_creator"
         app:drawableRightCompat="@drawable/ic_right_icon"/>
     <TextView
         android:id="@+id/creatorTypeText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Creator Type (volunteer/needy)" />
+        android:text="@string/value_user_type_volunteer" />
 
 </LinearLayout>
