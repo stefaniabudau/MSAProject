@@ -30,6 +30,7 @@
 
     <!-- Profile info-->
 
+    <string name="userType">Volunteer</string>
     <string name="userNickname">George Jetson</string>
     <string name="userDescription">I really need help!</string>
 
@@ -54,6 +55,7 @@
     <string name="notificationDate">21 June</string>
     <string name="notificationTime">14:00</string>
     <string name="noOtherNotifications">No Older Notifications</string>
+    <string name="clearNotifications">Clear</string>
 
     <!--Rating-->
     <string name="ratingHonesty">Honesty</string>
@@ -79,4 +81,11 @@
     <string name="save">SAVE</string>
 
     <string name="thank_you">Thank You</string>
+    <string name="food">Food</string>
+    <string name="baby_supplies">Baby supplies</string>
+    <string name="school_supplies">School supplies</string>
+    <string name="other">Other</string>
+    <string name="near_you">Near You</string>
+    <string name="errands">Errands</string>
+    <string name="devices">Devices</string>
 </resources>
