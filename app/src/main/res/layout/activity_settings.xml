@@ -26,12 +26,12 @@
             android:id="@+id/darkModeSwitch"
             style="@style/settingsText"
             android:drawableLeft="@drawable/ic_dark_mode"
-            android:text="@string/dark_mode"
+            android:text="@string/text_dark_mode"
             android:drawableStart="@drawable/ic_dark_mode" />
 
         <TextView
             style="@style/viewParent.headerText.settingsMiniTitle"
-            android:text="@string/profile"/>
+            android:text="@string/text_profile"/>
 
         <TextView
             style="@style/viewParent.headerText.settingsTextIcon"
@@ -52,7 +52,7 @@
             style="@style/settingsText"
             android:checked="true"
             android:drawableLeft="@drawable/ic_notifications"
-            android:text="@string/notifications"
+            android:text="@string/text_notifications"
             android:drawableStart="@drawable/ic_notifications" />
 
         <TextView

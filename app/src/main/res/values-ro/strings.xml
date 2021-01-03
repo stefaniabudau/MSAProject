@@ -62,6 +62,7 @@
     <!--Settings-->
     <string name="text_settings">Setări</string>
     <string name="text_dark_mode">Mod noapte</string>
+    <string name="text_profile">Profil</string>
     <string name="text_edit_profile">Editează profilul</string>
     <string name="text_change_password">Schimbă parola</string>
     <string name="text_regional">Regional</string>
