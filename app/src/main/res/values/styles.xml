@@ -58,6 +58,11 @@
         <item name="android:textSize">@dimen/smallTextSize</item>
     </style>
 
+    <style name="mediumBlackText" parent="viewParent">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/mediumTextSize</item>
+    </style>
+
     <style name="mediumLightText" parent="viewParent">
         <item name="android:textColor">@color/containerColor</item>
         <item name="android:textSize">@dimen/mediumTextSize</item>
@@ -126,7 +131,6 @@
     </style>
 
     <style name="miniSquareRoundedButton" parent="viewParent">
-        <item name="android:backgroundTint">@color/white</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/miniTextSize</item>
         <item name="android:textStyle">bold</item>

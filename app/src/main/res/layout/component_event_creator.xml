@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/border_shadow"
+    android:orientation="vertical"
+    android:padding="30dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/creatorNicknameText"
+        style="@style/bigLightText"
+        android:text="Nickname"
+        app:drawableRightCompat="@drawable/ic_right_icon"/>
+    <TextView
+        android:id="@+id/creatorTypeText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Creator Type (volunteer/needy)" />
+
+</LinearLayout>
