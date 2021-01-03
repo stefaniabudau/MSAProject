@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/notification"
+            android:text="@string/text_notifications"
             style="@style/PageTitleText"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
@@ -26,7 +26,7 @@
             android:layout_width="90dp"
             android:layout_marginTop="@dimen/mediumViewsMargin"
             android:layout_marginRight="@dimen/smallViewsMargin"
-            android:text="@string/clearNotifications"
+            android:text="@string/text_clear"
             android:layout_gravity="end"
             android:layout_marginEnd="@dimen/smallViewsMargin" />
 
@@ -42,7 +42,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/noOtherNotifications"
+                android:text="@string/text_no_other_notifications"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:textColor="@color/black"

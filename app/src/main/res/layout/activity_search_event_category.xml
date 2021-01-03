@@ -20,7 +20,7 @@
         <TextView
             android:id="@+id/categoryNameEvents"
             style="@style/bigLightText"
-            android:text="Category Name"
+            android:text="@string/value_event_category_name"
             android:layout_marginBottom="15dp"/>
 
         <LinearLayout
@@ -36,7 +36,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No other donations"
+                android:text="@string/text_no_other"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:textColor="@color/black"

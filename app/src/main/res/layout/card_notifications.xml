@@ -20,7 +20,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:text="@string/notification"
+            android:text="@string/text_notifications"
             style="@style/cardHeaderText"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="30dp"
@@ -34,6 +34,7 @@
 
             <include layout="@layout/component_notifications"/>
             <include layout="@layout/component_notifications"/>
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -12,19 +12,19 @@
     <TextView
         android:layout_width="match_parent"
         style="@style/bigLightText"
-        android:text="Recieved Ratings"
+        android:text="@string/text_recieved_ratings"
         android:layout_marginBottom="@dimen/mediumViewsMargin"/>
     <TextView
         android:layout_width="match_parent"
         android:id="@+id/creatorNicknameText"
         style="@style/bigLightText"
-        android:text="Nickname"/>
+        android:text="@string/value_event_nickname_creator"/>
     <include layout="@layout/component_average_review"/>
     <TextView
         android:layout_width="match_parent"
         android:id="@+id/assigneeNicknameText"
         style="@style/bigLightText"
-        android:text="Nickname"/>
+        android:text="@string/value_event_nickname_assignee"/>
     <include layout="@layout/component_average_review"/>
 
 </LinearLayout>
