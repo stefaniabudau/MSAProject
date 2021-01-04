@@ -4,16 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.User
-import com.e.thetogetherapp.pages.MyRequestsPage
-import com.e.thetogetherapp.pages.NotificationPage
 import com.e.thetogetherapp.pages.ReviewPage
-import com.e.thetogetherapp.pages.SettingsPage
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue

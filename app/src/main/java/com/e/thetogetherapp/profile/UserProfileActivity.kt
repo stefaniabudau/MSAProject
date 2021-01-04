@@ -48,7 +48,7 @@ class UserProfileActivity : AppCompatActivity() {
         // BUTTONS -------------------------------------------------------------------------------------
 
         myActivityButton.setOnClickListener{
-            startActivity(Intent(this@UserProfileActivity, MyRequestsPage::class.java))
+            startActivity(Intent(this@UserProfileActivity, MyActivityPage::class.java))
         }
 
         goToSettingsButton.setOnClickListener{

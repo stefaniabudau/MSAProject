@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.e.thetogetherapp.RatingAdapter
+import com.e.thetogetherapp.adapters.RatingAdapter
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.Rating
 import com.google.firebase.database.DataSnapshot
@@ -65,7 +65,10 @@ class MyReviewsPage: AppCompatActivity() {
 
                 findViewById<TextView>(R.id.pageSeparatorText).setText(userRatings.count().toString() + "REVIEWS")
 
-                adapter = RatingAdapter(ratingsArray, this@MyReviewsPage)
+                adapter = RatingAdapter(
+                    ratingsArray,
+                    this@MyReviewsPage
+                )
                 recyclerView.adapter = adapter
             }
         })

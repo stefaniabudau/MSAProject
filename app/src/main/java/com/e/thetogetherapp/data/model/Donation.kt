@@ -6,6 +6,7 @@ import com.google.firebase.database.IgnoreExtraProperties
 data class Donation (
     var volunteer: String? = "",
     var needy: String? = "",
+    var catgory: String? = "",
     var title: String? = "",
     var description: String? = "",
     var status: String? = "",

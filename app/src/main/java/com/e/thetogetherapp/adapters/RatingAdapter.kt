@@ -1,8 +1,6 @@
-package com.e.thetogetherapp
+package com.e.thetogetherapp.adapters
 
 import android.content.Context
-import android.content.Intent
-import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.Rating
-import com.e.thetogetherapp.profile.ViewProfileActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
