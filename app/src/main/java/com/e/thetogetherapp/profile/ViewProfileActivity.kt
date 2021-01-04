@@ -10,13 +10,16 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.User
-import com.e.thetogetherapp.pages.*
+import com.e.thetogetherapp.pages.MyRequestsPage
+import com.e.thetogetherapp.pages.NotificationPage
+import com.e.thetogetherapp.pages.ReviewPage
+import com.e.thetogetherapp.pages.SettingsPage
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
-class UserProfileActivity : AppCompatActivity() {
+class ViewProfileActivity : AppCompatActivity() {
 
     private lateinit var database: DatabaseReference
 
@@ -31,7 +34,7 @@ class UserProfileActivity : AppCompatActivity() {
         }
 
         database = Firebase.database.reference
-        setContentView(R.layout.activity_profile)
+        setContentView(R.layout.activity_view_profile)
 
         val nickname = findViewById<TextView>(R.id.userNicknameProfileText)
         val type = findViewById<TextView>(R.id.userTypeProfileText)
@@ -40,31 +43,18 @@ class UserProfileActivity : AppCompatActivity() {
         val donations = findViewById<TextView>(R.id.needyNoOfDonations)
         val activities = findViewById<TextView>(R.id.needyNoOfOngoingActivities)
 
-        val myActivityButton = findViewById<Button>(R.id.myActivityButton)
-        val goToSettingsButton = findViewById<View>(R.id.goToSettingsButton)
-        val notificationCardButton = findViewById<View>(R.id.notificationCardButton)
+        val viewProfileBackButton = findViewById<View>(R.id.viewProfileBackButton)
         val reviewCardButton = findViewById<View>(R.id.reviewCardButton)
 
         // BUTTONS -------------------------------------------------------------------------------------
 
-        myActivityButton.setOnClickListener{
-            startActivity(Intent(this@UserProfileActivity, MyRequestsPage::class.java))
+        viewProfileBackButton.setOnClickListener {
+            finish()
         }
 
-        goToSettingsButton.setOnClickListener{
-            startActivity(Intent(this@UserProfileActivity, SettingsPage::class.java))
-        }
-
-        notificationCardButton.setOnClickListener{
-            startActivity(Intent(this@UserProfileActivity, NotificationPage::class.java))
-        }
 
         reviewCardButton.setOnClickListener{
-            val intent = Intent(this@UserProfileActivity, MyReviewsPage::class.java)
-            val param = Bundle().apply { putString("uid", uid) }
-            intent.putExtras(param)
-
-            startActivity(intent)
+            startActivity(Intent(this@ViewProfileActivity, ReviewPage::class.java))
         }
 
         // PROFILE BANNER ----------------------------------------------------------------------------
@@ -147,7 +137,7 @@ class UserProfileActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val TAG = "UserProfileActivity"
+        private const val TAG = "ViewProfileActivity"
     }
 
 }

@@ -2,14 +2,13 @@ package com.e.thetogetherapp.pages
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.e.thetogetherapp.RatingAdapter
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.Rating
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -22,13 +21,13 @@ import kotlinx.android.synthetic.main.activity_reviews.*
 class MyReviewsPage: AppCompatActivity() {
 
     private lateinit var database: DatabaseReference
-    private lateinit var auth: FirebaseAuth
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var adapter: RatingAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val ratingsArray = ArrayList<Rating>()
         var uid: String? = null
         val extras: Bundle? = intent.extras
 
@@ -38,13 +37,16 @@ class MyReviewsPage: AppCompatActivity() {
 
         setContentView(R.layout.activity_reviews)
 
-        database = Firebase.database.reference
-        auth = Firebase.auth
-
         linearLayoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = linearLayoutManager
 
-        val ratingsArray = ArrayList<Rating>()
+
+        val backButton = findViewById<View>(R.id.reviewsPageBackButton)
+        backButton.setOnClickListener{
+            finish()
+        }
+
+        database = Firebase.database.reference
 
         val requestsRef = database.child("ratings")
         requestsRef.addValueEventListener(object : ValueEventListener {
@@ -55,6 +57,7 @@ class MyReviewsPage: AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val allRatings = snapshot.children
                 val userRatings = allRatings.filter { it.child("to").value == uid!! }
+
                 userRatings.forEach {
                     val rating = it.getValue<Rating>()
                     ratingsArray.add(rating!!)
@@ -66,5 +69,7 @@ class MyReviewsPage: AppCompatActivity() {
                 recyclerView.adapter = adapter
             }
         })
+
+
     }
 }

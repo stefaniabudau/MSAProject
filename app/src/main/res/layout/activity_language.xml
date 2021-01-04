@@ -11,6 +11,7 @@
         android:padding="30dp">
 
         <View
+            android:id="@+id/languageBackButton"
             android:background="@drawable/ic_baseline_west_24"
             android:layout_height="45dp"
             android:layout_width="45dp"

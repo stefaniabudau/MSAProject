@@ -11,7 +11,7 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.e.thetogetherapp.data.model.Rating
-import com.e.thetogetherapp.profile.NeedyProfileActivity
+import com.e.thetogetherapp.profile.ViewProfileActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -46,8 +46,8 @@ class RatingAdapter(private val dataSet:ArrayList<Rating>, private val context: 
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-
         database = Firebase.database.reference
+
         val ref = database.child("users").child(dataSet[position].from.toString())
         ref.addListenerForSingleValueEvent(object :ValueEventListener{
             override fun onCancelled(error: DatabaseError) {
@@ -58,15 +58,16 @@ class RatingAdapter(private val dataSet:ArrayList<Rating>, private val context: 
                 val nickname = snapshot.child("nickname").value.toString()
 
                 viewHolder.reviewName.text = nickname
-                viewHolder.reviewName.setOnClickListener{
-                    val intent = Intent(context, NeedyProfileActivity::class.java)
-                    val extras = Bundle().apply { putString("uid", dataSet[position].from.toString()) }
-                    intent.putExtras(extras)
-                    context.startActivity(intent)
-                }
             }
         })
 
+//        viewHolder.reviewName.setOnClickListener{
+//            val intent = Intent(context, ViewProfileActivity::class.java)
+//            val extras = Bundle().apply { putString("uid", dataSet[position].from.toString()) }
+//
+//            intent.putExtras(extras)
+//            context.startActivity(intent)
+//        }
         viewHolder.honestyReview.rating = dataSet[position].honesty!!.toFloat()
         viewHolder.punctualityReview.rating = dataSet[position].punctuality!!.toFloat()
         viewHolder.attitudeReview.rating = dataSet[position].attitude!!.toFloat()

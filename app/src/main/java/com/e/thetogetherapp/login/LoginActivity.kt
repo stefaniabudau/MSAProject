@@ -16,7 +16,6 @@ import android.widget.Toast
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.RegisterTransitionActivity
 import com.e.thetogetherapp.data.model.LoggedInUser
-import com.e.thetogetherapp.profile.NeedyProfileActivity
 import com.e.thetogetherapp.profile.UserProfileActivity
 
 class LoginActivity : AppCompatActivity() {

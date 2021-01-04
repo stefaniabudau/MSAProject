@@ -10,6 +10,7 @@
         android:orientation="vertical">
 
         <View
+            android:id="@+id/reviewsPageBackButton"
             android:background="@drawable/ic_baseline_west_24"
             android:layout_height="45dp"
             android:layout_width="45dp"
