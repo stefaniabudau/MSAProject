@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.pages.MyRequestsPage
+import com.e.thetogetherapp.pages.MyReviewsPage
 import com.e.thetogetherapp.pages.SettingsPage
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
@@ -69,7 +70,10 @@ class NeedyProfileActivity : AppCompatActivity() {
         // MY REQUESTS
 
         myRequests.setOnClickListener{
-            startActivity(Intent(this@NeedyProfileActivity, MyRequestsPage::class.java))
+            val intent= Intent(this@NeedyProfileActivity, MyReviewsPage::class.java)
+            val extras = Bundle().apply { putString("uid", uid) }
+            intent.putExtras(extras)
+            startActivity(intent)
         }
 
         // REVIEWS AND RATINGS
@@ -111,12 +115,12 @@ class NeedyProfileActivity : AppCompatActivity() {
 //            }
 //        })
 
-        val goToReviewsPage = findViewById<TextView>(R.id.goToReviewsPageArrow)
-
-//        TODO: handle review page transition
-        goToReviewsPage.setOnClickListener{
-            startActivity(Intent(this@NeedyProfileActivity, SettingsPage::class.java))
-        }
+//        val goToReviewsPage = findViewById<TextView>(R.id.goToReviewsPageArrow)
+//
+////        TODO: handle review page transition
+//        goToReviewsPage.setOnClickListener{
+//            startActivity(Intent(this@NeedyProfileActivity, SettingsPage::class.java))
+//        }
 
 
     }

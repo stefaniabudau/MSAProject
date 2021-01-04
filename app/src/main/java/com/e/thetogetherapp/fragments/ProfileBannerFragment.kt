@@ -66,7 +66,6 @@ class ProfileBannerFragment: Fragment() {
             }
         })
 
-
         database.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 Log.w("Header", "loadBannerData:onCancelled", error.toException())

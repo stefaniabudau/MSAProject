@@ -1,11 +1,8 @@
 package com.e.thetogetherapp.pages
 
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.e.thetogetherapp.R
@@ -51,7 +48,6 @@ class EditProfilePage:AppCompatActivity() {
 
         submitButton.setOnClickListener{
             ref.updateChildren(binding.user!!.toMap())
-//            auth.currentUser!!.updateEmail(binding.user.email.toString())
         }
     }
 }

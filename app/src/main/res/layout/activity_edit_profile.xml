@@ -49,7 +49,6 @@
             style="@style/modifiedEditText"
             android:text="@string/value_profile_name"
             android:hint="@string/text_register_name"
-
             android:inputType="text"
             android:maxLines="1"
             android:importantForAutofill="no"

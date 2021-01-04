@@ -22,6 +22,7 @@
         <activity android:name=".profile.VolunteerProfileActivity" />
         <activity android:name=".profile.UserProfileActivity" />
         <activity android:name=".pages.MyRequestsPage" />
+        <activity android:name=".pages.MyReviewsPage" />
         <activity android:name=".pages.SettingsPage" />
         <activity android:name=".pages.EditProfilePage" />
         <activity android:name=".pages.ChangePasswordPage" />
