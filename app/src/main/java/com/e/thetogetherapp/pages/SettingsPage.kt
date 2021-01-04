@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.SwitchCompat
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -23,29 +25,37 @@ class SettingsPage :AppCompatActivity(){
 
         auth = Firebase.auth
 
-//        val darkModeSwitch = findViewById<Switch>(R.id.darkModeSwitch)
-//        val notificationSwitch = findViewById<Switch>(R.id.notificationSwitch)
+        val darkModeSwitch = findViewById<SwitchCompat>(R.id.darkModeSwitch)
+        val notificationSwitch = findViewById<SwitchCompat>(R.id.notificationSwitch)
 
         val editProfile = findViewById<TextView>(R.id.editProfile)
         val changePassword = findViewById<TextView>(R.id.changePassword)
         val language = findViewById<TextView>(R.id.language)
         val logout = findViewById<TextView>(R.id.logout)
+        val settingBackButton = findViewById<View>(R.id.settingsBackButton)
 
-        val back = findViewById<View>(R.id.settingsBackButton)
 
-        back.setOnClickListener{
-            finish()
+        //SWITCHES ----------------------------------------------------------------------------
+
+        darkModeSwitch.setOnCheckedChangeListener { _, isChecked ->
+
+            // if the button is checked, i.e., towards the right or enabled
+            // enable dark mode, change the text to disable dark mode
+            // else keep the switch text to enable dark mode
+            if (darkModeSwitch.isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                darkModeSwitch.text = "Disable dark mode"
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                darkModeSwitch.text = "Enable dark mode"
+            }
         }
 
-//        darkModeSwitch.setOnCheckedChangeListener { _, isChecked ->
-//            if (darkModeSwitch.isChecked) {
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-//                darkModeSwitch.text = "Disable dark mode"
-//            } else {
-//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-//                darkModeSwitch.text = "Enable dark mode"
-//            }
-//        }
+        // BUTTONS ---------------------------------------------------------------------------
+
+        settingBackButton.setOnClickListener{
+            finish()
+        }
 
         editProfile.setOnClickListener{
             startActivity(Intent(this@SettingsPage, EditProfilePage::class.java))
@@ -53,6 +63,10 @@ class SettingsPage :AppCompatActivity(){
 
         changePassword.setOnClickListener{
             startActivity(Intent(this@SettingsPage, ChangePasswordPage::class.java))
+        }
+
+        language.setOnClickListener{
+            startActivity(Intent(this@SettingsPage, LanguagePage::class.java))
         }
 
         logout.setOnClickListener{

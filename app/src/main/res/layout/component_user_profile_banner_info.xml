@@ -27,14 +27,14 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="@string/requestsNumber"/>
+                android:text="@string/value_requests_number"/>
             <TextView
                 style="@style/mediumLightText"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="@string/requests"/>
+                android:text="@string/text_requests"/>
         </LinearLayout>
 
         <LinearLayout
@@ -50,14 +50,14 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="@string/donationsNumber"/>
+                android:text="@string/value_donations_number"/>
             <TextView
                 style="@style/mediumLightText"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="@string/donations"/>
+                android:text="@string/text_donations"/>
         </LinearLayout>
 
         <LinearLayout
@@ -73,14 +73,14 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="@string/ongoingActivityNumber"/>
+                android:text="@string/value_activity_number"/>
             <TextView
                 style="@style/mediumLightText"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="@string/ongoingActivity"/>
+                android:text="@string/text_activity"/>
         </LinearLayout>
 
     </LinearLayout>

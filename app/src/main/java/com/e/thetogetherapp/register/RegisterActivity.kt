@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -15,7 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.RegisteredUser
-import com.e.thetogetherapp.profile.NeedyProfileActivity
+import com.e.thetogetherapp.login.LoginActivity
 import com.e.thetogetherapp.profile.UserProfileActivity
 
 class RegisterActivity: AppCompatActivity(){
@@ -48,6 +47,11 @@ class RegisterActivity: AppCompatActivity(){
 
         val register = findViewById<Button>(R.id.registerSubmitButton)
         val login = findViewById<Button>(R.id.loginGoToButton)
+
+        login.setOnClickListener {
+            startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+//            finish()
+        }
 
         registerViewModel = ViewModelProviders.of(this, RegisterViewModelFactory())
             .get(RegisterViewModel::class.java)

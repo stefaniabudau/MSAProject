@@ -1,11 +1,9 @@
 package com.e.thetogetherapp.pages
 
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
+import android.view.View
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.e.thetogetherapp.R
@@ -36,6 +34,7 @@ class EditProfilePage:AppCompatActivity() {
             this, R.layout.activity_edit_profile)
 
         val submitButton = findViewById<Button>(R.id.saveEditProfileButton)
+        val editProfileBackButton = findViewById<View>(R.id.editProfileBackButton)
 
         val ref = database.child("users").child(auth.currentUser!!.uid)
         ref.addListenerForSingleValueEvent(object : ValueEventListener{
@@ -48,6 +47,12 @@ class EditProfilePage:AppCompatActivity() {
                 binding.user = user
             }
         })
+
+        // BUTTONS ---------------------------------------------------------------------------
+
+        editProfileBackButton.setOnClickListener{
+            finish()
+        }
 
         submitButton.setOnClickListener{
             ref.updateChildren(binding.user!!.toMap())

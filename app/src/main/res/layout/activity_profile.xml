@@ -9,30 +9,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!--<include layout="@layout/component_user_profile_header"/>-->
-        <fragment
-            android:id="@+id/banner_fragment_v"
-            class="com.e.thetogetherapp.fragments.ProfileBannerFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <include layout="@layout/component_user_profile_header"/>
 
         <Button
-            android:id="@+id/myDonationsButton"
+            android:id="@+id/myActivityButton"
             style="@style/mediumSquareRoundedButton"
             android:layout_width="245dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/mediumViewsMargin"
-            android:text="@string/text_my_donations" />
+            android:text="@string/text_my_activity" />
 
         <include layout="@layout/card_notifications"/>
-
-        <!--<include layout="@layout/card_review"/>-->
-        <fragment
-            android:id="@+id/avg_review_fragment_v"
-            class="com.e.thetogetherapp.fragments.AverageReviewCardFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <include layout="@layout/card_review"/>
 
         <View
             android:layout_width="match_parent"

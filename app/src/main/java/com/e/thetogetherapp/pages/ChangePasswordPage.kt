@@ -3,6 +3,7 @@ package com.e.thetogetherapp.pages
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -37,6 +38,7 @@ class ChangePasswordPage : AppCompatActivity(){
         val newPassword = findViewById<EditText>(R.id.newPassword)
         val newPasswordRe = findViewById<EditText>(R.id.confirmNewPassword)
 
+        val changePasswordBackButton = findViewById<View>(R.id.changePasswordBackButton)
         val save = findViewById<Button>(R.id.submitChangePasswordButton)
 
         changePasswordFormState = MutableLiveData<PasswordChangeFormState>()
@@ -84,30 +86,36 @@ class ChangePasswordPage : AppCompatActivity(){
             }
         }
 
-            save.setOnClickListener {
-                val user = auth.currentUser!!
+        //BUTTONS -----------------------------------------------------------------------
 
-                val email = user.email.toString()
-                val credential: AuthCredential =
-                    EmailAuthProvider.getCredential(email, currentPassword.text.toString())
+        changePasswordBackButton.setOnClickListener{
+            finish()
+        }
 
-                user.reauthenticate(credential).addOnCompleteListener(this){task ->
-                    if (task.isSuccessful){
-                        user.updatePassword(newPassword.text.toString()).addOnCompleteListener(this){task2 ->
-                            if (task2.isSuccessful){
-                                Toast.makeText(baseContext, R.string.password_update_success, Toast.LENGTH_SHORT).show()
-                            }
-                            else{
-                                Toast.makeText(baseContext, R.string.password_update_fail, Toast.LENGTH_SHORT).show()
-                            }
+        save.setOnClickListener {
+            val user = auth.currentUser!!
+
+            val email = user.email.toString()
+            val credential: AuthCredential =
+                EmailAuthProvider.getCredential(email, currentPassword.text.toString())
+
+            user.reauthenticate(credential).addOnCompleteListener(this){task ->
+                if (task.isSuccessful){
+                    user.updatePassword(newPassword.text.toString()).addOnCompleteListener(this){task2 ->
+                        if (task2.isSuccessful){
+                            Toast.makeText(baseContext, R.string.password_update_success, Toast.LENGTH_SHORT).show()
+                        }
+                        else{
+                            Toast.makeText(baseContext, R.string.password_update_fail, Toast.LENGTH_SHORT).show()
                         }
                     }
-                    else{
-                        Toast.makeText(baseContext, R.string.password_update_fail, Toast.LENGTH_SHORT).show()
-                    }
+                }
+                else{
+                    Toast.makeText(baseContext, R.string.password_update_fail, Toast.LENGTH_SHORT).show()
                 }
             }
         }
+    }
 
 
     private fun formDataChanged(crtPassword: String, newPassword: String, newPasswordRe: String) {

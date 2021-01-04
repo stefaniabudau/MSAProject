@@ -9,9 +9,10 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/component_user_profile_header"/>
-        
-        <include layout="@layout/card_review"/>
+
+        <include layout="@layout/component_view_user_profile_header"/>
+
+        <include layout="@layout/card_review" />
     </LinearLayout>
 
 </ScrollView>

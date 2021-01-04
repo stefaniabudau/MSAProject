@@ -18,13 +18,16 @@
         </activity>
         <activity android:name=".register.RegisterActivity" />
         <activity android:name=".RegisterTransitionActivity" />
-        <activity android:name=".profile.NeedyProfileActivity" />
-        <activity android:name=".profile.VolunteerProfileActivity" />
         <activity android:name=".profile.UserProfileActivity" />
+        <activity android:name=".profile.ViewProfileActivity" />
         <activity android:name=".pages.MyRequestsPage" />
         <activity android:name=".pages.SettingsPage" />
         <activity android:name=".pages.EditProfilePage" />
         <activity android:name=".pages.ChangePasswordPage" />
+        <activity android:name=".pages.CreateEventPage" />
+        <activity android:name=".pages.LanguagePage" />
+        <activity android:name=".pages.NotificationPage" />
+        <activity android:name=".pages.ReviewPage" />
     </application>
 
 </manifest>
