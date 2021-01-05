@@ -9,33 +9,71 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SwitchCompat
 import com.e.thetogetherapp.R
+import com.e.thetogetherapp.profile.UserProfileActivity
 import java.util.*
 import kotlin.system.exitProcess
 @Suppress("DEPRECATION")
 
 class LanguagePage : AppCompatActivity() {
 
-    lateinit var spinner: Spinner
     lateinit var locale: Locale
-    private var currentLanguage = "en"
-    private var currentLang: String? = null
+    private var currentLanguage :String = "en"
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_language)
 
+        val romanianSwitch = findViewById<SwitchCompat>(R.id.romanianSwitch)
+        val englishSwitch = findViewById<SwitchCompat>(R.id.englishSwitch)
+
         val languageBackButton = findViewById<View>(R.id.languageBackButton)
 
         // BUTTONS ---------------------------------------------------------------------------
 
-        languageBackButton.setOnClickListener{
+        languageBackButton.setOnClickListener {
             finish()
         }
 
+        //switch-----------------------------------------------------------------------------
+        if(currentLanguage=="en"){
+            romanianSwitch.setChecked(false)
+            englishSwitch.setChecked(true)
+        }else if(currentLanguage=="ro"){
+            romanianSwitch.setChecked(true)
+            englishSwitch.setChecked(false)
+        }
+
+        englishSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (englishSwitch.isChecked) {
+                romanianSwitch.setChecked(false)
+                setLocale("en");
+            }
+        }
+
+        romanianSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (romanianSwitch.isChecked) {
+                englishSwitch.setChecked(false)
+                setLocale("ro");
+            }
+        }
+    }
+
+    private fun setLocale(localeName: String) {
+            currentLanguage = localeName
+            locale = Locale(localeName)
+            val res = resources
+            val dm = res.displayMetrics
+            val conf = res.configuration
+            conf.locale = locale
+            res.updateConfiguration(conf, dm)
+            finish()
+    }
+
         // ACTIVITY ----------------------------------------------------------------------------
-        currentLanguage = intent.getStringExtra(currentLang).toString()
+        /*currentLanguage = intent.getStringExtra(currentLang).toString()
         spinner = findViewById(R.id.spinner)
         val list = ArrayList<String>()
         list.add("Select Language")
@@ -82,6 +120,6 @@ class LanguagePage : AppCompatActivity() {
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
         finish()
-        exitProcess(0)
-    }
+        exitProcess(0)*/
+
 }

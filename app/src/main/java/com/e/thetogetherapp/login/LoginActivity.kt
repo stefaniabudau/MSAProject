@@ -9,6 +9,7 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -17,6 +18,11 @@ import com.e.thetogetherapp.R
 import com.e.thetogetherapp.RegisterTransitionActivity
 import com.e.thetogetherapp.data.model.LoggedInUser
 import com.e.thetogetherapp.profile.UserProfileActivity
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
 
@@ -66,13 +72,26 @@ class LoginActivity : AppCompatActivity() {
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
 
-                val user = Bundle()
-                val intent = Intent(this@LoginActivity, UserProfileActivity::class.java)
+                val databaseRef = Firebase.database.reference.child("users").child(loginResult.success.uid!!)
+                databaseRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onCancelled(error: DatabaseError) {
+                        Log.w("UserProfileActivity","loadUserData:onCancelled",error.toException())
+                    }
 
-                user.putString("uid", loginResult.success.uid)
-                intent.putExtras(user)
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val userType:String = snapshot.child("type").value.toString()
 
-                startActivity(intent)
+                        val user = Bundle()
+                        val intent = Intent(this@LoginActivity, UserProfileActivity::class.java)
+
+                        user.putString("userType", userType)
+                        user.putString("uid", loginResult.success.uid)
+                        intent.putExtras(user)
+
+                        startActivity(intent)
+                    }
+                })
+
             }
             setResult(Activity.RESULT_OK)
 

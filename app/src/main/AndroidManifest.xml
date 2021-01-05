@@ -28,6 +28,8 @@
         <activity android:name=".pages.LanguagePage" />
         <activity android:name=".pages.NotificationPage" />
         <activity android:name=".pages.ReviewPage" />
+        <activity android:name=".pages.SearchRequestsPage" />
+        <activity android:name=".pages.SearchDonationsPage" />
     </application>
 
 </manifest>
