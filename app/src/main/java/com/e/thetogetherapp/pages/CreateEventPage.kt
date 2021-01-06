@@ -16,6 +16,8 @@ import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.forms.PasswordChangeFormState
 import com.e.thetogetherapp.data.model.Event
 import com.e.thetogetherapp.databinding.ActivityCreateEventBinding
+import com.e.thetogetherapp.profile.UserProfileActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
