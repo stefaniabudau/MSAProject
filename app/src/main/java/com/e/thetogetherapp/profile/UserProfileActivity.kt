@@ -13,11 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.User
 import com.e.thetogetherapp.pages.*
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
@@ -100,7 +96,7 @@ class UserProfileActivity : AppCompatActivity() {
         // BUTTONS -------------------------------------------------------------------------------------
 
         myActivityButton.setOnClickListener{
-            startActivity(Intent(this@UserProfileActivity, MyRequestsPage::class.java))
+            startActivity(Intent(this@UserProfileActivity, MyActivityPage::class.java))
         }
 
         goToSettingsButton.setOnClickListener{
@@ -117,7 +113,11 @@ class UserProfileActivity : AppCompatActivity() {
         }
 
         reviewCardButton.setOnClickListener{
-            startActivity(Intent(this@UserProfileActivity, ReviewPage::class.java))
+            val intent = Intent(this@UserProfileActivity, MyReviewsPage::class.java)
+            val param = Bundle().apply { putString("uid", uid) }
+            intent.putExtras(param)
+
+            startActivity(intent)
         }
 
         // PROFILE BANNER ----------------------------------------------------------------------------

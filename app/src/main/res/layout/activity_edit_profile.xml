@@ -33,6 +33,7 @@
         <EditText
             android:id="@+id/editName"
             style="@style/modifiedEditText"
+            android:hint="@string/text_register_name"
             android:text="@={user.name}"
             android:inputType="text"
             android:maxLines="1"

@@ -1,9 +1,13 @@
 package com.e.thetogetherapp.data
 
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.e.thetogetherapp.data.model.RegisteredUser
+import com.e.thetogetherapp.profile.UserProfileActivity
 import com.e.thetogetherapp.register.RegisterForm
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -12,7 +16,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.io.IOException
 
-class RegisterDataSource: AppCompatActivity() {
+class RegisterDataSource(private val context:Context): AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
@@ -29,6 +33,15 @@ class RegisterDataSource: AppCompatActivity() {
                 if(task.isSuccessful) {
 //                    registeredUser = processUserData(registerData)
                     writeUser(task.result?.user!!.uid, registerData)
+
+                    val user = Bundle()
+                    val intent = Intent(context, UserProfileActivity::class.java)
+
+                    user.putString("uid", task.result?.user!!.uid)
+                    intent.putExtras(user)
+
+                    context.startActivity(intent)
+                    finish()
                 }
             }
 
@@ -41,23 +54,6 @@ class RegisterDataSource: AppCompatActivity() {
         return Result.Error(IOException("Error on register"))
 
     }
-
-
-//    private fun processUserData(registerData: RegisterForm): RegisteredUser{
-//        val userLocation = mapOf<String, String>("Country" to registerData.country!!,
-//            "City" to registerData.city!!, "Address" to registerData.address!!)
-//
-//        val user = RegisteredUser(
-//            displayName = registerData.name,
-//            nickname = registerData.nickname,
-//            email = registerData.email,
-//            age = registerData.age,
-//            location = userLocation,
-//            type = registerData.type
-//        )
-//        return user
-//    }
-
 
     private fun writeUser(uid: String, registerData: RegisterForm){
         val userReference = database.child("users").child(uid)

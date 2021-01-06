@@ -53,7 +53,7 @@ class RegisterActivity: AppCompatActivity(){
 //            finish()
         }
 
-        registerViewModel = ViewModelProviders.of(this, RegisterViewModelFactory())
+        registerViewModel = ViewModelProviders.of(this, RegisterViewModelFactory(this@RegisterActivity))
             .get(RegisterViewModel::class.java)
 
 

@@ -20,7 +20,8 @@
         <activity android:name=".RegisterTransitionActivity" />
         <activity android:name=".profile.UserProfileActivity" />
         <activity android:name=".profile.ViewProfileActivity" />
-        <activity android:name=".pages.MyRequestsPage" />
+        <activity android:name=".pages.MyActivityPage" />
+        <activity android:name=".pages.MyReviewsPage" />
         <activity android:name=".pages.SettingsPage" />
         <activity android:name=".pages.EditProfilePage" />
         <activity android:name=".pages.ChangePasswordPage" />

@@ -56,7 +56,6 @@ class EditProfilePage:AppCompatActivity() {
 
         submitButton.setOnClickListener{
             ref.updateChildren(binding.user!!.toMap())
-//            auth.currentUser!!.updateEmail(binding.user.email.toString())
         }
     }
 }

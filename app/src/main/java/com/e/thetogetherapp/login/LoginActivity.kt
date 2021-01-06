@@ -42,10 +42,10 @@ class LoginActivity : AppCompatActivity() {
 
         register.setOnClickListener {
             startActivity(Intent(this@LoginActivity, RegisterTransitionActivity::class.java))
-//            finish()
+            finish()
         }
 
-        loginViewModel = ViewModelProviders.of(this, LoginViewModelFactory())
+        loginViewModel = ViewModelProviders.of(this, LoginViewModelFactory(this@LoginActivity))
                 .get(LoginViewModel::class.java)
 
         loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
@@ -95,7 +95,7 @@ class LoginActivity : AppCompatActivity() {
             }
             setResult(Activity.RESULT_OK)
 
-            finish()
+//            finish()
         })
 
         username.afterTextChanged {
@@ -113,19 +113,7 @@ class LoginActivity : AppCompatActivity() {
                 )
             }
 
-//            setOnEditorActionListener { _, actionId, _ ->
-//                when (actionId) {
-//                    EditorInfo.IME_ACTION_DONE ->
-//                        loginViewModel.login(
-//                                username.text.toString(),
-//                                password.text.toString()
-//                        )
-//                }
-//                false
-//            }
-
             login.setOnClickListener {
-//                loading.visibility = View.VISIBLE
                 loginViewModel.login(username.text.toString(), password.text.toString())
             }
         }
