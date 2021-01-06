@@ -34,55 +34,40 @@ class NotificationPage :AppCompatActivity(){
 
         //NAVIGATION BAR ------------------------------------------------------------------------------
 
-        val navigationBar = findViewById<View>(R.id.navigationBar) as BottomNavigationView
+        val navigationBar = findViewById<BottomNavigationView>(R.id.navigationBar)
+        navigationBar.setSelectedItemId(R.id.notifications)
+
         navigationBar.setOnNavigationItemSelectedListener {
+            val user = Bundle()
+            user.putString("userType", userType)
+            user.putString("uid", uid)
+
             when (it.itemId) {
                 R.id.home -> {
-                    val user = Bundle()
                     val intent = Intent(this@NotificationPage, UserProfileActivity::class.java)
-
-                    user.putString("userType", userType)
-                    user.putString("uid", uid)
                     intent.putExtras(user)
-
                     startActivity(intent)
-                    true
                     true
                 }
                 R.id.notifications -> {
                     true
                 }
                 R.id.search -> {
-                    if(userType=="needy"){
-                        val user = Bundle()
+                    if(userType.equals("needy")){
                         val intent = Intent(this@NotificationPage, SearchRequestsPage::class.java)
-
-                        user.putString("userType", userType)
-                        user.putString("uid", uid)
                         intent.putExtras(user)
-
                         startActivity(intent)
                     }
-                    if(userType=="volunteer"){
-                        val user = Bundle()
+                    if(userType.equals("volunteer")){
                         val intent = Intent(this@NotificationPage, SearchDonationsPage::class.java)
-
-                        user.putString("userType", userType)
-                        user.putString("uid", uid)
                         intent.putExtras(user)
-
                         startActivity(intent)
                     }
                     true
                 }
                 R.id.addNew -> {
-                    val user = Bundle()
                     val intent = Intent(this@NotificationPage, CreateEventPage::class.java)
-
-                    user.putString("userType", userType)
-                    user.putString("uid", uid)
                     intent.putExtras(user)
-
                     startActivity(intent)
                     true
                 }

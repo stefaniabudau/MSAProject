@@ -6,9 +6,6 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -27,8 +24,9 @@
                 android:layout_marginBottom="15dp"
                 android:gravity="center" />
 
+
             <TextView
-                android:id="@+id/nearYouDonationsButton"
+                android:id="@+id/nearYouRequestsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_category_near_you"
@@ -47,7 +45,7 @@
                 tools:targetApi="lollipop" />
 
             <TextView
-                android:id="@+id/errandRequestButton"
+                android:id="@+id/errandsRequestsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_category_errands"
@@ -65,8 +63,9 @@
                 android:backgroundTint="@color/colorPrimary"
                 tools:targetApi="lollipop" />
 
+
             <TextView
-                android:id="@+id/foodDonationsButton"
+                android:id="@+id/foodRequestsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_category_food"
@@ -84,8 +83,9 @@
                 android:backgroundTint="@color/imageBorderColor"
                 tools:targetApi="lollipop" />
 
+
             <TextView
-                android:id="@+id/babySuppliesDonationsButton"
+                android:id="@+id/babySuppliesRequestsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_category_baby_supplies"
@@ -103,8 +103,10 @@
                 android:backgroundTint="@color/lightAccentColor"
                 tools:targetApi="lollipop" />
 
+
+
             <TextView
-                android:id="@+id/schoolSuppliesDonationsButton"
+                android:id="@+id/schoolSuppliesRequestsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_category_school_supplies"
@@ -122,8 +124,9 @@
                 android:backgroundTint="@color/accentColor"
                 tools:targetApi="lollipop" />
 
+
             <TextView
-                android:id="@+id/otherDonationsButton"
+                android:id="@+id/otherRequestsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_category_other"
@@ -147,19 +150,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigationBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_margin="30dp"
-        android:background="@drawable/bg"
-        app:elevation="2dp"
-        app:itemIconSize="30dp"
-        app:itemIconTint="@drawable/item_selector"
-        app:itemRippleColor="@android:color/transparent"
-        app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/menu_navigation_items" />
+    <include layout="@layout/component_navigation_bar"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -56,55 +56,40 @@ class UserProfileActivity : AppCompatActivity() {
 
         //NAVIGATION BAR ------------------------------------------------------------------------------
 
-        val navigationBar = findViewById<View>(R.id.navigationBar) as BottomNavigationView
+        val navigationBar = findViewById<BottomNavigationView>(R.id.navigationBar)
+        navigationBar.setSelectedItemId(R.id.home)
+
         navigationBar.setOnNavigationItemSelectedListener {
+            val user = Bundle()
+            user.putString("userType", userType)
+            user.putString("uid", uid)
+
                 when (it.itemId) {
                     R.id.home -> {
                         true
                     }
                     R.id.notifications -> {
-
-                        val user = Bundle()
                         val intent = Intent(this@UserProfileActivity, NotificationPage::class.java)
-
-                        user.putString("userType", userType)
-                        user.putString("uid", uid)
                         intent.putExtras(user)
-
                         startActivity(intent)
                         true
                     }
                     R.id.search -> {
-                        if(userType=="needy"){
-                            val user = Bundle()
+                        if(userType.equals("needy")){
                             val intent = Intent(this@UserProfileActivity, SearchRequestsPage::class.java)
-
-                            user.putString("userType", userType)
-                            user.putString("uid", uid)
                             intent.putExtras(user)
-
                             startActivity(intent)
                         }
-                        if(userType=="volunteer"){
-                            val user = Bundle()
+                        if(userType.equals("volunteer")){
                             val intent = Intent(this@UserProfileActivity, SearchDonationsPage::class.java)
-
-                            user.putString("userType", userType)
-                            user.putString("uid", uid)
                             intent.putExtras(user)
-
                             startActivity(intent)
                         }
                         true
                     }
                     R.id.addNew -> {
-                        val user = Bundle()
                         val intent = Intent(this@UserProfileActivity, CreateEventPage::class.java)
-
-                        user.putString("userType", userType)
-                        user.putString("uid", uid)
                         intent.putExtras(user)
-
                         startActivity(intent)
                         true
                     }
@@ -123,7 +108,12 @@ class UserProfileActivity : AppCompatActivity() {
         }
 
         notificationCardButton.setOnClickListener{
-            startActivity(Intent(this@UserProfileActivity, NotificationPage::class.java))
+            val user = Bundle()
+            user.putString("userType", userType)
+            user.putString("uid", uid)
+            val intent = Intent(this@UserProfileActivity, NotificationPage::class.java)
+            intent.putExtras(user)
+            startActivity(intent)
         }
 
         reviewCardButton.setOnClickListener{

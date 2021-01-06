@@ -62,19 +62,7 @@
 
     </ScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigationBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_margin="30dp"
-        android:background="@drawable/bg"
-        app:elevation="2dp"
-        app:itemIconSize="30dp"
-        app:itemIconTint="@drawable/item_selector"
-        app:itemRippleColor="@android:color/transparent"
-        app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/menu_navigation_items" />
+    <include layout="@layout/component_navigation_bar"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

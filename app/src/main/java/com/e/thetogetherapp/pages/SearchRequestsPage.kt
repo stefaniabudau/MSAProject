@@ -2,7 +2,6 @@ package com.e.thetogetherapp.pages
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.profile.UserProfileActivity
@@ -21,26 +20,38 @@ class SearchRequestsPage: AppCompatActivity (){
             userType = extras.getString("userType")
         }
 
-        setContentView(R.layout.activity_search_requests_category)
+        setContentView(R.layout.activity_search_request_category)
 
         //NAVIGATION BAR ------------------------------------------------------------------------------
 
-        val navigationBar = findViewById<View>(R.id.navigationBar) as BottomNavigationView
+        val navigationBar = findViewById<BottomNavigationView>(R.id.navigationBar)
+        navigationBar.setSelectedItemId(R.id.search)
+
         navigationBar.setOnNavigationItemSelectedListener {
+            val user = Bundle()
+            user.putString("userType", userType)
+            user.putString("uid", uid)
+
             when (it.itemId) {
                 R.id.home -> {
-                    startActivity(Intent(this@SearchRequestsPage, UserProfileActivity::class.java))
+                    val intent = Intent(this@SearchRequestsPage, UserProfileActivity::class.java)
+                    intent.putExtras(user)
+                    startActivity(intent)
                     true
                 }
                 R.id.notifications -> {
-                    startActivity(Intent(this@SearchRequestsPage, NotificationPage::class.java))
+                    val intent = Intent(this@SearchRequestsPage, NotificationPage::class.java)
+                    intent.putExtras(user)
+                    startActivity(intent)
                     true
                 }
                 R.id.search -> {
                     true
                 }
                 R.id.addNew -> {
-                    startActivity(Intent(this@SearchRequestsPage, CreateEventPage::class.java))
+                    val intent = Intent(this@SearchRequestsPage, CreateEventPage::class.java)
+                    intent.putExtras(user)
+                    startActivity(intent)
                     true
                 }
                 else->false
