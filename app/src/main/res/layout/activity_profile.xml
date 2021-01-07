@@ -25,7 +25,14 @@
                 android:layout_marginTop="@dimen/mediumViewsMargin"
                 android:text="@string/text_my_activity" />
 
-            <include layout="@layout/card_notifications"/>
+            <Button
+                android:id="@+id/addNewButton"
+                style="@style/mediumSquareRoundedButton"
+                android:layout_width="245dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/mediumViewsMargin"
+                android:text="@string/text_add_new" />
 
             <fragment
                 android:id="@+id/avg_review_fragment_my"

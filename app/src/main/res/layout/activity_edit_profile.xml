@@ -3,121 +3,126 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <data>
         <variable name="user" type="com.e.thetogetherapp.data.model.User"/>
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="30dp">
-
-        <View
-            android:id="@+id/editProfileBackButton"
-            android:background="@drawable/ic_baseline_west_24"
-            android:layout_height="45dp"
-            android:layout_width="45dp"
-            android:layout_marginBottom="10dp"/>
-        <TextView
-            style="@style/bigLightText"
-            android:text="@string/text_edit_profile"
-            android:layout_marginBottom="15dp"/>
-        
-        <TextView
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/text_register_name"
-            style="@style/editProfileText"/>
-        <EditText
-            android:id="@+id/editName"
-            style="@style/modifiedEditText"
-            android:hint="@string/text_register_name"
-            android:text="@={user.name}"
-            android:inputType="text"
-            android:maxLines="1"
-            android:importantForAutofill="no"
-            tools:ignore="LabelFor"/>
+            android:orientation="vertical"
+            android:padding="30dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/text_register_nickname"
-            style="@style/editProfileText"/>
-        <EditText
-            android:id="@+id/editNickname"
-            style="@style/modifiedEditText"
-            android:text="@={user.nickname}"
-            android:inputType="text"
-            android:maxLines="1"
-            android:importantForAutofill="no"
-            tools:ignore="LabelFor"/>
+            <View
+                android:id="@+id/editProfileBackButton"
+                android:background="@drawable/ic_baseline_west_24"
+                android:layout_height="45dp"
+                android:layout_width="45dp"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                style="@style/bigLightText"
+                android:text="@string/text_edit_profile"
+                android:layout_marginBottom="15dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/text_register_age"
-            style="@style/editProfileText"/>
-        <EditText
-            android:id="@+id/editAge"
-            style="@style/modifiedEditText"
-            android:text="@={user.age}"
-            android:inputType="number"
-            android:maxLines="1"
-            android:importantForAutofill="no"
-            tools:ignore="LabelFor"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_register_name"
+                style="@style/editProfileText"/>
+            <EditText
+                android:id="@+id/editName"
+                style="@style/modifiedEditText"
+                android:hint="@string/text_register_name"
+                android:text="@={user.name}"
+                android:inputType="text"
+                android:maxLines="1"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/text_register_country"
-            style="@style/editProfileText"/>
-        <EditText
-            android:id="@+id/editCountry"
-            style="@style/modifiedEditText"
-            android:text="@={user.location[&quot;country&quot;]}"
-            android:inputType="text"
-            android:maxLines="1"
-            android:importantForAutofill="no"
-            tools:ignore="LabelFor"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_register_nickname"
+                style="@style/editProfileText"/>
+            <EditText
+                android:id="@+id/editNickname"
+                style="@style/modifiedEditText"
+                android:text="@={user.nickname}"
+                android:inputType="text"
+                android:maxLines="1"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/text_register_city"
-            style="@style/editProfileText"/>
-        <EditText
-            android:id="@+id/editCity"
-            style="@style/modifiedEditText"
-            android:text='@={user.location[&quot;city&quot;]}'
-            android:inputType="text"
-            android:maxLines="1"
-            android:importantForAutofill="no"
-            tools:ignore="LabelFor"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_register_age"
+                style="@style/editProfileText"/>
+            <EditText
+                android:id="@+id/editAge"
+                style="@style/modifiedEditText"
+                android:text="@={user.age}"
+                android:inputType="number"
+                android:maxLines="1"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/text_register_address"
-            style="@style/editProfileText"/>
-        <EditText
-            android:id="@+id/editAddress"
-            style="@style/modifiedEditText"
-            android:text='@={user.location[&quot;address&quot;]}'
-            android:inputType="text"
-            android:maxLines="2"
-            android:importantForAutofill="no"
-            tools:ignore="LabelFor"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_register_country"
+                style="@style/editProfileText"/>
+            <EditText
+                android:id="@+id/editCountry"
+                style="@style/modifiedEditText"
+                android:text="@={user.location[&quot;country&quot;]}"
+                android:inputType="text"
+                android:maxLines="1"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_register_city"
+                style="@style/editProfileText"/>
+            <EditText
+                android:id="@+id/editCity"
+                style="@style/modifiedEditText"
+                android:text='@={user.location[&quot;city&quot;]}'
+                android:inputType="text"
+                android:maxLines="1"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_register_address"
+                style="@style/editProfileText"/>
+            <EditText
+                android:id="@+id/editAddress"
+                style="@style/modifiedEditText"
+                android:text='@={user.location[&quot;address&quot;]}'
+                android:inputType="text"
+                android:maxLines="2"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"/>
 
 
-        <Button
-            android:id="@+id/saveEditProfileButton"
-            style="@style/bigSquareRoundedButton"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/mediumViewsMargin"
-            android:text="@string/text_save" />
+            <Button
+                android:id="@+id/saveEditProfileButton"
+                style="@style/bigSquareRoundedButton"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/mediumViewsMargin"
+                android:text="@string/text_save" />
 
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </layout>
