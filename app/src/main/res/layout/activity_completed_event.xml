@@ -12,6 +12,7 @@
         android:padding="30dp">
 
         <View
+            android:id="@+id/completedEventGoBackButton"
             android:background="@drawable/ic_baseline_west_24"
             android:layout_height="45dp"
             android:layout_width="45dp"
@@ -26,7 +27,7 @@
 
             <include layout="@layout/component_event_details"/>
             <include layout="@layout/component_event_user"/>
-            <include layout="@layout/component_event_user"/>
+            <include layout="@layout/component_event_user2"/>
             <include layout="@layout/component_event_review"/>
 
         </LinearLayout>

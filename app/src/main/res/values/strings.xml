@@ -209,6 +209,9 @@
     <string name="text_send_review">Send review</string>
     <string name="text_review_explanation">You are almost done! Give your user a final review.</string>
 
+    <string name="text_my_activity_type">Unassigned/Pending/Completed</string>
+
+
 
 </resources>
 

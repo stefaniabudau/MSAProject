@@ -208,4 +208,6 @@
     <string name="text_send_review">Trimite un review</string>
     <string name="text_review_explanation">Aproape ai terminat!</string>
 
+    <string name="text_my_activity_type">Unassigned/Pending/Completed</string>
+
 </resources>
