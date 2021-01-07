@@ -32,7 +32,7 @@
             android:id="@+id/averageHonestyRating"
             style="@style/rating"
             android:gravity="end"
-            android:rating="1" />
+            android:rating="0" />
     </LinearLayout>
 
     <LinearLayout
@@ -52,7 +52,7 @@
             android:id="@+id/averagePunctualityRating"
             style="@style/rating"
             android:gravity="end"
-            android:rating="1" />
+            android:rating="0" />
     </LinearLayout>
 
     <LinearLayout
@@ -72,7 +72,7 @@
             android:id="@+id/averageAttitudeRating"
             style="@style/rating"
             android:gravity="end"
-            android:rating="1" />
+            android:rating="0" />
     </LinearLayout>
 
 </LinearLayout>
