@@ -25,12 +25,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"/>
 
-<!--        <include layout="@layout/component_average_review" />-->
-        <fragment
-            android:id="@+id/avg_review_fragment_my"
-            class="com.e.thetogetherapp.fragments.AverageReviewCardFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <include layout="@layout/component_average_review" />
 
         <include layout="@layout/component_page_separator"/>
 
