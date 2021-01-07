@@ -100,7 +100,12 @@ class UserProfileActivity : AppCompatActivity() {
         // BUTTONS -------------------------------------------------------------------------------------
 
         addNewButton.setOnClickListener {
-            startActivity(Intent(this@UserProfileActivity, CreateEventPage::class.java))
+            val user = Bundle()
+            user.putString("userType", userType)
+            user.putString("uid", uid)
+            val intent = Intent(this@UserProfileActivity, CreateEventPage::class.java)
+            intent.putExtras(user)
+            startActivity(intent)
         }
 
         myActivityButton.setOnClickListener {

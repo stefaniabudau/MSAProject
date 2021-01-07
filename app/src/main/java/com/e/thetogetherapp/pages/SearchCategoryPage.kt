@@ -1,14 +1,17 @@
 package com.e.thetogetherapp.pages
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.adapters.MyActivityAdapter
 import com.e.thetogetherapp.adapters.SearchAdapter
 import com.e.thetogetherapp.data.model.Event
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -36,7 +39,15 @@ class SearchCategoryPage: AppCompatActivity() {
             type = extras.getString("type")
         }
 
+
+
         setContentView(R.layout.activity_search_event_category)
+
+        val donationTitle2 = findViewById<TextView>(R.id.donationTitle2)
+        donationTitle2.setOnClickListener{
+            val intent = Intent(this@SearchCategoryPage, CompletedEventPage2::class.java)
+            startActivity(intent)
+        }
 
         linearLayoutManager = LinearLayoutManager(this)
         categoryRecyclerView.layoutManager = linearLayoutManager
