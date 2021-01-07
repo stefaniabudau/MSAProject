@@ -24,6 +24,7 @@
         <activity android:name=".pages.MyReviewsPage" />
         <activity android:name=".pages.SettingsPage" />
         <activity android:name=".pages.EditProfilePage" />
+        <activity android:name=".pages.EditEventPage" />
         <activity android:name=".pages.ChangePasswordPage" />
         <activity android:name=".pages.CreateEventPage" />
         <activity android:name=".pages.LanguagePage" />

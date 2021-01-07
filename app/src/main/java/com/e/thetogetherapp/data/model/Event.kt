@@ -10,7 +10,11 @@ data class Event (
     var date: String? = "",
     var time: String? = "",
     var description: String? = "",
-    var category: String? = ""){
+    var category: String? = "",
+    var type: String? = "",
+    var needy: String? ="",
+    var volunteer: String? = ""
+    ){
 
     @Exclude
     fun toMap(): Map<String, Any?> {
@@ -20,6 +24,10 @@ data class Event (
             "date" to date,
             "time" to time,
             "description" to description,
-            "category" to category)
+            "category" to category,
+            "type" to type,
+            "needy" to needy,
+            "volunteer" to volunteer
+        )
     }
 }

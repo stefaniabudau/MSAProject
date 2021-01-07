@@ -1,117 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <data>
+        <variable
+            name="event"
+            type="com.e.thetogetherapp.data.model.Event" />
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="30dp">
+        android:layout_height="match_parent">
 
-        <View
-            android:background="@drawable/ic_baseline_west_24"
-            android:layout_height="45dp"
-            android:layout_width="45dp"
-            android:layout_marginBottom="10dp"/>
-        <TextView
-            style="@style/bigLightText"
-            android:text="@string/text_edit"
-            android:layout_marginBottom="15dp"/>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/text_event_title"
-            style="@style/editProfileText"/>
-        <EditText
-            android:id="@+id/editEventTitle"
-            style="@style/modifiedEditText"
-            android:text="@string/value_event_title"
-            android:maxLines="1"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            tools:ignore="LabelFor"/>
+            android:orientation="vertical"
+            android:padding="30dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/text_event_location"
-            style="@style/editProfileText"/>
-        <EditText
-            android:id="@+id/editEventLocation"
-            style="@style/modifiedEditText"
-            android:text="@string/value_event_location"
-            android:maxLines="1"
-            android:inputType="text"
-            android:importantForAutofill="no"
-            tools:ignore="LabelFor"/>
+            <View
+                android:id="@+id/editEventBackButton"
+                android:background="@drawable/ic_baseline_west_24"
+                android:layout_height="45dp"
+                android:layout_width="45dp"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                style="@style/bigLightText"
+                android:text="@string/text_edit"
+                android:layout_marginBottom="15dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/text_event_date"
-            style="@style/editProfileText"/>
-        <EditText
-            android:id="@+id/editEventDate"
-            style="@style/modifiedEditText"
-            android:text="@string/value_event_date"
-            android:maxLines="1"
-            android:inputType="date"
-            android:importantForAutofill="no"
-            tools:ignore="LabelFor"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_event_title"
+                style="@style/editProfileText"/>
+            <EditText
+                android:id="@+id/editEventTitle"
+                style="@style/modifiedEditText"
+                android:text="@={event.title}"
+                android:maxLines="1"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:ignore="LabelFor"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/text_event_time"
-            style="@style/editProfileText"/>
-        <EditText
-            android:id="@+id/editEventTime"
-            style="@style/modifiedEditText"
-            android:text="@string/value_event_time"
-            android:maxLines="1"
-            android:inputType="time"
-            android:importantForAutofill="no"
-            tools:ignore="LabelFor"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_event_location"
+                style="@style/editProfileText"/>
+            <EditText
+                android:id="@+id/editEventLocation"
+                style="@style/modifiedEditText"
+                android:text="@={event.location}"
+                android:maxLines="1"
+                android:inputType="text"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/text_event_description"
-            style="@style/editProfileText"/>
-        <EditText
-            android:id="@+id/editEventDescription"
-            style="@style/modifiedEditText"
-            android:text="@string/value_event_description"
-            android:maxLines="15"
-            android:inputType="text"
-            android:importantForAutofill="no"
-            tools:ignore="LabelFor"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_event_date"
+                style="@style/editProfileText"/>
+            <EditText
+                android:id="@+id/editEventDate"
+                style="@style/modifiedEditText"
+                android:text="@={event.date}"
+                android:maxLines="1"
+                android:inputType="date"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/text_event_category"
-            style="@style/editProfileText"/>
-        <EditText
-            android:id="@+id/editEventCategory"
-            style="@style/modifiedEditText"
-            android:text="@string/value_event_category"
-            android:maxLines="15"
-            android:inputType="text"
-            android:importantForAutofill="no"
-            tools:ignore="LabelFor"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_event_time"
+                style="@style/editProfileText"/>
+            <EditText
+                android:id="@+id/editEventTime"
+                style="@style/modifiedEditText"
+                android:text="@={event.time}"
+                android:maxLines="1"
+                android:inputType="time"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"/>
 
-        <Button
-            android:id="@+id/saveEditProfileButton"
-            style="@style/bigSquareRoundedButton"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/mediumViewsMargin"
-            android:text="@string/text_save" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_event_description"
+                style="@style/editProfileText"/>
+            <EditText
+                android:id="@+id/editEventDescription"
+                style="@style/modifiedEditText"
+                android:text="@={event.description}"
+                android:maxLines="15"
+                android:inputType="text"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"/>
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_event_category"
+                style="@style/editProfileText"/>
+<!--            <EditText-->
+<!--                android:id="@+id/editEventCategory"-->
+<!--                style="@style/modifiedEditText"-->
+<!--                android:text="@={event.category}"-->
+<!--                android:maxLines="15"-->
+<!--                android:inputType="text"-->
+<!--                android:importantForAutofill="no"-->
+<!--                tools:ignore="LabelFor"/>-->
 
-</ScrollView>
+            <Spinner
+                android:id="@+id/editEventCategorySpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/saveEditEventButton"
+                style="@style/bigSquareRoundedButton"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/mediumViewsMargin"
+                android:text="@string/text_save" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

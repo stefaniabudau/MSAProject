@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.e.thetogetherapp.data.model.LoggedInUser
+import com.e.thetogetherapp.pages.CreateEventPage
+import com.e.thetogetherapp.pages.EditEventPage
 import com.e.thetogetherapp.profile.UserProfileActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -27,7 +29,6 @@ class LoginDataSource(private val context: Context): AppCompatActivity() {
 //                    loggedInUser = LoggedInUser(task.result?.user!!.uid, username)
                     val user = Bundle()
                     val intent = Intent(context, UserProfileActivity::class.java)
-
                     user.putString("uid", task.result?.user!!.uid)
                     intent.putExtras(user)
 

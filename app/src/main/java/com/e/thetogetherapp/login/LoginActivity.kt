@@ -66,13 +66,13 @@ class LoginActivity : AppCompatActivity() {
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
 
-                val user = Bundle()
-                val intent = Intent(this@LoginActivity, UserProfileActivity::class.java)
-
-                user.putString("uid", loginResult.success.uid)
-                intent.putExtras(user)
-
-                startActivity(intent)
+//                val user = Bundle()
+//                val intent = Intent(this@LoginActivity, UserProfileActivity::class.java)
+//
+//                user.putString("uid", loginResult.success.uid)
+//                intent.putExtras(user)
+//
+//                startActivity(intent)
             }
             setResult(Activity.RESULT_OK)
 

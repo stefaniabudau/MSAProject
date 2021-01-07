@@ -3,69 +3,67 @@ package com.e.thetogetherapp.pages
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.*
-import android.widget.AdapterView.OnItemSelectedListener
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.Event
-import com.e.thetogetherapp.databinding.ActivityCreateEventBinding
+import com.e.thetogetherapp.databinding.ActivityEditEventBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
-
-class CreateEventPage : AppCompatActivity(){
-
+class EditEventPage: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var uid: String? = null
-        var userType: String? = null
+        var eventId: String? = null
+        var eventType: String? = null
+
         val extras: Bundle? = intent.extras
 
         if (extras != null) {
-            uid = extras.getString("uid")
-            userType = extras.getString("userType")
+            eventId = extras.getString("event_id")
+            eventType = extras.getString("event_type")
         }
 
-        val binding : ActivityCreateEventBinding = DataBindingUtil.setContentView(
-            this, R.layout.activity_create_event)
+        val binding : ActivityEditEventBinding = DataBindingUtil.setContentView(
+            this, R.layout.activity_edit_event)
 
-        var event: Event
-        val eventType: String?
         val database = Firebase.database.reference
 
-        binding.event = Event()
 
         // FORM
 
-        eventType = if(userType == "needy"){
-            "requests"
-        }else{
-            "donations"
-        }
+        val eventRef = database.child(eventType!!).child(eventId!!)
+        eventRef.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("CrateEventPage", "eventDataLoad:onCancelled")
+            }
 
-        val titleText = "New $eventType"
-        val buttonText = "Submit $eventType"
+            override fun onDataChange(snapshot: DataSnapshot) {
+               val event = snapshot.getValue<Event>()
+                binding.event = event
+            }
+        })
 
-        findViewById<TextView>(R.id.newEventTypeTitle).text = titleText
-        findViewById<Button>(R.id.submitCreateEventButton).text = buttonText
 
+     // SPINNER
 
-        // SPINNER
-
-        val categorySpinner = findViewById<Spinner>(R.id.newEventCategorySpinner)
+        val categorySpinner = findViewById<Spinner>(R.id.editEventCategorySpinner)
         val categoryList = ArrayList<String>()
-        categoryList.add("Select category")
 
         val categoryRef = database.child(eventType!!).child("category")
 
         categoryRef.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                Log.d("CrateEventPage", "categoryList:onCancelled")
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -80,9 +78,9 @@ class CreateEventPage : AppCompatActivity(){
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         categorySpinner.adapter = adapter
 
-        categorySpinner.onItemSelectedListener = object : OnItemSelectedListener {
+        categorySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                Log.d("CrateEventPage", "spinner:onNothingSelected")
+                Log.d("EditEventPage", "categoryList:onNothingSelected")
             }
 
             override fun onItemSelected(
@@ -103,25 +101,19 @@ class CreateEventPage : AppCompatActivity(){
             }
         }
 
+    // BUTTONS
 
-        // BUTTONS
-
-        val button = findViewById<Button>(R.id.submitCreateEventButton)
-        button.setOnClickListener{
-            event = binding.event!!
-            event.type = eventType
-
-            if(userType == "needy"){
-                event.needy = uid
-            }else{
-                event.volunteer = uid
-            }
-
-            val eventRef = database.child(eventType!!)
-            val eventId = eventRef.push().key
-
-            eventRef.child(eventId!!).setValue(event)
-            Log.d("click", "here")
+        findViewById<Button>(R.id.saveEditEventButton).setOnClickListener{
+            eventRef.updateChildren(binding.event!!.toMap())
         }
+
+        findViewById<View>(R.id.editEventBackButton).setOnClickListener{
+            finish()
+        }
+
+
+
+
+
     }
 }
