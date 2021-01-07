@@ -21,6 +21,7 @@
             app:drawableRightCompat="@drawable/ic_right_icon"/>
 
         <TextView
+            android:id="@+id/eventLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/value_event_location"

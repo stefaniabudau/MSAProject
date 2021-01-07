@@ -72,13 +72,13 @@ class UserProfileActivity : AppCompatActivity() {
                     true
                 }
                 R.id.search -> {
-                    if (userType.equals("needy")) {
+                    if (userType.equals("volunteer")) {
                         val intent =
                             Intent(this@UserProfileActivity, SearchRequestsPage::class.java)
                         intent.putExtras(user)
                         startActivity(intent)
                     }
-                    if (userType.equals("volunteer")) {
+                    if (userType.equals("needy")) {
                         val intent =
                             Intent(this@UserProfileActivity, SearchDonationsPage::class.java)
                         intent.putExtras(user)
@@ -99,7 +99,12 @@ class UserProfileActivity : AppCompatActivity() {
         // BUTTONS -------------------------------------------------------------------------------------
 
         myActivityButton.setOnClickListener {
-            startActivity(Intent(this@UserProfileActivity, MyActivityPage::class.java))
+            val user = Bundle()
+            user.putString("userType", userType)
+            user.putString("uid", uid)
+            val intent = Intent(this@UserProfileActivity, MyActivityPage::class.java)
+            intent.putExtras(user)
+            startActivity(intent)
         }
 
         goToSettingsButton.setOnClickListener {
@@ -149,12 +154,12 @@ class UserProfileActivity : AppCompatActivity() {
 
                 val allRequests = snapshot.child("requests").children
                 val userRequests = allRequests.filter { it.child(userType).value == uid }
-                val ongoingRequests = userRequests.filter { it.child("status").value == "ongoing" }
+                val ongoingRequests = userRequests.filter { it.child("status").value == "pending" }
 
                 val allDonations = snapshot.child("donations").children
                 val userDonations = allDonations.filter { it.child(userType).value == uid }
                 val ongoingDonations =
-                    userDonations.filter { it.child("status").value == "ongoing" }
+                    userDonations.filter { it.child("status").value == "pending" }
 
                 val ongoingActivities = ongoingDonations.count() + ongoingRequests.count()
 

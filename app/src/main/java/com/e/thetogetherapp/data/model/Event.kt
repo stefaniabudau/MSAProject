@@ -5,6 +5,7 @@ import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 data class Event (
+    var id: String? = "",
     var title: String? = "",
     var location: String? = "",
     var date: String? = "",
@@ -13,7 +14,10 @@ data class Event (
     var category: String? = "",
     var type: String? = "",
     var needy: String? ="",
-    var volunteer: String? = ""
+    var volunteer: String? = "",
+    var status: String? = "",
+    var needyReview: String? ="",
+    var volunteerReview: String? = ""
     ){
 
     @Exclude
@@ -27,7 +31,10 @@ data class Event (
             "category" to category,
             "type" to type,
             "needy" to needy,
-            "volunteer" to volunteer
+            "volunteer" to volunteer,
+            "status" to status,
+            "needyReview" to needyReview,
+            "volunteerReview" to volunteerReview
         )
     }
 }

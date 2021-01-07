@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bottom_top_shadow_1">
 
     <LinearLayout
@@ -11,6 +11,7 @@
         android:orientation="vertical">
 
         <View
+            android:id="@+id/myActivityBackButton"
             android:background="@drawable/ic_baseline_west_24"
             android:layout_height="45dp"
             android:layout_width="45dp"
@@ -45,6 +46,7 @@
             android:id="@+id/unassigned">
 
             <TextView
+                android:id="@+id/myActivityRequestsNumber"
                 style="@style/hugeLightText"
                 android:layout_width="110dp"
                 android:layout_height="match_parent"
@@ -52,6 +54,7 @@
                 android:textColor="@color/white"
                 android:text="@string/value_requests_number"/>
             <Button
+                android:id="@+id/unassignedActivities"
                 style="@style/smallSquareRoundedButton"
                 android:layout_width="110dp"
                 android:layout_height="match_parent"
@@ -69,6 +72,7 @@
             android:id="@+id/pending">
 
             <TextView
+                android:id="@+id/myActivityDonationsNumber"
                 style="@style/hugeLightText"
                 android:layout_width="110dp"
                 android:layout_height="match_parent"
@@ -76,6 +80,7 @@
                 android:textColor="@color/white"
                 android:text="@string/value_donations_number"/>
             <Button
+                android:id="@+id/pendingActivities"
                 style="@style/smallSquareRoundedButton"
                 android:layout_width="110dp"
                 android:layout_height="match_parent"
@@ -93,6 +98,7 @@
             android:layout_gravity="center">
 
             <TextView
+                android:id="@+id/myActivityActivitiesNumber"
                 style="@style/hugeLightText"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
@@ -100,6 +106,7 @@
                 android:textColor="@color/white"
                 android:text="@string/value_activity_number"/>
             <Button
+                android:id="@+id/completedActivities"
                 style="@style/smallSquareRoundedButton"
                 android:layout_width="110dp"
                 android:layout_height="match_parent"
@@ -117,9 +124,14 @@
             android:layout_marginTop="20dp"
             android:padding="30dp">
 
-            <include layout="@layout/component_event"/>
-            <include layout="@layout/component_event"/>
-            <include layout="@layout/component_event"/>
+<!--            <include layout="@layout/component_event"/>-->
+<!--            <include layout="@layout/component_event"/>-->
+<!--            <include layout="@layout/component_event"/>-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/eventsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="LinearLayoutManager"/>
 
             <TextView
                 android:layout_width="match_parent"

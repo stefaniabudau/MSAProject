@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bottom_top_shadow_1">
 
     <LinearLayout
@@ -13,6 +13,7 @@
         android:padding="30dp">
 
         <View
+            android:id="@+id/categorySearchBackButton"
             android:background="@drawable/ic_baseline_west_24"
             android:layout_height="45dp"
             android:layout_width="45dp"
@@ -29,9 +30,15 @@
             android:orientation="vertical"
             android:layout_marginTop="20dp">
 
-            <include layout="@layout/component_event"/>
-            <include layout="@layout/component_event"/>
-            <include layout="@layout/component_event"/>
+<!--            <include layout="@layout/component_event"/>-->
+<!--            <include layout="@layout/component_event"/>-->
+<!--            <include layout="@layout/component_event"/>-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoryRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="LinearLayoutManager"/>
 
             <TextView
                 android:layout_width="match_parent"

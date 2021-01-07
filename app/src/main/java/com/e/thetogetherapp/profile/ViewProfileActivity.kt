@@ -79,11 +79,11 @@ class ViewProfileActivity : AppCompatActivity() {
 
                val allRequests = snapshot.child("requests").children
                val userRequests = allRequests.filter { it.child(userType).value == uid }
-               val ongoingRequests = userRequests.filter { it.child("status").value == "ongoing" }
+               val ongoingRequests = userRequests.filter { it.child("status").value == "pending" }
 
                val allDonations = snapshot.child("donations").children
                val userDonations = allDonations.filter { it.child(userType).value == uid }
-               val ongoingDonations = userDonations.filter { it.child("status").value == "ongoing" }
+               val ongoingDonations = userDonations.filter { it.child("status").value == "pending" }
 
                val ongoingActivities = ongoingDonations.count() + ongoingRequests.count()
 

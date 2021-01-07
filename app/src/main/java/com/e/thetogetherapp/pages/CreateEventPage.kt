@@ -133,12 +133,12 @@ class CreateEventPage : AppCompatActivity(){
                     true
                 }
                 R.id.search -> {
-                    if(userType.equals("needy")){
+                    if(userType.equals("volunteer")){
                         val intent = Intent(this@CreateEventPage, SearchRequestsPage::class.java)
                         intent.putExtras(user)
                         startActivity(intent)
                     }
-                    if(userType.equals("volunteer")){
+                    if(userType.equals("needy")){
                         val intent = Intent(this@CreateEventPage, SearchDonationsPage::class.java)
                         intent.putExtras(user)
                         startActivity(intent)
@@ -155,6 +155,9 @@ class CreateEventPage : AppCompatActivity(){
         // BUTTONS -----------------------------------------------------------------
         
         findViewById<Button>(R.id.submitCreateEventButton).setOnClickListener{
+            val eventRef = database.child(eventType!!)
+            val eventId = eventRef.push().key
+
             event = binding.event!!
             event.type = eventType
 
@@ -164,8 +167,8 @@ class CreateEventPage : AppCompatActivity(){
                 event.volunteer = uid
             }
 
-            val eventRef = database.child(eventType!!)
-            val eventId = eventRef.push().key
+            event.id = eventId
+            event.status = "unassigned"
 
             eventRef.child(eventId!!).setValue(event)
         }
