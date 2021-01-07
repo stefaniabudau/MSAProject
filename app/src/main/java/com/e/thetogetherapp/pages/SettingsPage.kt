@@ -3,20 +3,26 @@ package com.e.thetogetherapp.pages
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.login.LoginActivity
+import com.e.thetogetherapp.profile.UserProfileActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 
 class SettingsPage :AppCompatActivity(){
 
     private lateinit var auth: FirebaseAuth
+    lateinit var locale: Locale
+    private var currentLanguage = "en"
+    private var currentLang: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

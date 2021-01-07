@@ -1,8 +1,10 @@
 package com.e.thetogetherapp.profile
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.RatingBar
@@ -11,10 +13,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.User
 import com.e.thetogetherapp.pages.*
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+
 
 class UserProfileActivity : AppCompatActivity() {
 
@@ -23,11 +27,13 @@ class UserProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var uid: String ? = null
+        var uid: String? = null
+        var userType: String? = null
         val extras: Bundle? = intent.extras
 
-        if(extras != null){
+        if (extras != null) {
             uid = extras.getString("uid")
+            userType = extras.getString("userType")
         }
 
         database = Firebase.database.reference
@@ -45,21 +51,71 @@ class UserProfileActivity : AppCompatActivity() {
         val notificationCardButton = findViewById<View>(R.id.notificationCardButton)
         val reviewCardButton = findViewById<View>(R.id.reviewCardButton)
 
+        //NAVIGATION BAR ------------------------------------------------------------------------------
+
+        val navigationBar = findViewById<BottomNavigationView>(R.id.navigationBar)
+        navigationBar.setSelectedItemId(R.id.home)
+
+        navigationBar.setOnNavigationItemSelectedListener {
+            val user = Bundle()
+            user.putString("userType", userType)
+            user.putString("uid", uid)
+
+            when (it.itemId) {
+                R.id.home -> {
+                    true
+                }
+                R.id.notifications -> {
+                    val intent = Intent(this@UserProfileActivity, NotificationPage::class.java)
+                    intent.putExtras(user)
+                    startActivity(intent)
+                    true
+                }
+                R.id.search -> {
+                    if (userType.equals("needy")) {
+                        val intent =
+                            Intent(this@UserProfileActivity, SearchRequestsPage::class.java)
+                        intent.putExtras(user)
+                        startActivity(intent)
+                    }
+                    if (userType.equals("volunteer")) {
+                        val intent =
+                            Intent(this@UserProfileActivity, SearchDonationsPage::class.java)
+                        intent.putExtras(user)
+                        startActivity(intent)
+                    }
+                    true
+                }
+                R.id.addNew -> {
+                    val intent = Intent(this@UserProfileActivity, CreateEventPage::class.java)
+                    intent.putExtras(user)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
+
         // BUTTONS -------------------------------------------------------------------------------------
 
-        myActivityButton.setOnClickListener{
+        myActivityButton.setOnClickListener {
             startActivity(Intent(this@UserProfileActivity, MyActivityPage::class.java))
         }
 
-        goToSettingsButton.setOnClickListener{
+        goToSettingsButton.setOnClickListener {
             startActivity(Intent(this@UserProfileActivity, SettingsPage::class.java))
         }
 
-        notificationCardButton.setOnClickListener{
-            startActivity(Intent(this@UserProfileActivity, NotificationPage::class.java))
+        notificationCardButton.setOnClickListener {
+            val user = Bundle()
+            user.putString("userType", userType)
+            user.putString("uid", uid)
+            val intent = Intent(this@UserProfileActivity, NotificationPage::class.java)
+            intent.putExtras(user)
+            startActivity(intent)
         }
 
-        reviewCardButton.setOnClickListener{
+        reviewCardButton.setOnClickListener {
             val intent = Intent(this@UserProfileActivity, MyReviewsPage::class.java)
             val param = Bundle().apply { putString("uid", uid) }
             intent.putExtras(param)
@@ -70,7 +126,7 @@ class UserProfileActivity : AppCompatActivity() {
         // PROFILE BANNER ----------------------------------------------------------------------------
 
         val userRef = database.child("users").child(uid!!)
-        userRef.addValueEventListener(object : ValueEventListener{
+        userRef.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 Log.w("Header", "loadUserData:onCancelled", error.toException())
             }
@@ -83,65 +139,28 @@ class UserProfileActivity : AppCompatActivity() {
             }
         })
 
-        database.addValueEventListener(object : ValueEventListener{
-           override fun onCancelled(error: DatabaseError) {
-               Log.w(TAG, "loadBannerData:onCancelled", error.toException())
-           }
-
-           override fun onDataChange(snapshot: DataSnapshot) {
-               val userType = snapshot.child("users").child(uid!!).child("type").value.toString()
-
-               val allRequests = snapshot.child("requests").children
-               val userRequests = allRequests.filter { it.child(userType).value == uid }
-               val ongoingRequests = userRequests.filter { it.child("status").value == "ongoing" }
-
-               val allDonations = snapshot.child("donations").children
-               val userDonations = allDonations.filter { it.child(userType).value == uid }
-               val ongoingDonations = userDonations.filter { it.child("status").value == "ongoing" }
-
-               val ongoingActivities = ongoingDonations.count() + ongoingRequests.count()
-
-               requests.text = userRequests.count().toString()
-               donations.text = userDonations.count().toString()
-               activities.text = ongoingActivities.toString()
-           }
-       })
-
-        // REVIEWS AND RATINGS -----------------------------------------------------------------------------
-
-        val ratingsHonesty = findViewById<RatingBar>(R.id.averageHonestyRating)
-        val ratingsAttitude = findViewById<RatingBar>(R.id.averageAttitudeRating)
-        val ratingsPunctuality = findViewById<RatingBar>(R.id.averagePunctualityRating)
-        val nrRatings = findViewById<TextView>(R.id.reviewsNumber)
-
-        val ratingsRef = database.child("ratings")
-        ratingsRef.addValueEventListener(object : ValueEventListener{
+        database.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
-                Log.w(TAG, "loadRatings:onCancelled", error.toException())
+                Log.w("UserProfileActivity: ", "loadBannerData:onCancelled", error.toException())
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                val ratings = snapshot.children
-                val userRatings = ratings.filter { it.child("to").value == uid }
-                val numberOfRatings = userRatings.count()
+                val userType = snapshot.child("users").child(uid!!).child("type").value.toString()
 
-                if (numberOfRatings == 0){
-                    ratingsAttitude.rating = 0F
-                    ratingsPunctuality.rating = 0F
-                    ratingsHonesty.rating = 0F
-                    nrRatings.text = "0"
-                }
-                else{
-                    fun getAverageRating(ratings:List<DataSnapshot>, characteristic:String, n:Int): Float{
-                        return ratings.map { it.child(characteristic).value.toString().toFloat() }.sum() / n
-                    }
+                val allRequests = snapshot.child("requests").children
+                val userRequests = allRequests.filter { it.child(userType).value == uid }
+                val ongoingRequests = userRequests.filter { it.child("status").value == "ongoing" }
 
-                    ratingsAttitude.rating = getAverageRating(userRatings, "attitude", numberOfRatings)
-                    ratingsPunctuality.rating = getAverageRating(userRatings, "punctuality", numberOfRatings)
-                    ratingsHonesty.rating = getAverageRating(userRatings, "honesty", numberOfRatings)
-                    nrRatings.text = numberOfRatings.toString()
-                }
+                val allDonations = snapshot.child("donations").children
+                val userDonations = allDonations.filter { it.child(userType).value == uid }
+                val ongoingDonations =
+                    userDonations.filter { it.child("status").value == "ongoing" }
 
+                val ongoingActivities = ongoingDonations.count() + ongoingRequests.count()
+
+                requests.text = userRequests.count().toString()
+                donations.text = userDonations.count().toString()
+                activities.text = ongoingActivities.toString()
             }
         })
     }

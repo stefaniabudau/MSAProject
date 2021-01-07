@@ -21,16 +21,16 @@
             android:text="@string/text_language"
             android:layout_marginBottom="45dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/text_select_language"
-            style="@style/mediumLightText"/>
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/romanianSwitch"
+            style="@style/settingsText"
+            android:text="Romanian" />
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/englishSwitch"
+            style="@style/settingsText"
+            android:text="English" />
+
 
         <TextView
             android:id="@+id/string"

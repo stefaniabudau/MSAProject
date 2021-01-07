@@ -3,6 +3,7 @@ package com.e.thetogetherapp.pages
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -63,7 +64,7 @@ class MyReviewsPage: AppCompatActivity() {
                     ratingsArray.add(rating!!)
                 }
 
-                findViewById<TextView>(R.id.pageSeparatorText).setText(userRatings.count().toString() + "REVIEWS")
+                findViewById<TextView>(R.id.pageSeparatorText).setText(userRatings.count().toString() + " REVIEWS")
 
                 adapter = RatingAdapter(
                     ratingsArray,
@@ -73,6 +74,40 @@ class MyReviewsPage: AppCompatActivity() {
             }
         })
 
+        // REVIEWS AND RATINGS -----------------------------------------------------------------------------
 
+        val ratingsHonesty = findViewById<RatingBar>(R.id.averageHonestyRating)
+        val ratingsAttitude = findViewById<RatingBar>(R.id.averageAttitudeRating)
+        val ratingsPunctuality = findViewById<RatingBar>(R.id.averagePunctualityRating)
+
+        val ratingsRef = database.child("ratings")
+        ratingsRef.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(error: DatabaseError) {
+                Log.w("MyReviewsPage", "loadRatings:onCancelled", error.toException())
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val ratings = snapshot.children
+                val userRatings = ratings.filter { it.child("to").value == uid }
+                val numberOfRatings = userRatings.count()
+
+                if (numberOfRatings == 0){
+                    ratingsAttitude.rating = 0F
+                    ratingsPunctuality.rating = 0F
+                    ratingsHonesty.rating = 0F
+                }
+                else{
+                    fun getAverageRating(ratings:List<DataSnapshot>, characteristic:String, n:Int): Float{
+                        return ratings.map { it.child(characteristic).value.toString().toFloat() }.sum() / n
+                    }
+
+                    ratingsAttitude.rating = getAverageRating(userRatings, "attitude", numberOfRatings)
+                    ratingsPunctuality.rating = getAverageRating(userRatings, "punctuality", numberOfRatings)
+                    ratingsHonesty.rating = getAverageRating(userRatings, "honesty", numberOfRatings)
+                }
+
+            }
+        })
     }
+
 }

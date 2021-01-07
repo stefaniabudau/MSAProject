@@ -11,6 +11,10 @@ import com.e.thetogetherapp.pages.EditEventPage
 import com.e.thetogetherapp.profile.UserProfileActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.io.IOException
 
@@ -26,14 +30,33 @@ class LoginDataSource(private val context: Context): AppCompatActivity() {
                 Log.d("Login", "signIn:onComplete:" + task.isSuccessful)
 
                 if (task.isSuccessful) {
-//                    loggedInUser = LoggedInUser(task.result?.user!!.uid, username)
-                    val user = Bundle()
-                    val intent = Intent(context, UserProfileActivity::class.java)
-                    user.putString("uid", task.result?.user!!.uid)
-                    intent.putExtras(user)
+//                    val user = Bundle()
+//                    val intent = Intent(context, UserProfileActivity::class.java)
+//                    user.putString("uid", task.result?.user!!.uid)
+//                    intent.putExtras(user)
+//
+//                    context.startActivity(intent)
+//                    finish()
+                    val databaseRef = Firebase.database.reference.child("users").child(task.result?.user!!.uid)
+                    databaseRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onCancelled(error: DatabaseError) {
+                            Log.w("UserProfileActivity","loadUserData:onCancelled",error.toException())
+                        }
 
-                    context.startActivity(intent)
-                    finish()
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            val userType:String = snapshot.child("type").value.toString()
+
+                            val user = Bundle()
+                            val intent = Intent(context, UserProfileActivity::class.java)
+
+                            user.putString("userType", userType)
+                            user.putString("uid", task.result?.user!!.uid)
+                            intent.putExtras(user)
+
+                            context.startActivity(intent)
+                            finish()
+                        }
+                    })
                 }
             }
 

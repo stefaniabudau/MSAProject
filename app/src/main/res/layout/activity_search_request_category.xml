@@ -18,7 +18,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/text_donations"
+                android:text="@string/text_requests"
                 style="@style/PageTitleText"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
@@ -26,7 +26,7 @@
 
 
             <TextView
-                android:id="@+id/nearYouDonationsButton"
+                android:id="@+id/nearYouRequestsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_category_near_you"
@@ -45,10 +45,10 @@
                 tools:targetApi="lollipop" />
 
             <TextView
-                android:id="@+id/devicesDonationsButton"
+                android:id="@+id/errandsRequestsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/text_category_devices"
+                android:text="@string/text_category_errands"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -58,14 +58,14 @@
                 android:layout_marginRight="20dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                app:drawableTopCompat="@drawable/ic_baseline_devices_24"
+                app:drawableTopCompat="@drawable/ic_baseline_directions_run_24"
                 android:background="@drawable/border_soft_shadow"
                 android:backgroundTint="@color/colorPrimary"
                 tools:targetApi="lollipop" />
 
 
             <TextView
-                android:id="@+id/foodDonationsButton"
+                android:id="@+id/foodRequestsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_category_food"
@@ -85,7 +85,7 @@
 
 
             <TextView
-                android:id="@+id/babySuppliesDonationsButton"
+                android:id="@+id/babySuppliesRequestsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_category_baby_supplies"
@@ -106,7 +106,7 @@
 
 
             <TextView
-                android:id="@+id/schoolSuppliesDonationsButton"
+                android:id="@+id/schoolSuppliesRequestsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_category_school_supplies"
@@ -126,7 +126,7 @@
 
 
             <TextView
-                android:id="@+id/otherDonationsButton"
+                android:id="@+id/otherRequestsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/text_category_other"

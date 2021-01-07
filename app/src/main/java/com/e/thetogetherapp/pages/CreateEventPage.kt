@@ -1,15 +1,19 @@
 package com.e.thetogetherapp.pages
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.Event
 import com.e.thetogetherapp.databinding.ActivityCreateEventBinding
+import com.e.thetogetherapp.profile.UserProfileActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -24,9 +28,10 @@ class CreateEventPage : AppCompatActivity(){
 
         var uid: String? = null
         var userType: String? = null
+
         val extras: Bundle? = intent.extras
 
-        if (extras != null) {
+        if(extras != null){
             uid = extras.getString("uid")
             userType = extras.getString("userType")
         }
@@ -104,10 +109,52 @@ class CreateEventPage : AppCompatActivity(){
         }
 
 
-        // BUTTONS
+        //NAVIGATION BAR ------------------------------------------------------------------------------
 
-        val button = findViewById<Button>(R.id.submitCreateEventButton)
-        button.setOnClickListener{
+        val navigationBar = findViewById<BottomNavigationView>(R.id.navigationBar)
+        navigationBar.setSelectedItemId(R.id.addNew)
+
+        navigationBar.setOnNavigationItemSelectedListener {
+            val user = Bundle()
+            user.putString("userType", userType)
+            user.putString("uid", uid)
+
+            when (it.itemId) {
+                R.id.home -> {
+                    val intent = Intent(this@CreateEventPage, UserProfileActivity::class.java)
+                    intent.putExtras(user)
+                    startActivity(intent)
+                    true
+                }
+                R.id.notifications -> {
+                    val intent = Intent(this@CreateEventPage, NotificationPage::class.java)
+                    intent.putExtras(user)
+                    startActivity(intent)
+                    true
+                }
+                R.id.search -> {
+                    if(userType.equals("needy")){
+                        val intent = Intent(this@CreateEventPage, SearchRequestsPage::class.java)
+                        intent.putExtras(user)
+                        startActivity(intent)
+                    }
+                    if(userType.equals("volunteer")){
+                        val intent = Intent(this@CreateEventPage, SearchDonationsPage::class.java)
+                        intent.putExtras(user)
+                        startActivity(intent)
+                    }
+                    true
+                }
+                R.id.addNew -> {
+                    true
+                }
+                else->false
+            }
+        }
+
+        // BUTTONS -----------------------------------------------------------------
+        
+        findViewById<Button>(R.id.submitCreateEventButton).setOnClickListener{
             event = binding.event!!
             event.type = eventType
 
@@ -121,7 +168,6 @@ class CreateEventPage : AppCompatActivity(){
             val eventId = eventRef.push().key
 
             eventRef.child(eventId!!).setValue(event)
-            Log.d("click", "here")
         }
     }
 }
