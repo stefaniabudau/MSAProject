@@ -32,6 +32,7 @@
         <activity android:name=".pages.ReviewPage" />
         <activity android:name=".pages.SearchRequestsPage" />
         <activity android:name=".pages.SearchDonationsPage" />
+        <activity android:name=".pages.GiveReviewPage" />
     </application>
 
 </manifest>
