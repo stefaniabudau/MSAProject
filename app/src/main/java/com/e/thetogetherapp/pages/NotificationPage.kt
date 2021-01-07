@@ -53,12 +53,12 @@ class NotificationPage :AppCompatActivity(){
                     true
                 }
                 R.id.search -> {
-                    if(userType.equals("needy")){
+                    if(userType.equals("volunteer")){
                         val intent = Intent(this@NotificationPage, SearchRequestsPage::class.java)
                         intent.putExtras(user)
                         startActivity(intent)
                     }
-                    if(userType.equals("volunteer")){
+                    if(userType.equals("needy")){
                         val intent = Intent(this@NotificationPage, SearchDonationsPage::class.java)
                         intent.putExtras(user)
                         startActivity(intent)

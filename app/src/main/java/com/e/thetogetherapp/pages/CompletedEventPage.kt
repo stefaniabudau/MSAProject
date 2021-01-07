@@ -159,7 +159,5 @@ class CompletedEventPage : AppCompatActivity(){
                 averageAttitudeRating2.rating = rating!!.attitude.toString().toFloat()
             }
         })
-
-
     }
 }

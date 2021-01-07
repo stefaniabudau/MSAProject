@@ -33,6 +33,8 @@
         <activity android:name=".pages.SearchRequestsPage" />
         <activity android:name=".pages.SearchDonationsPage" />
         <activity android:name=".pages.GiveReviewPage" />
+        <activity android:name=".pages.CompletedEventPage"/>
+        <activity android:name=".pages.SearchCategoryPage" />
     </application>
 
 </manifest>
