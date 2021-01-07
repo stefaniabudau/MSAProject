@@ -25,8 +25,8 @@
             android:layout_marginTop="20dp">
 
             <include layout="@layout/component_event_details"/>
-            <include layout="@layout/component_event_creator"/>
-            <include layout="@layout/component_event_creator"/>
+            <include layout="@layout/component_event_user"/>
+            <include layout="@layout/component_event_user"/>
 
             <Button
                 android:id="@+id/completedEventButton"
@@ -49,6 +49,7 @@
                 style="@style/mediumSquareRoundedButton"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:text="@string/text_delete" />
 

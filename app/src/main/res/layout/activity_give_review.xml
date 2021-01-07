@@ -6,7 +6,6 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -20,20 +19,20 @@
             android:layout_marginBottom="10dp"/>
         <TextView
             style="@style/bigLightText"
-            android:text="Send review"
+            android:text="@string/text_send_review"
             android:layout_marginBottom="15dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="You are almost done! Give your user a final review."
+            android:text="@string/text_review_explanation"
             android:layout_marginTop="15dp"
             style="@style/mediumLightText"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Honesty"
+            android:text="@string/text_rating_honesty"
             android:layout_marginTop="35dp"
             android:textColor="@color/colorAccent"
             style="@style/bigLightText"/>
@@ -48,7 +47,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Punctuality"
+            android:text="@string/text_rating_punctuality"
             android:textColor="@color/colorAccent"
             style="@style/bigLightText"/>
         <RatingBar
@@ -62,7 +61,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Attitude"
+            android:text="@string/text_rating_attitude"
             android:textColor="@color/colorAccent"
             style="@style/bigLightText"/>
         <RatingBar
@@ -74,7 +73,7 @@
             android:stepSize=".5" />
 
         <Button
-            android:text="Submit"
+            android:text="@string/text_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"

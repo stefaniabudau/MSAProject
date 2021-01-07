@@ -34,7 +34,7 @@ class LanguagePage : AppCompatActivity() {
         // BUTTONS ---------------------------------------------------------------------------
 
         languageBackButton.setOnClickListener {
-            finish()
+            startActivity(Intent(this@LanguagePage, SettingsPage::class.java))
         }
 
         //switch-----------------------------------------------------------------------------

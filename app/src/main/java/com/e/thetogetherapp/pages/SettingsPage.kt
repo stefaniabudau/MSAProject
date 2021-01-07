@@ -60,7 +60,7 @@ class SettingsPage :AppCompatActivity(){
         // BUTTONS ---------------------------------------------------------------------------
 
         settingBackButton.setOnClickListener{
-            finish()
+            startActivity(Intent(this@SettingsPage, UserProfileActivity::class.java))
         }
 
         editProfile.setOnClickListener{

@@ -206,6 +206,8 @@
     <string name="password_update_success">Success - Password was updated</string>
     <string name="password_update_fail">Fail - Password can t be updated</string>
     <string name="not_new_password">New password can t be the same as the old one</string>
+    <string name="text_send_review">Send review</string>
+    <string name="text_review_explanation">You are almost done! Give your user a final review.</string>
 
 
 </resources>
