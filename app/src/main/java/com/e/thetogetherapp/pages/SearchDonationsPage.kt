@@ -31,10 +31,10 @@ class SearchDonationsPage: AppCompatActivity (){
         setContentView(R.layout.activity_search_donation_category)
 
         val database = Firebase.database.reference
-        val arguments = Bundle()
         var intent: Intent
 
         findViewById<TextView>(R.id.nearYouDonationsButton).setOnClickListener{
+            val arguments = Bundle()
             val userRef = database.child("users").child(uid!!)
             userRef.addValueEventListener(object :ValueEventListener{
                 override fun onCancelled(error: DatabaseError) {
@@ -55,6 +55,7 @@ class SearchDonationsPage: AppCompatActivity (){
         }
 
         findViewById<TextView>(R.id.devicesDonationsButton).setOnClickListener{
+            val arguments = Bundle()
             arguments.apply { putString("category", "Devices")
                 putString("type", "donations")}
             intent = Intent(this@SearchDonationsPage, SearchCategoryPage::class.java)
@@ -63,6 +64,7 @@ class SearchDonationsPage: AppCompatActivity (){
         }
 
         findViewById<TextView>(R.id.foodDonationsButton).setOnClickListener{
+            val arguments = Bundle()
             arguments.apply { putString("category", "Food")
                 putString("type", "donations")}
             intent = Intent(this@SearchDonationsPage, SearchCategoryPage::class.java)
@@ -71,6 +73,7 @@ class SearchDonationsPage: AppCompatActivity (){
         }
 
         findViewById<TextView>(R.id.babySuppliesDonationsButton).setOnClickListener{
+            val arguments = Bundle()
             arguments.apply { putString("category", "Baby supplies")
                 putString("type", "donations")}
             intent = Intent(this@SearchDonationsPage, SearchCategoryPage::class.java)
@@ -79,6 +82,7 @@ class SearchDonationsPage: AppCompatActivity (){
         }
 
         findViewById<TextView>(R.id.schoolSuppliesDonationsButton).setOnClickListener{
+            val arguments = Bundle()
             arguments.apply { putString("category", "School supplies")
                 putString("type", "donations")}
             intent = Intent(this@SearchDonationsPage, SearchCategoryPage::class.java)
@@ -87,6 +91,7 @@ class SearchDonationsPage: AppCompatActivity (){
         }
 
         findViewById<TextView>(R.id.otherDonationsButton).setOnClickListener{
+            val arguments = Bundle()
             arguments.apply { putString("category", "Other")
                 putString("type", "donations")}
             intent = Intent(this@SearchDonationsPage, SearchCategoryPage::class.java)

@@ -29,8 +29,8 @@ class EditEventPage: AppCompatActivity() {
         val extras: Bundle? = intent.extras
 
         if (extras != null) {
-            eventId = extras.getString("event_id")
-            eventType = extras.getString("event_type")
+            eventId = extras.getString("eventId")
+            eventType = extras.getString("eventType")
         }
 
         val binding : ActivityEditEventBinding = DataBindingUtil.setContentView(

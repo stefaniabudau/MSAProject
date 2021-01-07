@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.adapters.MyActivityAdapter
+import com.e.thetogetherapp.adapters.SearchAdapter
 import com.e.thetogetherapp.data.model.Event
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -19,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_search_event_category.*
 class SearchCategoryPage: AppCompatActivity() {
 
     private lateinit var linearLayoutManager: LinearLayoutManager
-    private lateinit var adapter: MyActivityAdapter
+    private lateinit var adapter: SearchAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +61,7 @@ class SearchCategoryPage: AppCompatActivity() {
                         categoryEvents.add(event!!)
                     }
 
-                    adapter = MyActivityAdapter(
+                    adapter = SearchAdapter(
                         categoryEvents,
                         this@SearchCategoryPage
                     )
@@ -86,7 +87,7 @@ class SearchCategoryPage: AppCompatActivity() {
                         categoryEvents.add(event!!)
                     }
 
-                    adapter = MyActivityAdapter(
+                    adapter = SearchAdapter(
                         categoryEvents,
                         this@SearchCategoryPage
                     )

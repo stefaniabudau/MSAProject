@@ -30,7 +30,7 @@ class SearchRequestsPage: AppCompatActivity (){
         setContentView(R.layout.activity_search_request_category)
 
         val database = Firebase.database.reference
-        val arguments = Bundle()
+
         var intent: Intent
 
         findViewById<TextView>(R.id.nearYouRequestsButton).setOnClickListener{
@@ -43,6 +43,7 @@ class SearchRequestsPage: AppCompatActivity (){
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val userLocation = snapshot.child("location").child("city").value.toString()
 
+                    val arguments = Bundle()
                     arguments.apply { putString("location" , userLocation)
                     putString("category", "Near you")
                         putString("type", "requests")}
@@ -54,6 +55,7 @@ class SearchRequestsPage: AppCompatActivity (){
         }
 
         findViewById<TextView>(R.id.errandsRequestsButton).setOnClickListener{
+            val arguments = Bundle()
             arguments.apply { putString("category", "Errands")
                 putString("type", "requests")}
             intent = Intent(this@SearchRequestsPage, SearchCategoryPage::class.java)
@@ -62,6 +64,7 @@ class SearchRequestsPage: AppCompatActivity (){
         }
 
         findViewById<TextView>(R.id.foodRequestsButton).setOnClickListener{
+            val arguments = Bundle()
             arguments.apply { putString("category", "Food")
                 putString("type", "requests")}
             intent = Intent(this@SearchRequestsPage, SearchCategoryPage::class.java)
@@ -70,6 +73,7 @@ class SearchRequestsPage: AppCompatActivity (){
         }
 
         findViewById<TextView>(R.id.babySuppliesRequestsButton).setOnClickListener{
+            val arguments = Bundle()
             arguments.apply { putString("category", "Baby supplies")
                 putString("type", "requests")}
             intent = Intent(this@SearchRequestsPage, SearchCategoryPage::class.java)
@@ -78,6 +82,7 @@ class SearchRequestsPage: AppCompatActivity (){
         }
 
         findViewById<TextView>(R.id.schoolSuppliesRequestsButton).setOnClickListener{
+            val arguments = Bundle()
             arguments.apply { putString("category", "School supplies")
                 putString("type", "requests")}
             intent = Intent(this@SearchRequestsPage, SearchCategoryPage::class.java)
@@ -86,6 +91,7 @@ class SearchRequestsPage: AppCompatActivity (){
         }
 
         findViewById<TextView>(R.id.otherRequestsButton).setOnClickListener{
+            val arguments = Bundle()
             arguments.apply { putString("category", "Other")
                 putString("type", "requests")}
             intent = Intent(this@SearchRequestsPage, SearchCategoryPage::class.java)

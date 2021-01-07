@@ -1,8 +1,10 @@
 package com.e.thetogetherapp.pages
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +12,7 @@ import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.Event
 import com.e.thetogetherapp.data.model.Rating
 import com.e.thetogetherapp.data.model.User
+import com.e.thetogetherapp.profile.UserProfileActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -18,39 +21,29 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
-class CompletedEventPage : AppCompatActivity(){
+class AssignedEventCreatorPage : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_completed_event)
+        setContentView(R.layout.activity_assigned_event_creator)
         val database = Firebase.database.reference
 
         var uidNeedy: String? = null
         var uidVolunteer: String? = null
         var eventId: String? = null
         var eventType: String? = null
-        var eventToNeedyReviewId: String? = null
-        var eventToVolunteerReviewId: String? = null
+        var userType: String? = null
 
         val extras: Bundle? = intent.extras
 
         if(extras != null){
+            userType = extras.getString("userType")
             eventType = extras.getString("eventType")
             eventId = extras.getString("eventId")
             uidNeedy = extras.getString("uidNeedy")
             uidVolunteer = extras.getString("uidVolunteer")
-            eventToNeedyReviewId = extras.getString("eventToNeedyReviewId")
-            eventToVolunteerReviewId = extras.getString("eventToVolunteerReviewId")
         }
-
-
-        val completedEventGoBackButton = findViewById<View>(R.id.completedEventGoBackButton)
-
-        completedEventGoBackButton.setOnClickListener{
-            finish()
-        }
-
 
         // View
         val eventTitle = findViewById<TextView>(R.id.eventTitle)
@@ -120,44 +113,33 @@ class CompletedEventPage : AppCompatActivity(){
             }
         })
 
-        // Reviews
+        //Buttons
+        val completedEventButton = findViewById<Button>(R.id.completedEventButton)
+        val removeAssigneeEventButton = findViewById<Button>(R.id.removeAssigneeEventButton)
+        val deleteEventButton = findViewById<Button>(R.id.deleteEventButton)
+        val eventAssignedGoBackButton = findViewById<View>(R.id.eventAssignedGoBackButton)
 
-        val averageHonestyRating = findViewById<RatingBar>(R.id.averageHonestyRating)
-        val averagePunctualityRating = findViewById<RatingBar>(R.id.averagePunctualityRating)
-        val averageAttitudeRating = findViewById<RatingBar>(R.id.averageAttitudeRating)
+        eventAssignedGoBackButton.setOnClickListener{
+            finish()
+        }
 
-        val needyReview = database.child("ratings").child(eventToNeedyReviewId!!)
-        needyReview.addValueEventListener(object : ValueEventListener {
-            override fun onCancelled(error: DatabaseError) {
-                Log.w("Header", "loadUserData:onCancelled", error.toException())
+        completedEventButton.setOnClickListener{
+            startActivity(Intent(this@AssignedEventCreatorPage, GiveReviewPage::class.java))
+        }
+
+        removeAssigneeEventButton.setOnClickListener{
+            val event = database.child("event").child(eventId!!)
+            if(userType.equals("needy")){
+                //remove volunteer
             }
-
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val rating = snapshot.getValue<Rating>()
-
-                averageHonestyRating.rating = rating!!.honesty.toString().toFloat()
-                averagePunctualityRating.rating = rating!!.punctuality.toString().toFloat()
-                averageAttitudeRating.rating = rating!!.attitude.toString().toFloat()
+            if(userType.equals("volunteer")){
+                //remove needy
             }
-        })
+            finish()
+        }
 
-        val averageHonestyRating2 = findViewById<RatingBar>(R.id.averageHonestyRating2)
-        val averagePunctualityRating2 = findViewById<RatingBar>(R.id.averagePunctualityRating2)
-        val averageAttitudeRating2 = findViewById<RatingBar>(R.id.averageAttitudeRating2)
 
-        val volunteerReview = database.child("ratings").child(eventToVolunteerReviewId!!)
-        volunteerReview.addValueEventListener(object : ValueEventListener {
-            override fun onCancelled(error: DatabaseError) {
-                Log.w("Header", "loadUserData:onCancelled", error.toException())
-            }
 
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val rating = snapshot.getValue<Rating>()
 
-                averageHonestyRating2.rating = rating!!.honesty.toString().toFloat()
-                averagePunctualityRating2.rating = rating!!.punctuality.toString().toFloat()
-                averageAttitudeRating2.rating = rating!!.attitude.toString().toFloat()
-            }
-        })
     }
 }
