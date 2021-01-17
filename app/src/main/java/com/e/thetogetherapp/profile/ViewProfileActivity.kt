@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.User
+import com.e.thetogetherapp.pages.MyReviewsPage
 import com.e.thetogetherapp.pages.ReviewPage
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
@@ -48,9 +49,11 @@ class ViewProfileActivity : AppCompatActivity() {
             finish()
         }
 
-
         reviewCardButton.setOnClickListener{
-            startActivity(Intent(this@ViewProfileActivity, ReviewPage::class.java))
+            val intent = Intent(this@ViewProfileActivity, MyReviewsPage::class.java)
+            val arguments = Bundle().apply { putString("uid", uid) }
+            intent.putExtras(arguments)
+            startActivity(intent)
         }
 
         // PROFILE BANNER ----------------------------------------------------------------------------

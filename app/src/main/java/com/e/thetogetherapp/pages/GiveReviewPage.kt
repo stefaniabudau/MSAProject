@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.RatingBar
 import androidx.appcompat.app.AppCompatActivity
 import com.e.thetogetherapp.data.model.Rating
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
@@ -15,6 +16,7 @@ class GiveReviewPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        var userType: String? = null
         var fromUser: String? = null
         var toUser: String? = null
         var eventId: String? = null
@@ -23,6 +25,7 @@ class GiveReviewPage : AppCompatActivity() {
         val extras: Bundle? = intent.extras
 
         if(extras != null){
+            userType = extras.getString("userType")
             fromUser = extras.getString("from")
             toUser = extras.getString("to")
             eventId = extras.getString("eventId")
@@ -60,10 +63,11 @@ class GiveReviewPage : AppCompatActivity() {
             ratingRef.child(ratingId).setValue(userRating)
 
             val eventRef = Firebase.database.reference.child(eventType!!).child(eventId!!)
-            if (eventType == "requests"){
+
+            if(userType == "needy"){
                 eventRef.child("volunteerReview").setValue(ratingId)
             }
-            else if (eventType == "donations"){
+            else if(userType == "volunteer"){
                 eventRef.child("needyReview").setValue(ratingId)
             }
         }

@@ -39,15 +39,7 @@ class SearchCategoryPage: AppCompatActivity() {
             type = extras.getString("type")
         }
 
-
-
         setContentView(R.layout.activity_search_event_category)
-
-        val donationTitle2 = findViewById<TextView>(R.id.donationTitle2)
-        donationTitle2.setOnClickListener{
-            val intent = Intent(this@SearchCategoryPage, CompletedEventPage2::class.java)
-            startActivity(intent)
-        }
 
         linearLayoutManager = LinearLayoutManager(this)
         categoryRecyclerView.layoutManager = linearLayoutManager

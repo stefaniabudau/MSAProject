@@ -83,7 +83,16 @@ class MyActivityAdapter(private val dataSet:ArrayList<Event>, private val contex
             }
 
             else if (dataSet[position].status == "pending"){
-                intent = Intent(context, AssignedEventCreatorPage::class.java)
+
+                if (user!!.type == "needy" && dataSet[position].type == "donations"){
+                    intent = Intent(context, AssignedEventPage::class.java)
+                }
+                else if(user!!.type == "volunteer" && dataSet[position].type == "requests"){
+                    intent = Intent(context, AssignedEventPage::class.java)
+                }
+                else{
+                    intent = Intent(context, AssignedEventCreatorPage::class.java)
+                }
 
                 val arguments = Bundle().apply{
                     putString("eventId", dataSet[position].id)
@@ -110,7 +119,6 @@ class MyActivityAdapter(private val dataSet:ArrayList<Event>, private val contex
                 intent!!.putExtras(arguments)
                 context.startActivity(intent)
             }
-
         }
 
 

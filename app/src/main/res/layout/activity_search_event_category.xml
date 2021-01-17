@@ -30,7 +30,7 @@
             android:orientation="vertical"
             android:layout_marginTop="20dp">
 
-           <include layout="@layout/component_event2"/>
+<!--           <include layout="@layout/component_event2"/>-->
 <!--            <include layout="@layout/component_event"/>-->
 <!--            <include layout="@layout/component_event"/>-->
 

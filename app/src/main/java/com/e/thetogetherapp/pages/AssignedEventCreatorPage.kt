@@ -147,22 +147,24 @@ class AssignedEventCreatorPage : AppCompatActivity(){
             finish()
         }
 
+
         completedEventButton.setOnClickListener{
             val intent = Intent(this@AssignedEventCreatorPage, GiveReviewPage::class.java)
-            val arguments = Bundle().apply { putString("eventId", eventId) }
+            val arguments = Bundle().apply { putString("eventId", eventId)
+                putString("eventType", eventType)
+                putString("userType", userType)
+            }
 
             if (userType == "volunteer"){
                 arguments.apply {
                     putString("to", uidNeedy)
                     putString("from", uidVolunteer)
-                    putString("eventType", "donations")
                 }
             }
             else if (userType == "needy"){
                 arguments.apply {
                     putString("from", uidNeedy)
                     putString("to", uidVolunteer)
-                    putString("eventType", "requests")
                 }
             }
 
@@ -172,14 +174,14 @@ class AssignedEventCreatorPage : AppCompatActivity(){
             eventRef.child("status").setValue("done")
         }
 
-
         removeAssigneeEventButton.setOnClickListener{
             val event = database.child("event").child(eventId!!)
             if(userType.equals("needy")){
                 //remove volunteer
                 eventRef.child("volunteer").setValue("")
             }
-            if(userType.equals("volunteer")){
+
+            if(userType.equals("volunteer")) {
                 //remove needy
                 eventRef.child("needy").setValue("")
             }

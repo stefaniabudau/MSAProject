@@ -13,6 +13,7 @@ import com.e.thetogetherapp.data.model.Event
 import com.e.thetogetherapp.data.model.Rating
 import com.e.thetogetherapp.data.model.User
 import com.e.thetogetherapp.profile.UserProfileActivity
+import com.e.thetogetherapp.profile.ViewProfileActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -55,6 +56,15 @@ class UnassignedEventPage : AppCompatActivity(){
         val eventDescription = findViewById<TextView>(R.id.eventDescription)
         val eventCategory = findViewById<TextView>(R.id.eventCategory)
 
+        val creatorUserId: String
+
+        if (eventType == "donations"){
+            creatorUserId = uidVolunteer!!
+        }
+        else{
+            creatorUserId = uidNeedy!!
+        }
+
         //get view
         val eventRef = database.child(eventType!!).child(eventId!!)
         eventRef.addValueEventListener(object : ValueEventListener {
@@ -78,7 +88,7 @@ class UnassignedEventPage : AppCompatActivity(){
         val userNicknameText = findViewById<TextView>(R.id.userNicknameText)
 
         // Get user info
-        val userRef = database.child("users").child(uid!!)
+        val userRef = database.child("users").child(creatorUserId)
         userRef.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 Log.w("Header", "loadUserData:onCancelled", error.toException())
@@ -92,6 +102,13 @@ class UnassignedEventPage : AppCompatActivity(){
             }
         })
 
+        findViewById<TextView>(R.id.userNicknameText).setOnClickListener{
+            val intent = Intent(this@UnassignedEventPage, ViewProfileActivity::class.java)
+            val arguments = Bundle().apply { putString("uid", creatorUserId) }
+            intent.putExtras(arguments)
+            startActivity(intent)
+        }
+
 
         //Buttons
         val acceptEventButton = findViewById<Button>(R.id.acceptEventButton)
@@ -102,13 +119,18 @@ class UnassignedEventPage : AppCompatActivity(){
         }
 
         acceptEventButton.setOnClickListener{
-            val event = database.child("event").child(eventId!!)
+//            val eventRef = database.child("event").child(eventId!!)
+
             if(userType.equals("needy")){
                 //add uid to needy
+                eventRef.child("needy").setValue(uid)
             }
             if(userType.equals("volunteer")){
                 //add uid to needy
+                eventRef.child("volunteer").setValue(uid)
             }
+
+            eventRef.child("status").setValue("pending")
             finish()
         }
 
