@@ -1,5 +1,6 @@
 package com.e.thetogetherapp.pages
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,7 @@ import com.e.thetogetherapp.data.model.Event
 import com.e.thetogetherapp.data.model.Rating
 import com.e.thetogetherapp.data.model.User
 import com.e.thetogetherapp.profile.UserProfileActivity
+import com.e.thetogetherapp.profile.ViewProfileActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -22,6 +24,7 @@ import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
 class AssignedEventCreatorPage : AppCompatActivity(){
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,13 +64,15 @@ class AssignedEventCreatorPage : AppCompatActivity(){
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                val eventData = snapshot.getValue<Event>()
-                eventTitle.text = eventData!!.title
-                eventLocation.text = eventData!!.location
-                eventDate.text = eventData!!.date
-                eventTime.text = eventData!!.time
-                eventDescription.text = eventData!!.description
-                eventCategory.text = eventData!!.category
+                if (snapshot.exists()) {
+                    val eventData = snapshot.getValue<Event>()
+                    eventTitle.text = eventData!!.title
+                    eventLocation.text = eventData!!.location
+                    eventDate.text = eventData!!.date
+                    eventTime.text = eventData!!.time
+                    eventDescription.text = eventData!!.description
+                    eventCategory.text = eventData!!.category
+                }
 
             }
         })
@@ -88,7 +93,7 @@ class AssignedEventCreatorPage : AppCompatActivity(){
             override fun onDataChange(snapshot: DataSnapshot) {
                 val userData = snapshot.getValue<User>()
 
-                needyNicknameReviewText.text = userData!!.nickname
+//                needyNicknameReviewText.text = userData!!.nickname
                 userNicknameText.text = userData!!.nickname
                 userTypeText.text = userData!!.type
             }
@@ -106,12 +111,25 @@ class AssignedEventCreatorPage : AppCompatActivity(){
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 val userData = snapshot.getValue<User>()
-
-                volunteerNicknameReviewText.text = userData!!.nickname
-                userNicknameText2.text = userData!!.nickname
-                userTypeText2.text = userData!!.type
+//                volunteerNicknameReviewText.text = userData!!.nickname
+                userNicknameText2.text = userData?.nickname
+                userTypeText2.text = userData?.type
             }
         })
+
+        val intent = Intent(this@AssignedEventCreatorPage, ViewProfileActivity::class.java)
+
+        userNicknameText.setOnClickListener{
+            val arguments = Bundle().apply{ putString("uid", uidNeedy)}
+            intent.putExtras(arguments)
+            startActivity(intent)
+        }
+
+        userNicknameText2.setOnClickListener{
+            val arguments = Bundle().apply{ putString("uid", uidVolunteer)}
+            intent.putExtras(arguments)
+            startActivity(intent)
+        }
 
         //Buttons
         val completedEventButton = findViewById<Button>(R.id.completedEventButton)
@@ -119,27 +137,55 @@ class AssignedEventCreatorPage : AppCompatActivity(){
         val deleteEventButton = findViewById<Button>(R.id.deleteEventButton)
         val eventAssignedGoBackButton = findViewById<View>(R.id.eventAssignedGoBackButton)
 
+
+        deleteEventButton.setOnClickListener{
+            eventRef.removeValue()
+            finish()
+        }
+
         eventAssignedGoBackButton.setOnClickListener{
             finish()
         }
 
         completedEventButton.setOnClickListener{
-            startActivity(Intent(this@AssignedEventCreatorPage, GiveReviewPage::class.java))
+            val intent = Intent(this@AssignedEventCreatorPage, GiveReviewPage::class.java)
+            val arguments = Bundle().apply { putString("eventId", eventId) }
+
+            if (userType == "volunteer"){
+                arguments.apply {
+                    putString("to", uidNeedy)
+                    putString("from", uidVolunteer)
+                    putString("eventType", "donations")
+                }
+            }
+            else if (userType == "needy"){
+                arguments.apply {
+                    putString("from", uidNeedy)
+                    putString("to", uidVolunteer)
+                    putString("eventType", "requests")
+                }
+            }
+
+            intent.putExtras(arguments)
+            startActivity(intent)
+
+            eventRef.child("status").setValue("done")
         }
+
 
         removeAssigneeEventButton.setOnClickListener{
             val event = database.child("event").child(eventId!!)
             if(userType.equals("needy")){
                 //remove volunteer
+                eventRef.child("volunteer").setValue("")
             }
             if(userType.equals("volunteer")){
                 //remove needy
+                eventRef.child("needy").setValue("")
             }
+
+            eventRef.child("status").setValue("unassigned")
             finish()
         }
-
-
-
-
     }
 }

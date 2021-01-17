@@ -32,8 +32,8 @@ class ViewProfileActivity : AppCompatActivity() {
         database = Firebase.database.reference
         setContentView(R.layout.activity_view_profile)
 
-        val nickname = findViewById<TextView>(R.id.userNicknameProfileText)
-        val type = findViewById<TextView>(R.id.userTypeProfileText)
+        val nickname = findViewById<TextView>(R.id.viewNicknameProfileText)
+        val type = findViewById<TextView>(R.id.viewTypeProfileText)
 
         val requests = findViewById<TextView>(R.id.needyNoOfRequests)
         val donations = findViewById<TextView>(R.id.needyNoOfDonations)

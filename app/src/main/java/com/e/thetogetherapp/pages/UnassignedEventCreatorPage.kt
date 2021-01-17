@@ -13,6 +13,7 @@ import com.e.thetogetherapp.data.model.Event
 import com.e.thetogetherapp.data.model.Rating
 import com.e.thetogetherapp.data.model.User
 import com.e.thetogetherapp.profile.UserProfileActivity
+import com.e.thetogetherapp.profile.ViewProfileActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -26,7 +27,7 @@ class UnassignedEventCreatorPage : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_unassigned_event)
+        setContentView(R.layout.activity_unassigned_event_creator)
         val database = Firebase.database.reference
 
         var uid: String? = null
@@ -59,14 +60,15 @@ class UnassignedEventCreatorPage : AppCompatActivity(){
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                val eventData = snapshot.getValue<Event>()
-                eventTitle.text = eventData!!.title
-                eventLocation.text = eventData!!.location
-                eventDate.text = eventData!!.date
-                eventTime.text = eventData!!.time
-                eventDescription.text = eventData!!.description
-                eventCategory.text = eventData!!.category
-
+                if (snapshot.exists()) {
+                    val eventData = snapshot.getValue<Event>()
+                    eventTitle.text = eventData!!.title
+                    eventLocation.text = eventData!!.location
+                    eventDate.text = eventData!!.date
+                    eventTime.text = eventData!!.time
+                    eventDescription.text = eventData!!.description
+                    eventCategory.text = eventData!!.category
+                }
             }
         })
 
@@ -88,6 +90,13 @@ class UnassignedEventCreatorPage : AppCompatActivity(){
             }
         })
 
+        userNicknameText.setOnClickListener{
+            val intent = Intent(this@UnassignedEventCreatorPage, ViewProfileActivity::class.java)
+            val arguments = Bundle().apply { putString("uid", uid) }
+            intent.putExtras(arguments)
+            startActivity(intent)
+        }
+
 
         //Buttons
         val deleteEventButton = findViewById<Button>(R.id.deleteEventButton)
@@ -101,13 +110,14 @@ class UnassignedEventCreatorPage : AppCompatActivity(){
         deleteEventButton.setOnClickListener{
             val event = database.child("event").child(eventId!!)
             //delete event
+            database.child(eventType).child(eventId).removeValue()
             finish()
         }
 
         editEventButton.setOnClickListener{
             val user = Bundle()
-            user.putString("userType", userType)
-            user.putString("uid", uid)
+            user.putString("eventId", eventId)
+            user.putString("eventType", eventType)
             val intent = Intent(this@UnassignedEventCreatorPage, EditEventPage::class.java)
             intent.putExtras(user)
             startActivity(intent)

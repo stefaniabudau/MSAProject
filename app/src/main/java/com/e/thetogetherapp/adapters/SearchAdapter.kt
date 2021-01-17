@@ -58,64 +58,80 @@ class SearchAdapter(private val dataSet:ArrayList<Event>, private val context: C
             }
 
             var intent:Intent? = null
-
-            if (dataSet[position].status == "unassigned"){
-                intent = Intent(context, UnassignedEventPage::class.java)
-
-                val userRef = Firebase.database.reference.child("users").child(Firebase.auth.currentUser!!.uid)
-                userRef.addValueEventListener(object : ValueEventListener{
-                    override fun onCancelled(error: DatabaseError) {
-                        TODO("Not yet implemented")
-                    }
-
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        val data = snapshot.child("type").value
-                        val arguments = Bundle().apply{
-                            putString("uid", Firebase.auth.currentUser!!.uid)
-                            putString("eventId", dataSet[position].id)
-                            putString("eventType", dataSet[position].type)
-                            putString("uidNeedy", dataSet[position].needy)
-                            putString("uidVolunteer", dataSet[position].volunteer)
-                            putString("userType", dataSet[position].volunteer)
-                        }
-                        intent!!.putExtras(arguments)
-                    }
-                })
-            }
-            else if (dataSet[position].status == "pending"){
-                intent = Intent(context, AssignedEventPage::class.java)
-                val userRef = Firebase.database.reference.child("users").child(Firebase.auth.currentUser!!.uid)
-                userRef.addValueEventListener(object : ValueEventListener{
-                    override fun onCancelled(error: DatabaseError) {
-                        TODO("Not yet implemented")
-                    }
-
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        val data = snapshot.child("type").value
-                        val arguments = Bundle().apply{
-                            putString("eventId", dataSet[position].id)
-                            putString("eventType", dataSet[position].type)
-                            putString("uidNeedy", dataSet[position].needy)
-                            putString("uidVolunteer", dataSet[position].volunteer)
-                            putString("userType", data.toString())
-                        }
-                        intent!!.putExtras(arguments)
-                    }
-                })
-            }
-
-            else if (dataSet[position].status == "done"){
-                intent = Intent(context, CompletedEventPage::class.java)
-                val arguments = Bundle().apply{
-                    putString("eventId", dataSet[position].id)
-                    putString("eventType", dataSet[position].type)
-                    putString("uidNeedy", dataSet[position].needy)
-                    putString("uidVolunteer", dataSet[position].volunteer)
-                }
-                intent!!.putExtras(arguments)
-            }
-
+            intent = Intent(context, CompletedEventPage::class.java)
+            intent.putExtras(arguments)
             context.startActivity(intent)
+
+
+//            if (dataSet[position].status == "unassigned"){
+//                intent = Intent(context, CompletedEventPage::class.java)
+////                intent = Intent(context, UnassignedEventPage::class.java)
+//
+////                val userRef = Firebase.database.reference.child("users").child(Firebase.auth.currentUser!!.uid)
+////                userRef.addValueEventListener(object : ValueEventListener{
+////                    override fun onCancelled(error: DatabaseError) {
+////                        TODO("Not yet implemented")
+////                    }
+////
+////                    override fun onDataChange(snapshot: DataSnapshot) {
+////                        val data = snapshot.child("type").value
+////                        val arguments = Bundle().apply{
+////                            putString("uid", Firebase.auth.currentUser!!.uid)
+////                            putString("eventId", dataSet[position].id)
+////                            putString("eventType", dataSet[position].type)
+////                            putString("uidNeedy", dataSet[position].needy)
+////                            putString("uidVolunteer", dataSet[position].volunteer)
+////                            putString("userType", dataSet[position].volunteer)
+////                        }
+//                val arguments = Bundle().apply{
+//                    putString("eventId", dataSet[position].id)
+//                    putString("eventType", dataSet[position].type)
+//                    putString("uidNeedy", dataSet[position].needy)
+//                    putString("uidVolunteer", dataSet[position].volunteer)
+//                }
+//                intent!!.putExtras(arguments)
+//            }
+//
+//            else if (dataSet[position].status == "pending"){
+//                intent = Intent(context, CompletedEventPage::class.java)
+////                intent = Intent(context, AssignedEventPage::class.java)
+////                val userRef = Firebase.database.reference.child("users").child(Firebase.auth.currentUser!!.uid)
+////                userRef.addValueEventListener(object : ValueEventListener{
+////                    override fun onCancelled(error: DatabaseError) {
+////                        TODO("Not yet implemented")
+////                    }
+////
+////                    override fun onDataChange(snapshot: DataSnapshot) {
+////                        val data = snapshot.child("type").value
+////                        val arguments = Bundle().apply{
+////                            putString("eventId", dataSet[position].id)
+////                            putString("eventType", dataSet[position].type)
+////                            putString("uidNeedy", dataSet[position].needy)
+////                            putString("uidVolunteer", dataSet[position].volunteer)
+////                            putString("userType", data.toString())
+////                        }
+//                        val arguments = Bundle().apply{
+//                            putString("eventId", dataSet[position].id)
+//                            putString("eventType", dataSet[position].type)
+//                            putString("uidNeedy", dataSet[position].needy)
+//                            putString("uidVolunteer", dataSet[position].volunteer)
+//                        }
+//                        intent!!.putExtras(arguments)
+//                    }
+//
+//
+//            else if (dataSet[position].status == "done"){
+//                intent = Intent(context, CompletedEventPage::class.java)
+//                val arguments = Bundle().apply{
+//                    putString("eventId", dataSet[position].id)
+//                    putString("eventType", dataSet[position].type)
+//                    putString("uidNeedy", dataSet[position].needy)
+//                    putString("uidVolunteer", dataSet[position].volunteer)
+//                }
+//                intent.putExtras(arguments)
+//            }
+
+//            context.startActivity(intent)
         }
 
 

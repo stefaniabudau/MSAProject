@@ -79,39 +79,39 @@ class AssignedEventPage : AppCompatActivity(){
         val userNicknameText = findViewById<TextView>(R.id.userNicknameText)
 
         // Get user info
-        val userRef = database.child("users").child(uidNeedy!!)
-        userRef.addValueEventListener(object : ValueEventListener {
-            override fun onCancelled(error: DatabaseError) {
-                Log.w("Header", "loadUserData:onCancelled", error.toException())
-            }
-
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val userData = snapshot.getValue<User>()
-
-                needyNicknameReviewText.text = userData!!.nickname
-                userNicknameText.text = userData!!.nickname
-                userTypeText.text = userData!!.type
-            }
-        })
+//        val userRef = database.child("users").child(uidNeedy!!)
+//        userRef.addValueEventListener(object : ValueEventListener {
+//            override fun onCancelled(error: DatabaseError) {
+//                Log.w("Header", "loadUserData:onCancelled", error.toException())
+//            }
+//
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                val userData = snapshot.getValue<User>()
+//
+//                needyNicknameReviewText.text = userData!!.nickname
+//                userNicknameText.text = userData!!.nickname
+//                userTypeText.text = userData!!.type
+//            }
+//        })
 
         val userTypeText2 = findViewById<TextView>(R.id.userTypeText2)
         val userNicknameText2 = findViewById<TextView>(R.id.userNicknameText2)
 
         // Get user info
-        val userRef2 = database.child("users").child(uidVolunteer!!)
-        userRef2.addValueEventListener(object : ValueEventListener {
-            override fun onCancelled(error: DatabaseError) {
-                Log.w("Header", "loadUserData:onCancelled", error.toException())
-            }
-
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val userData = snapshot.getValue<User>()
-
-                volunteerNicknameReviewText.text = userData!!.nickname
-                userNicknameText2.text = userData!!.nickname
-                userTypeText2.text = userData!!.type
-            }
-        })
+//        val userRef2 = database.child("users").child(uidVolunteer!!)
+//        userRef2.addValueEventListener(object : ValueEventListener {
+//            override fun onCancelled(error: DatabaseError) {
+//                Log.w("Header", "loadUserData:onCancelled", error.toException())
+//            }
+//
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                val userData = snapshot.getValue<User>()
+//
+//                volunteerNicknameReviewText.text = userData!!.nickname
+//                userNicknameText2.text = userData!!.nickname
+//                userTypeText2.text = userData!!.type
+//            }
+//        })
 
         //Buttons
         val completedEventButton = findViewById<Button>(R.id.completedEventButton)

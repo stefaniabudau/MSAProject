@@ -1,5 +1,6 @@
 package com.e.thetogetherapp.pages
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,6 +11,7 @@ import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.Event
 import com.e.thetogetherapp.data.model.Rating
 import com.e.thetogetherapp.data.model.User
+import com.e.thetogetherapp.profile.ViewProfileActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -101,6 +103,7 @@ class CompletedEventPage : AppCompatActivity(){
             }
         })
 
+
         val userTypeText2 = findViewById<TextView>(R.id.userTypeText2)
         val userNicknameText2 = findViewById<TextView>(R.id.userNicknameText2)
 
@@ -119,6 +122,24 @@ class CompletedEventPage : AppCompatActivity(){
                 userTypeText2.text = userData!!.type
             }
         })
+
+        val intent = Intent(this@CompletedEventPage, ViewProfileActivity::class.java)
+
+        userNicknameText.setOnClickListener{
+            val arguments = Bundle().apply {
+                putString("uid", uidNeedy)
+            }
+            intent.putExtras(arguments)
+            startActivity(intent)
+        }
+
+        userNicknameText2.setOnClickListener{
+            val arguments = Bundle().apply {
+                putString("uid", uidVolunteer)
+            }
+            intent.putExtras(arguments)
+            startActivity(intent)
+        }
 
         // Reviews
 

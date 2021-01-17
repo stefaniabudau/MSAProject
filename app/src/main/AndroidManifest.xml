@@ -35,6 +35,10 @@
         <activity android:name=".pages.GiveReviewPage" />
         <activity android:name=".pages.CompletedEventPage"/>
         <activity android:name=".pages.SearchCategoryPage" />
+        <activity android:name=".pages.UnassignedEventCreatorPage" />
+        <activity android:name=".pages.AssignedEventCreatorPage"/>
+        <activity android:name=".pages.UnassignedEventPage"/>
+        <activity android:name=".pages.AssignedEventPage"/>
     </application>
 
 </manifest>
