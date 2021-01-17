@@ -61,10 +61,10 @@ class GiveReviewPage : AppCompatActivity() {
 
             val eventRef = Firebase.database.reference.child(eventType!!).child(eventId!!)
             if (eventType == "requests"){
-                eventRef.child("volunteer").setValue(ratingId)
+                eventRef.child("volunteerReview").setValue(ratingId)
             }
             else if (eventType == "donations"){
-                eventRef.child("needy").setValue(ratingId)
+                eventRef.child("needyReview").setValue(ratingId)
             }
         }
     }

@@ -147,38 +147,46 @@ class CompletedEventPage : AppCompatActivity(){
         val averagePunctualityRating = findViewById<RatingBar>(R.id.averagePunctualityRating)
         val averageAttitudeRating = findViewById<RatingBar>(R.id.averageAttitudeRating)
 
-        val needyReview = database.child("ratings").child(eventToNeedyReviewId!!)
-        needyReview.addValueEventListener(object : ValueEventListener {
-            override fun onCancelled(error: DatabaseError) {
-                Log.w("Header", "loadUserData:onCancelled", error.toException())
-            }
 
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val rating = snapshot.getValue<Rating>()
+        if (eventToNeedyReviewId != "") {
+            val needyReview = database.child("ratings").child(eventToNeedyReviewId!!)
+            needyReview.addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                    Log.w("Header", "loadUserData:onCancelled", error.toException())
+                }
 
-                averageHonestyRating.rating = rating!!.honesty.toString().toFloat()
-                averagePunctualityRating.rating = rating!!.punctuality.toString().toFloat()
-                averageAttitudeRating.rating = rating!!.attitude.toString().toFloat()
-            }
-        })
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
+                        val rating = snapshot.getValue<Rating>()
+
+                        averageHonestyRating.rating = rating!!.honesty.toString().toFloat()
+                        averagePunctualityRating.rating = rating!!.punctuality.toString().toFloat()
+                        averageAttitudeRating.rating = rating!!.attitude.toString().toFloat()
+                    }
+                }
+            })
+        }
 
         val averageHonestyRating2 = findViewById<RatingBar>(R.id.averageHonestyRating2)
         val averagePunctualityRating2 = findViewById<RatingBar>(R.id.averagePunctualityRating2)
         val averageAttitudeRating2 = findViewById<RatingBar>(R.id.averageAttitudeRating2)
 
-        val volunteerReview = database.child("ratings").child(eventToVolunteerReviewId!!)
-        volunteerReview.addValueEventListener(object : ValueEventListener {
-            override fun onCancelled(error: DatabaseError) {
-                Log.w("Header", "loadUserData:onCancelled", error.toException())
-            }
+        if(eventToVolunteerReviewId != "") {
 
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val rating = snapshot.getValue<Rating>()
+            val volunteerReview = database.child("ratings").child(eventToVolunteerReviewId!!)
+            volunteerReview.addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                    Log.w("Header", "loadUserData:onCancelled", error.toException())
+                }
 
-                averageHonestyRating2.rating = rating!!.honesty.toString().toFloat()
-                averagePunctualityRating2.rating = rating!!.punctuality.toString().toFloat()
-                averageAttitudeRating2.rating = rating!!.attitude.toString().toFloat()
-            }
-        })
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val rating = snapshot.getValue<Rating>()
+
+                    averageHonestyRating2.rating = rating!!.honesty.toString().toFloat()
+                    averagePunctualityRating2.rating = rating!!.punctuality.toString().toFloat()
+                    averageAttitudeRating2.rating = rating!!.attitude.toString().toFloat()
+                }
+            })
+        }
     }
 }
