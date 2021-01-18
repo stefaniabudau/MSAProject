@@ -23,12 +23,13 @@ import com.google.firebase.ktx.Firebase
 class UserProfileActivity : AppCompatActivity() {
 
     private lateinit var database: DatabaseReference
+    private var uid: String? = null
+    private var userType: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var uid: String? = null
-        var userType: String? = null
+
         val extras: Bundle? = intent.extras
 
         if (extras != null) {
@@ -163,6 +164,19 @@ class UserProfileActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "UserProfileActivity"
+    }
+
+    override fun onRestart(){
+        val user = Bundle()
+        user.putString("userType", userType)
+        user.putString("uid", uid)
+
+        super.onRestart()
+        finish()
+
+        val intent = Intent(this@UserProfileActivity, UserProfileActivity::class.java)
+        intent.putExtras(user)
+        startActivity(intent)
     }
 
 }

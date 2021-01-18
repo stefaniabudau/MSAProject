@@ -1,5 +1,6 @@
 package com.e.thetogetherapp.pages
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.adapters.SearchAdapter
 import com.e.thetogetherapp.data.model.Event
+import com.e.thetogetherapp.profile.UserProfileActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -103,5 +105,11 @@ class SearchCategoryPage: AppCompatActivity() {
         findViewById<View>(R.id.categorySearchBackButton).setOnClickListener{
             finish()
         }
+    }
+
+    override fun onRestart(){
+        super.onRestart()
+        finish()
+        startActivity(getIntent())
     }
 }
