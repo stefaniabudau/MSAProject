@@ -126,12 +126,6 @@ class CreateEventPage : AppCompatActivity(){
                     startActivity(intent)
                     true
                 }
-                R.id.notifications -> {
-                    val intent = Intent(this@CreateEventPage, NotificationPage::class.java)
-                    intent.putExtras(user)
-                    startActivity(intent)
-                    true
-                }
                 R.id.search -> {
                     if(userType.equals("volunteer")){
                         val intent = Intent(this@CreateEventPage, SearchRequestsPage::class.java)

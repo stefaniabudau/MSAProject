@@ -116,12 +116,6 @@ class SearchRequestsPage: AppCompatActivity (){
                     startActivity(intent)
                     true
                 }
-                R.id.notifications -> {
-                    val intent = Intent(this@SearchRequestsPage, NotificationPage::class.java)
-                    intent.putExtras(user)
-                    startActivity(intent)
-                    true
-                }
                 R.id.search -> {
                     true
                 }

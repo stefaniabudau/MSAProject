@@ -66,12 +66,6 @@ class UserProfileActivity : AppCompatActivity() {
                 R.id.home -> {
                     true
                 }
-                R.id.notifications -> {
-                    val intent = Intent(this@UserProfileActivity, NotificationPage::class.java)
-                    intent.putExtras(user)
-                    startActivity(intent)
-                    true
-                }
                 R.id.search -> {
                     if (userType.equals("volunteer")) {
                         val intent =

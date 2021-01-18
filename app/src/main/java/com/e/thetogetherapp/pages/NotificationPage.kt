@@ -16,7 +16,7 @@ import com.google.firebase.ktx.Firebase
 
 class NotificationPage :AppCompatActivity(){
 
-    private lateinit var auth: FirebaseAuth
+    /*private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,9 +49,6 @@ class NotificationPage :AppCompatActivity(){
                     startActivity(intent)
                     true
                 }
-                R.id.notifications -> {
-                    true
-                }
                 R.id.search -> {
                     if(userType.equals("volunteer")){
                         val intent = Intent(this@NotificationPage, SearchRequestsPage::class.java)
@@ -76,5 +73,5 @@ class NotificationPage :AppCompatActivity(){
         }
 
 
-    }
+    }*/
 }

@@ -118,12 +118,6 @@ class SearchDonationsPage: AppCompatActivity (){
                     startActivity(intent)
                     true
                 }
-                R.id.notifications -> {
-                    val intent = Intent(this@SearchDonationsPage, NotificationPage::class.java)
-                    intent.putExtras(user)
-                    startActivity(intent)
-                    true
-                }
                 R.id.search -> {
                     true
                 }
