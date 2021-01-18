@@ -28,6 +28,7 @@
         <activity android:name=".pages.ChangePasswordPage" />
         <activity android:name=".pages.CreateEventPage" />
         <activity android:name=".pages.LanguagePage" />
+        <activity android:name=".pages.LogoutPage" />
         <activity android:name=".pages.NotificationPage" />
         <activity android:name=".pages.ReviewPage" />
         <activity android:name=".pages.SearchRequestsPage" />
