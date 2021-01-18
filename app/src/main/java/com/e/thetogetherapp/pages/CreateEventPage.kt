@@ -171,6 +171,8 @@ class CreateEventPage : AppCompatActivity(){
             event.status = "unassigned"
 
             eventRef.child(eventId!!).setValue(event)
+
+            finish()
         }
     }
 }

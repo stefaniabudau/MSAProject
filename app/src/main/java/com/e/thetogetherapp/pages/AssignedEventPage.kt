@@ -161,7 +161,7 @@ class AssignedEventPage : AppCompatActivity(){
             intent.putExtras(arguments)
             startActivity(intent)
 
-            eventRef.child("status").setValue("done")
+            finish()
         }
 
         cancelEventButton.setOnClickListener{

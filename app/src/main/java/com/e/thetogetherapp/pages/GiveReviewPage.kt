@@ -2,13 +2,19 @@ package com.e.thetogetherapp.pages
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.RatingBar
 import androidx.appcompat.app.AppCompatActivity
+import com.e.thetogetherapp.data.model.Event
 import com.e.thetogetherapp.data.model.Rating
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
 
@@ -68,8 +74,25 @@ class GiveReviewPage : AppCompatActivity() {
                 eventRef.child("volunteerReview").setValue(ratingId)
             }
             else if(userType == "volunteer"){
-                eventRef.child("needyReview").setValue(ratingId)
+                eventRef.child("volunteerReview").setValue(ratingId)
             }
+
+            eventRef.addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                    Log.w("GiveReviewPage", "loadEventData:onCancelled", error.toException())
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val event = snapshot.getValue<Event>()
+
+                    if(event?.volunteerReview != "" &&
+                            event?.needyReview != ""){
+                        eventRef.child("status").setValue("done")
+                    }
+                }
+            })
+
+            finish()
         }
     }
 }
