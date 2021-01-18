@@ -19,9 +19,15 @@
             android:layout_marginRight="30dp"
             app:drawableRightCompat="@drawable/ic_right_icon" />
 
-            <include layout="@layout/component_ongoing"/>
-            <include layout="@layout/component_ongoing"/>
-            <include layout="@layout/component_ongoing"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewEvents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="LinearLayoutManager"/>
+
+<!--            <include layout="@layout/component_ongoing"/>-->
+<!--            <include layout="@layout/component_ongoing"/>-->
+<!--            <include layout="@layout/component_ongoing"/>-->
 </LinearLayout>
 
 

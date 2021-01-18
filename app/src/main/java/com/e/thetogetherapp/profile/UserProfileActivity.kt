@@ -4,13 +4,15 @@ package com.e.thetogetherapp.profile
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
 import android.view.View
 import android.widget.Button
-import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.e.thetogetherapp.R
+import com.e.thetogetherapp.adapters.PendingActivityAdapter
+import com.e.thetogetherapp.adapters.RatingAdapter
+import com.e.thetogetherapp.data.model.Event
 import com.e.thetogetherapp.data.model.User
 import com.e.thetogetherapp.pages.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -18,6 +20,8 @@ import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_reviews.*
+import kotlinx.android.synthetic.main.card_ongoing.*
 
 
 class UserProfileActivity : AppCompatActivity() {
@@ -25,6 +29,9 @@ class UserProfileActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
     private var uid: String? = null
     private var userType: String? = null
+
+    private lateinit var linearLayoutManager: LinearLayoutManager
+    private lateinit var adapter: PendingActivityAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +44,13 @@ class UserProfileActivity : AppCompatActivity() {
             userType = extras.getString("userType")
         }
 
+        var eventsList = ArrayList<Event>()
+
         database = Firebase.database.reference
         setContentView(R.layout.activity_profile)
+
+        linearLayoutManager = LinearLayoutManager(this)
+        recyclerViewEvents.layoutManager = linearLayoutManager
 
         val nickname = findViewById<TextView>(R.id.userNicknameProfileText)
         val type = findViewById<TextView>(R.id.userTypeProfileText)
@@ -51,6 +63,8 @@ class UserProfileActivity : AppCompatActivity() {
         val goToSettingsButton = findViewById<View>(R.id.goToSettingsButton)
         val notificationCardButton = findViewById<View>(R.id.notificationCardButton)
         val reviewCardButton = findViewById<View>(R.id.reviewCardButton)
+
+        val goToMyActivityArrow = findViewById<TextView>(R.id.ongoingCardButton)
 
         //NAVIGATION BAR ------------------------------------------------------------------------------
 
@@ -114,6 +128,17 @@ class UserProfileActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        goToMyActivityArrow.setOnClickListener{
+            val intent = Intent(this@UserProfileActivity, MyActivityPage::class.java)
+            val param = Bundle().apply {
+                putString("uid", uid)
+                putString("userType", userType)
+            }
+            intent.putExtras(param)
+            startActivity(intent)
+        }
+
+
         // PROFILE BANNER ----------------------------------------------------------------------------
 
         val userRef = database.child("users").child(uid!!)
@@ -147,13 +172,32 @@ class UserProfileActivity : AppCompatActivity() {
                 val ongoingDonations =
                     userDonations.filter { it.child("status").value == "pending" }
 
-                val ongoingActivities = ongoingDonations.count() + ongoingRequests.count()
+                val ongoingActivities = ongoingDonations + ongoingRequests
+                val ongoingActivitiesNumber = ongoingActivities.count()
 
                 requests.text = userRequests.count().toString()
                 donations.text = userDonations.count().toString()
-                activities.text = ongoingActivities.toString()
+                activities.text = ongoingActivitiesNumber.toString()
+
+                var i=0
+                while (i < ongoingActivitiesNumber){
+                    if (i >= 3) break
+                    val event = ongoingActivities[i].getValue<Event>()
+                    eventsList.add(event!!)
+                    i += 1
+               }
+
+                adapter = PendingActivityAdapter(
+                    eventsList,
+                    this@UserProfileActivity
+                )
+                recyclerViewEvents.adapter = adapter
+
             }
         })
+
+
+
     }
 
     companion object {
