@@ -85,4 +85,10 @@ class SettingsPage :AppCompatActivity(){
 //            finishAffinity()
         }
     }
+
+    override fun onRestart(){
+        super.onRestart()
+        finish()
+        startActivity(getIntent())
+    }
 }
