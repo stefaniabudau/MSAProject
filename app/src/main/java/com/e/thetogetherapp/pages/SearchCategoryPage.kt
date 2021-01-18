@@ -1,6 +1,5 @@
 package com.e.thetogetherapp.pages
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -8,10 +7,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.e.thetogetherapp.R
-import com.e.thetogetherapp.adapters.MyActivityAdapter
 import com.e.thetogetherapp.adapters.SearchAdapter
 import com.e.thetogetherapp.data.model.Event
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -46,6 +43,9 @@ class SearchCategoryPage: AppCompatActivity() {
 
         val database = Firebase.database.reference
         var categoryEvents = ArrayList<Event>()
+
+        val categoryNameEvents = findViewById<TextView>(R.id.categoryNameEvents)
+        categoryNameEvents.setText(category)
 
         if (location != null){
             val nearYouEventsRef = database.child(type!!)

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -24,15 +23,6 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/mediumViewsMargin"
                 android:text="@string/text_my_activity" />
-
-            <Button
-                android:id="@+id/addNewButton"
-                style="@style/mediumSquareRoundedButton"
-                android:layout_width="245dp"
-                android:layout_height="70dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/mediumViewsMargin"
-                android:text="@string/text_add_new" />
 
             <fragment
                 android:id="@+id/avg_review_fragment_my"
