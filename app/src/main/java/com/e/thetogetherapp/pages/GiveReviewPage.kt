@@ -74,7 +74,7 @@ class GiveReviewPage : AppCompatActivity() {
                 eventRef.child("volunteerReview").setValue(ratingId)
             }
             else if(userType == "volunteer"){
-                eventRef.child("volunteerReview").setValue(ratingId)
+                eventRef.child("needyReview").setValue(ratingId)
             }
 
             eventRef.addValueEventListener(object : ValueEventListener {
