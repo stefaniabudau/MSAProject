@@ -1,6 +1,8 @@
 package com.e.thetogetherapp.adapters
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.data.model.Rating
+import com.e.thetogetherapp.profile.ViewProfileActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -59,16 +62,17 @@ class RatingAdapter(private val dataSet:ArrayList<Rating>, private val context: 
             }
         })
 
-//        viewHolder.reviewName.setOnClickListener{
-//            val intent = Intent(context, ViewProfileActivity::class.java)
-//            val extras = Bundle().apply { putString("uid", dataSet[position].from.toString()) }
-//
-//            intent.putExtras(extras)
-//            context.startActivity(intent)
-//        }
         viewHolder.honestyReview.rating = dataSet[position].honesty!!.toFloat()
         viewHolder.punctualityReview.rating = dataSet[position].punctuality!!.toFloat()
         viewHolder.attitudeReview.rating = dataSet[position].attitude!!.toFloat()
+
+        viewHolder.reviewName.setOnClickListener{
+            val intent = Intent(context, ViewProfileActivity::class.java)
+            val extras = Bundle().apply { putString("uid", dataSet[position].from.toString()) }
+
+            intent.putExtras(extras)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount() = dataSet.size

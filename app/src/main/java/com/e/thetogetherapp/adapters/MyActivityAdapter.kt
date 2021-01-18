@@ -84,17 +84,35 @@ class MyActivityAdapter(private val dataSet:ArrayList<Event>, private val contex
 
             else if (dataSet[position].status == "pending"){
 
-                if (user!!.type == "needy" && dataSet[position].type == "donations"){
+                val arguments = Bundle()
+
+                if (user!!.type == "needy" && dataSet[position].needyReview == "" &&
+                    dataSet[position].volunteerReview != ""){
+                    intent = Intent(context, CompletedEventPage::class.java)
+                    arguments.apply {
+                        putString("eventToNeedyReviewId", dataSet[position].needyReview)
+                        putString("eventToVolunteerReviewId", dataSet[position].volunteerReview)
+                    }
+                }
+                else if (user!!.type == "volunteer" && dataSet[position].volunteerReview == "" &&
+                    dataSet[position].needyReview != ""){
+                    intent = Intent(context, CompletedEventPage::class.java)
+                    arguments.apply {
+                        putString("eventToNeedyReviewId", dataSet[position].needyReview)
+                        putString("eventToVolunteerReviewId", dataSet[position].volunteerReview)
+                    }
+                }
+                else if (user!!.type == "needy" && dataSet[position].type == "donations"){
                     intent = Intent(context, AssignedEventPage::class.java)
                 }
-                else if(user!!.type == "volunteer" && dataSet[position].type == "requests"){
+                else if (user!!.type == "volunteer" && dataSet[position].type == "requests"){
                     intent = Intent(context, AssignedEventPage::class.java)
                 }
                 else{
                     intent = Intent(context, AssignedEventCreatorPage::class.java)
                 }
 
-                val arguments = Bundle().apply{
+                    arguments.apply{
                     putString("eventId", dataSet[position].id)
                     putString("eventType", dataSet[position].type)
                     putString("uidNeedy", dataSet[position].needy)
