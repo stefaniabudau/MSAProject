@@ -47,7 +47,6 @@ class UserProfileActivity : AppCompatActivity() {
         val activities = findViewById<TextView>(R.id.needyNoOfOngoingActivities)
 
         val myActivityButton = findViewById<Button>(R.id.myActivityButton)
-        val addNewButton = findViewById<Button>(R.id.addNewButton)
         val goToSettingsButton = findViewById<View>(R.id.goToSettingsButton)
         val notificationCardButton = findViewById<View>(R.id.notificationCardButton)
         val reviewCardButton = findViewById<View>(R.id.reviewCardButton)
@@ -99,15 +98,6 @@ class UserProfileActivity : AppCompatActivity() {
 
         // BUTTONS -------------------------------------------------------------------------------------
 
-        addNewButton.setOnClickListener {
-            val user = Bundle()
-            user.putString("userType", userType)
-            user.putString("uid", uid)
-            val intent = Intent(this@UserProfileActivity, CreateEventPage::class.java)
-            intent.putExtras(user)
-            startActivity(intent)
-        }
-
         myActivityButton.setOnClickListener {
             val user = Bundle()
             user.putString("userType", userType)
@@ -120,7 +110,6 @@ class UserProfileActivity : AppCompatActivity() {
         goToSettingsButton.setOnClickListener {
             startActivity(Intent(this@UserProfileActivity, SettingsPage::class.java))
         }
-
 
         reviewCardButton.setOnClickListener {
             val intent = Intent(this@UserProfileActivity, MyReviewsPage::class.java)

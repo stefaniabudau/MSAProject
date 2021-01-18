@@ -13,6 +13,7 @@ import com.e.thetogetherapp.data.model.Event
 import com.e.thetogetherapp.data.model.Rating
 import com.e.thetogetherapp.data.model.User
 import com.e.thetogetherapp.profile.UserProfileActivity
+import com.e.thetogetherapp.profile.ViewProfileActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -115,12 +116,14 @@ class AssignedEventPage : AppCompatActivity(){
 
         userNicknameText.setOnClickListener{
             val arguments = Bundle().apply{ putString("uid", uidNeedy)}
+            val intent = Intent(this@AssignedEventPage, ViewProfileActivity::class.java)
             intent.putExtras(arguments)
             startActivity(intent)
         }
 
         userNicknameText2.setOnClickListener{
             val arguments = Bundle().apply{ putString("uid", uidVolunteer)}
+            val intent = Intent(this@AssignedEventPage, ViewProfileActivity::class.java)
             intent.putExtras(arguments)
             startActivity(intent)
         }
