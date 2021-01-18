@@ -76,13 +76,7 @@ class SettingsPage :AppCompatActivity(){
         }
 
         logout.setOnClickListener{
-            auth.signOut()
-            val intnt = Intent(this@SettingsPage, LoginActivity::class.java)
-            intnt.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            intnt.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            intnt.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intnt)
-//            finishAffinity()
+            startActivity(Intent(this@SettingsPage, LogoutPage::class.java))
         }
     }
 
