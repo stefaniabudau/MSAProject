@@ -1,5 +1,6 @@
 package com.e.thetogetherapp.pages
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import androidx.core.content.ContextCompat
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.profile.UserProfileActivity
 import java.util.*
@@ -26,6 +28,8 @@ class LanguagePage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_language)
 
+        currentLanguage = getString(R.string.locale_language)
+        
         val romanianSwitch = findViewById<SwitchCompat>(R.id.romanianSwitch)
         val englishSwitch = findViewById<SwitchCompat>(R.id.englishSwitch)
 
@@ -38,6 +42,7 @@ class LanguagePage : AppCompatActivity() {
         }
 
         //switch-----------------------------------------------------------------------------
+
         if(currentLanguage=="en"){
             romanianSwitch.setChecked(false)
             englishSwitch.setChecked(true)
@@ -49,14 +54,22 @@ class LanguagePage : AppCompatActivity() {
         englishSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (englishSwitch.isChecked) {
                 romanianSwitch.setChecked(false)
+                englishSwitch.setChecked(true)
                 setLocale("en");
+            }else{
+                englishSwitch.setChecked(false)
+                romanianSwitch.setChecked(true)
             }
         }
 
         romanianSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (romanianSwitch.isChecked) {
                 englishSwitch.setChecked(false)
+                romanianSwitch.setChecked(true)
                 setLocale("ro");
+            } else{
+                romanianSwitch.setChecked(false)
+                englishSwitch.setChecked(true)
             }
         }
     }

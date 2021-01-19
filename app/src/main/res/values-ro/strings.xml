@@ -1,4 +1,5 @@
 <resources>
+    <string name="locale_language">ro</string>
     <string name="app_name">TheTogetherApp</string>
 
     <!--login and register-->
@@ -209,5 +210,6 @@
     <string name="text_review_explanation">Aproape ai terminat!</string>
 
     <string name="text_my_activity_type">Unassigned/Pending/Completed</string>
+    <string name="text_create_new">Eveniment nou</string>
 
 </resources>

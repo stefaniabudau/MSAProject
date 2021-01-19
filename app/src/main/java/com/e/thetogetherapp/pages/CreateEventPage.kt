@@ -53,11 +53,15 @@ class CreateEventPage : AppCompatActivity(){
             "donations"
         }
 
-        val titleText = "New $eventType"
-        val buttonText = "Submit $eventType"
+        if(eventType.equals("request")){
+            val titleText = getString(R.string.text_new_request)
+            findViewById<TextView>(R.id.newEventTypeTitle).text = titleText
+        }
+        else {
+            val titleText = getString(R.string.text_new_request)
+            findViewById<TextView>(R.id.newEventTypeTitle).text = titleText
+        }
 
-        findViewById<TextView>(R.id.newEventTypeTitle).text = titleText
-        findViewById<Button>(R.id.submitCreateEventButton).text = buttonText
 
 
         // SPINNER
@@ -87,7 +91,7 @@ class CreateEventPage : AppCompatActivity(){
 
         categorySpinner.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                Log.d("CrateEventPage", "spinner:onNothingSelected")
+                Log.d("CreateEventPage", "spinner:onNothingSelected")
             }
 
             override fun onItemSelected(
