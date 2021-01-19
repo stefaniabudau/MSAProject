@@ -1,11 +1,14 @@
 package com.e.thetogetherapp.pages
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.e.thetogetherapp.R
 import com.e.thetogetherapp.adapters.MyActivityAdapter
@@ -100,19 +103,38 @@ class MyActivityPage: AppCompatActivity (){
             }
         }
 
-        findViewById<Button>(R.id.unassignedActivities).setOnClickListener{
+        status = "unassigned"
+        database.addValueEventListener(listener)
+        var unassigned = findViewById<LinearLayout>(R.id.unassigned)
+        var pending = findViewById<LinearLayout>(R.id.pending)
+        var completed = findViewById<LinearLayout>(R.id.completed)
+
+        unassigned.setBackgroundColor(ContextCompat.getColor(this, R.color.accentColor))
+        pending.setBackgroundColor(ContextCompat.getColor(this, R.color.lightAccentColor))
+        completed.setBackgroundColor(ContextCompat.getColor(this, R.color.lightAccentColor))
+
+        unassigned.setOnClickListener{
             status = "unassigned"
             database.addValueEventListener(listener)
+            unassigned.setBackgroundColor(ContextCompat.getColor(this, R.color.accentColor))
+            pending.setBackgroundColor(ContextCompat.getColor(this, R.color.lightAccentColor))
+            completed.setBackgroundColor(ContextCompat.getColor(this, R.color.lightAccentColor))
         }
 
-        findViewById<Button>(R.id.pendingActivities).setOnClickListener{
+        pending.setOnClickListener{
             status = "pending"
             database.addValueEventListener(listener)
+            pending.setBackgroundColor(ContextCompat.getColor(this, R.color.accentColor))
+            unassigned.setBackgroundColor(ContextCompat.getColor(this, R.color.lightAccentColor))
+            completed.setBackgroundColor(ContextCompat.getColor(this, R.color.lightAccentColor))
         }
 
-        findViewById<Button>(R.id.completedActivities).setOnClickListener{
+        completed.setOnClickListener{
             status = "done"
             database.addValueEventListener(listener)
+            completed.setBackgroundColor(ContextCompat.getColor(this, R.color.accentColor))
+            pending.setBackgroundColor(ContextCompat.getColor(this, R.color.lightAccentColor))
+            unassigned.setBackgroundColor(ContextCompat.getColor(this, R.color.lightAccentColor))
         }
 
 

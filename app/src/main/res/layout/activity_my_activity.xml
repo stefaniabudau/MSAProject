@@ -40,80 +40,80 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_gravity="center"
-            android:id="@+id/unassigned">
+            android:id="@+id/unassigned"
+            android:background="@color/lightAccentColor">
 
             <TextView
                 android:id="@+id/myActivityRequestsNumber"
                 style="@style/hugeLightText"
-                android:layout_width="110dp"
-                android:layout_height="match_parent"
+                android:layout_width="135dp"
+                android:layout_height="60dp"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:text="@string/value_requests_number"/>
-            <Button
+            <TextView
                 android:id="@+id/unassignedActivities"
-                style="@style/smallSquareRoundedButton"
-                android:layout_width="110dp"
-                android:layout_height="match_parent"
+                style="@style/mediumLightText"
+                android:layout_width="135dp"
+                android:layout_height="40dp"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="@string/text_unassigned"
-                android:backgroundTint="@color/lightAccentColor"/>
+                android:text="@string/text_unassigned"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_gravity="center"
-            android:id="@+id/pending">
+            android:id="@+id/pending"
+            android:background="@color/lightAccentColor">
 
             <TextView
                 android:id="@+id/myActivityDonationsNumber"
                 style="@style/hugeLightText"
-                android:layout_width="110dp"
-                android:layout_height="match_parent"
+                android:layout_width="135dp"
+                android:layout_height="60dp"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:text="@string/value_donations_number"/>
-            <Button
+            <TextView
                 android:id="@+id/pendingActivities"
-                style="@style/smallSquareRoundedButton"
-                android:layout_width="110dp"
-                android:layout_height="match_parent"
+                style="@style/mediumLightText"
+                android:layout_width="135dp"
+                android:layout_height="40dp"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="@string/text_pending"
-                android:backgroundTint="@color/lightAccentColor"/>
+                android:text="@string/text_pending"/>
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/completed"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:background="@color/lightAccentColor">
 
             <TextView
                 android:id="@+id/myActivityActivitiesNumber"
                 style="@style/hugeLightText"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
+                android:layout_width="135dp"
+                android:layout_height="60dp"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:text="@string/value_activity_number"/>
-            <Button
+            <TextView
                 android:id="@+id/completedActivities"
-                style="@style/smallSquareRoundedButton"
-                android:layout_width="110dp"
-                android:layout_height="match_parent"
+                style="@style/mediumLightText"
+                android:layout_width="135dp"
+                android:layout_height="40dp"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:text="@string/text_completed"
-                android:backgroundTint="@color/lightAccentColor"/>
+                android:text="@string/text_completed"/>
         </LinearLayout>
     </LinearLayout>
 
